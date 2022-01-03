@@ -5,9 +5,10 @@
 </template>
 
 <script>
+import { test1 } from "@/api/main";
 
 export default {
-  name: 'Test1',
+  name: 'test1',
   components: {
   },
   filters: {
@@ -19,6 +20,9 @@ export default {
   created () {
   },
   mounted () {
+    test1().then(response => {
+      console.log(response)
+    })
   },
   methods: {
   }

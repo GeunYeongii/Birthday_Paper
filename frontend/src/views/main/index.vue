@@ -6,6 +6,7 @@
 
 <script>
 import { main } from "@/api/main";
+
 export default {
   name: 'main',
   components: {
@@ -19,8 +20,8 @@ export default {
   created () {
   },
   mounted () {
-    main().then(x=>{
-      console.log(x)
+    main().then(response => {
+      console.log(response)
     })
   },
   methods: {
