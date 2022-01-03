@@ -1,4 +1,4 @@
-from flask import jsonify
+from flask import jsonify, request
 from flask import Blueprint
 
 main = Blueprint("main", __name__, url_prefix="/")
@@ -17,3 +17,11 @@ def test1():
 def test2():
   print('test2 페이지 테스트')
   return jsonify('test2 페이지 테스트')
+
+# 데이터 받을 경우
+@main.route("/test3", methods=['POST'])
+def test3():
+  # request 사용해서 post 데이터 사용
+  print(request.get_json())
+  print('params 테스트')
+  return jsonify('params 테스트 성공')
