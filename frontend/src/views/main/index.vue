@@ -5,9 +5,9 @@
 </template>
 
 <script>
-
+import { main } from "@/api/main";
 export default {
-  name: 'Main',
+  name: 'main',
   components: {
   },
   filters: {
@@ -19,6 +19,9 @@ export default {
   created () {
   },
   mounted () {
+    main().then(x=>{
+      console.log(x)
+    })
   },
   methods: {
   }
