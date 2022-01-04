@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import header from '@/views/layout/header'
 
 Vue.use(Router)
 
@@ -10,29 +11,15 @@ const route = [
     component: () => import('@/views/intro/index'),
   },
   {
-    path: '/login',
-    name: 'Login',
-    component: () => import('@/views/login/index'),
-  },
-  {
-    path: '/join',
-    name: 'Join',
-    component: () => import('@/views/join/index'),
-  },
-  {
-    path: '/main',
-    name: 'Main',
-    component: () => import('@/views/main/index'),
-  },
-  {
-    path: '/write',
-    name: 'Write',
-    component: () => import('@/views/write/index'),
-  },
-  {
-    path: '/notice',
-    name: 'Notice',
-    component: () => import('@/views/notice/index'),
+    path: '/',
+    component: header,
+    children: [
+      { path: '/login', component: () => import('@/views/login/index'), hidden: true },
+      { path: '/join', component: () => import('@/views/join/index'), hidden: true },
+      { path: '/main', component: () => import('@/views/main/index'), hidden: true },
+      { path: '/write', component: () => import('@/views/write/index'), hidden: true },
+      { path: '/notice', component: () => import('@/views/notice/index'), hidden: true },
+    ]
   },
 ]
 
