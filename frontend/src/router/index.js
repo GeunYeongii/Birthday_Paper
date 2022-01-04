@@ -6,18 +6,33 @@ Vue.use(Router)
 const route = [
   {
     path: '/',
-    name: 'Home',
+    name: 'Intro',
+    component: () => import('@/views/intro/index'),
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import('@/views/login/index'),
+  },
+  {
+    path: '/join',
+    name: 'Join',
+    component: () => import('@/views/join/index'),
+  },
+  {
+    path: '/main',
+    name: 'Main',
     component: () => import('@/views/main/index'),
   },
   {
-    path: '/test1',
-    name: 'test1',
-    component: () => import('@/views/test/test1'),
+    path: '/write',
+    name: 'Write',
+    component: () => import('@/views/write/index'),
   },
   {
-    path: '/test2',
-    name: 'test2',
-    component: () => import('@/views/test/test2'),
+    path: '/notice',
+    name: 'Notice',
+    component: () => import('@/views/notice/index'),
   },
 ]
 
