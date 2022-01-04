@@ -1,13 +1,13 @@
 <template>
   <div>
-    카드메인
+    공지사항
   </div>
 </template>
 
 <script>
 
 export default {
-  name: 'Main',
+  name: 'Notice',
   components: {
   },
   filters: {

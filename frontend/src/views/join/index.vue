@@ -1,13 +1,13 @@
 <template>
   <div>
-    카드메인
+    회원가입
   </div>
 </template>
 
 <script>
 
 export default {
-  name: 'Main',
+  name: 'Join',
   components: {
   },
   filters: {
