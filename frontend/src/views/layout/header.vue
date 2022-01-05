@@ -11,6 +11,7 @@
         contain
         max-height="65"
         max-width="250"
+        @click="goMain()"
         src="@/assets/img/logo_2.png"></v-img>
       </v-col>
       <v-col cols="3">
@@ -24,7 +25,10 @@
       temporary
     >
       <v-list-item>
-        <v-img src="@/assets/img/logo_2.png" class="mt-4"></v-img>
+        <v-img
+          @click="goMain()"
+          src="@/assets/img/logo_2.png" class="mt-4">
+        </v-img>
       </v-list-item>
       
       <v-list-item>
@@ -32,7 +36,7 @@
           <v-img src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>
         </v-list-item-avatar>
 
-        <v-list-item-content class="ms-2">
+        <v-list-item-content>
           <v-row no-gutters>
             <v-col cols="6">
               <v-list-item-title>OOO 님</v-list-item-title>
@@ -84,6 +88,9 @@ export default {
     }
   },
   methods: {
+    goMain() {
+      this.$router.push('/')
+    },
     clickMenu(item) {
       if(this.$route.path!==item.path) {
         this.$router.push(item.path)
