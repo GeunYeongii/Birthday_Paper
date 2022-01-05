@@ -4,35 +4,103 @@
   date : 2022-01-04
 -->
 <template>
-  <div class="header">
-    <v-row no-gutters>
-      <v-col cols="6">
-        <v-img src="@/assets/img/logo_2.png" class="logo" @click="clickLogo()"></v-img>
+  <v-row no-gutters>
+    <v-row no-gutters class="mt-3 mb-2">
+      <v-col cols="9">
+        <v-img
+        contain
+        max-height="65"
+        max-width="250"
+        src="@/assets/img/logo_2.png"></v-img>
       </v-col>
-      <v-col cols="6">
-        <v-img src="@/assets/img/menu.png" class="menu_icon" @click="clickMenu()"></v-img>
+      <v-col cols="3">
+        <v-app-bar-nav-icon class="nav_icon mt-1" @click="menuDialog = !menuDialog"></v-app-bar-nav-icon>
       </v-col>
     </v-row>
-  </div>
+
+    <v-navigation-drawer
+      v-model="menuDialog"
+      absolute
+      temporary
+    >
+      <v-list-item>
+        <v-img src="@/assets/img/logo_2.png" class="mt-4"></v-img>
+      </v-list-item>
+      
+      <v-list-item>
+        <v-list-item-avatar>
+          <v-img src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>
+        </v-list-item-avatar>
+
+        <v-list-item-content class="ms-2">
+          <v-row no-gutters>
+            <v-col cols="6">
+              <v-list-item-title>OOO 님</v-list-item-title>
+            </v-col>
+            <v-col cols="6">
+              <v-btn
+                color="primary"
+                @click="logout()"
+                x-small
+                rounded
+                dark
+              >
+                로그아웃
+              </v-btn>
+            </v-col>
+          </v-row>
+        </v-list-item-content>
+      </v-list-item>
+
+      <v-divider></v-divider>
+
+      <v-list dense>
+        <v-list-item
+          v-for="item in items"
+          :key="item.title"
+          @click="clickMenu(item)"
+          link
+        >
+          <v-list-item-icon>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content class="ms-2">
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+
+    </v-navigation-drawer>
+  </v-row>
 </template>
 
 <script>
-
 export default {
   name: 'Header',
+  components: {
+  },
+  data () {
+    return {
+      menuDialog: false,
+      items: [
+        { icon: 'mdi-access-point', title: '공지사항', path: '/notice' },
+      ],
+    }
+  },
   methods: {
-    clickLogo () {
-      this.$router.push("main")
+    clickMenu(item) {
+      console.log(item)
     },
-    clickMenu () {
-      console.log('메뉴클릭')
+    logout() {
+
     }
   }
 }
 </script>
 
 <style>
-.header {height: 5rem;}
-.logo {margin-top: 1.4rem; margin-left: 10px;}
-.menu_icon{width: 15%; float: right; margin-top: 1.4rem; margin-right: 10px;}
+.nav_icon{
+  float: right;
+}
 </style>
