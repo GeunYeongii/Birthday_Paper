@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <s-header></s-header>
-    <div class="join">
+    <div class="login">
 
       <h1>로그인</h1>
 
