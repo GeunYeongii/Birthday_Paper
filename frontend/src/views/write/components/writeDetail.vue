@@ -46,7 +46,7 @@ export default {
   },
   data () {
     return {
-      writeDetailDialog: true
+      writeDetailDialog: false
     }
   },
   created () {

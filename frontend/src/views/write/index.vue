@@ -58,7 +58,7 @@ export default {
   },
   methods: {
     write() {
-
+      this.$refs.writeDetail.open()
     }
   }
 }
