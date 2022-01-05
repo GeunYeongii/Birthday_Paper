@@ -39,7 +39,7 @@
         <v-list-item-content>
           <v-row no-gutters>
             <v-col cols="6">
-              <v-list-item-title class="text-gray">OOO 님</v-list-item-title>
+              <v-list-item-title class="text-gray mt-2">OOO 님</v-list-item-title>
             </v-col>
             <v-col cols="6">
               <v-btn color="primary" @click="logout()" small rounded dark elevation="3">
@@ -64,7 +64,7 @@
           </v-list-item-icon>
 
           <v-list-item-content class="ms-2">
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
+            <v-list-item-title class="text-gray">{{ item.title }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -82,8 +82,8 @@ export default {
     return {
       menuDialog: false,
       items: [
-        { icon: 'mdi-access-point', title: '메인화면', path: '/main' },
-        { icon: 'mdi-access-point', title: '공지사항', path: '/notice' },
+        { icon: 'mdi-checkbox-blank-circle-outline', title: '메인화면', path: '/main' },
+        { icon: 'mdi-checkbox-blank-circle-outline', title: '공지사항', path: '/notice' },
       ],
     }
   },
