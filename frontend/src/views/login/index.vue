@@ -1,3 +1,8 @@
+<!--
+  name : 이에닮
+  desc : login
+  date : 2022-01-05
+-->
 <template>
   <v-container>
     <s-header></s-header>
@@ -9,7 +14,7 @@
 
       <v-row justify="center">
         <v-col cols="12">
-          <v-card ref="form">
+          <v-card>
             <v-card-text>
 
               <form ref="joinForm">
