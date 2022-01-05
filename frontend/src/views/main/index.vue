@@ -32,16 +32,19 @@
       </v-row>
 
     </div>
+    <card-detail ref="cardDetail"></card-detail>
   </v-container>
 </template>
 
 <script>
 import SHeader from '@/views/layout/header'
+import cardDetail from '@/views/main/components/cardDetail'
 
 export default {
   name: 'Main',
   components: {
-    SHeader
+    SHeader,
+    cardDetail
   },
   filters: {
   },
@@ -60,9 +63,3 @@ export default {
   }
 }
 </script>
-
-<style>
-/* .scroll_bar {
-  max-height: calc(100vh - 230px);
-} */
-</style>
