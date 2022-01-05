@@ -8,7 +8,7 @@
     <s-header></s-header>
     <div class="notice">
 
-      <h1>공지사항</h1>
+      <h1 class="text-gray">공지사항</h1>
 
       <v-divider></v-divider>
 

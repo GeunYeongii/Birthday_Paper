@@ -8,7 +8,7 @@
     <s-header></s-header>
     <div class="join">
 
-      <h1>회원가입</h1>
+      <h1 class="text-gray">회원가입</h1>
 
       <v-divider></v-divider>
 

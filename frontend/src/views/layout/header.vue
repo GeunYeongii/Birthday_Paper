@@ -39,7 +39,7 @@
         <v-list-item-content>
           <v-row no-gutters>
             <v-col cols="6">
-              <v-list-item-title>OOO 님</v-list-item-title>
+              <v-list-item-title class="text-gray">OOO 님</v-list-item-title>
             </v-col>
             <v-col cols="6">
               <v-btn color="primary" @click="logout()" small rounded dark>

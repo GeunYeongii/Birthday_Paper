@@ -8,7 +8,7 @@
     <s-header></s-header>
     <div class="write">
 
-      <h2>000님 에게 편지를 작성해 주세요!</h2>
+      <h2 class="text-gray">000님 에게 편지를 작성해 주세요!</h2>
 
       <v-divider></v-divider>
 

@@ -3,8 +3,9 @@
 .jua_font{font-family:"jua";}
 
 .mauto{margin:auto;}
-
-.main_card{height: 74vh;}
+.main_card{height: 70vh;}
+.text-gray{color: #434a50;}
+.v-btn__content {font-size: 0.9em;}
 
 /*popup*/
 .btn_pop_closeTop {position: absolute; top:12px; right: 0;}

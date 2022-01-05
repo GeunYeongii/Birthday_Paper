@@ -8,7 +8,7 @@
     <s-header></s-header>
     <div class="main">
 
-      <h2>n개의 편지가 걸렸어요!</h2>
+      <h2 class="text-gray">n개의 편지가 걸렸어요!</h2>
 
       <v-divider></v-divider>
 
