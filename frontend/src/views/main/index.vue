@@ -23,13 +23,7 @@
           </v-card>
           
           <v-card-actions>
-            <v-btn
-              class="mauto"
-              color="primary"
-              @click="login()"
-              rounded
-              dark
-            >
+            <v-btn class="mauto" color="primary" @click="login()" rounded dark>
               공유하기
             </v-btn>
           </v-card-actions>

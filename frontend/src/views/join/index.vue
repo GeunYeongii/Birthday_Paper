@@ -50,13 +50,7 @@
             </v-card-text>
 
             <v-card-actions>
-              <v-btn
-                class="mauto"
-                color="primary"
-                @click="join()"
-                rounded
-                dark
-              >
+              <v-btn class="mauto" color="primary" @click="join()" rounded dark>
                 회원가입
               </v-btn>
             </v-card-actions>

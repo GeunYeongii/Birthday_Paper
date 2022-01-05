@@ -37,21 +37,10 @@
 
             <v-card-actions>
               <div class="mauto">
-                <v-btn
-                  color="primary"
-                  @click="login()"
-                  rounded
-                  dark
-                >
+                <v-btn color="primary" @click="login()" rounded dark>
                   로그인
                 </v-btn>
-                <v-btn
-                class="ml-4"
-                  color="primary"
-                  @click="goJoin()"
-                  rounded
-                  dark
-                >
+                <v-btn class="ml-4" color="primary" @click="goJoin()" rounded dark>
                   회원가입
                 </v-btn>
               </div>

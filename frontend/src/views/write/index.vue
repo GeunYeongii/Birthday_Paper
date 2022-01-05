@@ -23,13 +23,7 @@
           </v-card>
           
           <v-card-actions>
-            <v-btn
-              class="mauto"
-              color="primary"
-              @click="write()"
-              rounded
-              dark
-            >
+            <v-btn class="mauto" color="primary" @click="write()" rounded dark>
               작성하기
             </v-btn>
           </v-card-actions>
@@ -38,16 +32,19 @@
       </v-row>
 
     </div>
+    <write-detail ref="writeDetail"></write-detail>
   </v-container>
 </template>
 
 <script>
 import SHeader from '@/views/layout/header'
+import writeDetail from '@/views/write/components/writeDetail'
 
 export default {
   name: 'Write',
   components: {
-    SHeader
+    SHeader,
+    writeDetail
   },
   filters: {
   },

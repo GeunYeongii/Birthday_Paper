@@ -38,13 +38,7 @@
               <v-list-item-title>OOO 님</v-list-item-title>
             </v-col>
             <v-col cols="6">
-              <v-btn
-                color="primary"
-                @click="logout()"
-                small
-                rounded
-                dark
-              >
+              <v-btn color="primary" @click="logout()" small rounded dark>
                 로그아웃
               </v-btn>
             </v-col>
