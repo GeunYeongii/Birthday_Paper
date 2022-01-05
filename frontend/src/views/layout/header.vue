@@ -4,7 +4,7 @@
   date : 2022-01-04
 -->
 <template>
-  <v-row no-gutters>
+  <div class="header">
     <v-row no-gutters class="mt-3 mb-2">
       <v-col cols="9">
         <v-img
@@ -41,7 +41,7 @@
               <v-btn
                 color="primary"
                 @click="logout()"
-                x-small
+                small
                 rounded
                 dark
               >
@@ -72,7 +72,7 @@
       </v-list>
 
     </v-navigation-drawer>
-  </v-row>
+  </div>
 </template>
 
 <script>
@@ -93,7 +93,7 @@ export default {
       console.log(item)
     },
     logout() {
-
+      console.log('로그아웃버튼')
     }
   }
 }
