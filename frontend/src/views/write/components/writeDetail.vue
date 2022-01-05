@@ -24,10 +24,10 @@
         </v-card-text>
 
         <v-card-actions class="pop_boT_btnCon justify-center">
-          <v-btn class="mauto" color="primary" @click="sendMassage()" rounded dark>
+          <v-btn class="mauto" color="primary" @click="sendMassage()" rounded dark elevation="3">
             저장하기
           </v-btn>
-          <v-btn class="mauto" color="primary" @click="close()" rounded dark>
+          <v-btn class="mauto" color="primary" @click="close()" rounded dark elevation="3">
             닫기
           </v-btn>
         </v-card-actions>

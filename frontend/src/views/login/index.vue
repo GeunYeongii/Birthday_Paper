@@ -14,7 +14,7 @@
 
       <v-row justify="center">
         <v-col cols="12">
-          <v-card>
+          <v-card elevation="3">
             <v-card-text>
 
               <form ref="joinForm">
@@ -34,13 +34,15 @@
               </form>
 
             </v-card-text>
+          </v-card>
 
+          <v-card elevation="0" class="mt-4">
             <v-card-actions>
               <div class="mauto">
-                <v-btn color="primary" @click="login()" rounded dark>
+                <v-btn color="primary" @click="login()" rounded dark elevation="3">
                   로그인
                 </v-btn>
-                <v-btn class="ml-4" color="primary" @click="goJoin()" rounded dark>
+                <v-btn class="ml-4" color="primary" @click="goJoin()" rounded dark elevation="3">
                   회원가입
                 </v-btn>
               </div>

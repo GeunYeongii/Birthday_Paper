@@ -14,7 +14,7 @@
 
       <v-row justify="center">
         <v-col cols="12">
-          <v-card class="main_card">
+          <v-card elevation="3" class="main_card">
             <div class="scroll_bar">  
               <v-card-text>
 
@@ -23,7 +23,7 @@
           </v-card>
           
           <v-card-actions>
-            <v-btn class="mauto" color="primary" @click="write()" rounded dark>
+            <v-btn class="mauto" color="primary" @click="write()" rounded dark elevation="3">
               작성하기
             </v-btn>
           </v-card-actions>
