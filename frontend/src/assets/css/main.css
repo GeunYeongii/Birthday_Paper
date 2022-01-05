@@ -1,9 +1,5 @@
-html {
-  background-color: #fff;
-}
-body {
-  min-height: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  background-color: #f1f3f5c7;
-}
+/* 배달의민족 주아체 */
+@font-face {src:url("../fonts/BMJUA_ttf.ttf");font-family:"jua";}
+.jua_font{font-family:"jua";}
+
+.mauto{margin:auto;}
