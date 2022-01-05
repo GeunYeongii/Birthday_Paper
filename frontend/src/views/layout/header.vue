@@ -14,7 +14,7 @@
         src="@/assets/img/logo_2.png"></v-img>
       </v-col>
       <v-col cols="3">
-        <v-app-bar-nav-icon class="nav_icon mt-1" @click="menuDialog = !menuDialog"></v-app-bar-nav-icon>
+        <v-app-bar-nav-icon class="nav_icon mt-1" @click="toggleDialog()"></v-app-bar-nav-icon>
       </v-col>
     </v-row>
 
@@ -84,16 +84,24 @@ export default {
     return {
       menuDialog: false,
       items: [
+        { icon: 'mdi-access-point', title: '메인화면', path: '/main' },
         { icon: 'mdi-access-point', title: '공지사항', path: '/notice' },
       ],
     }
   },
   methods: {
     clickMenu(item) {
-      console.log(item)
+      if(this.$route.path!==item.path) {
+        this.$router.push(item.path)
+      } else {
+        this.toggleDialog()
+      }
     },
     logout() {
       console.log('로그아웃버튼')
+    },
+    toggleDialog() {
+      this.menuDialog = !this.menuDialog
     }
   }
 }
