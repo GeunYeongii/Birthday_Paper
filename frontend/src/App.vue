@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <v-app class="jua_font">
     <router-view></router-view>
-  </div>
+  </v-app>
 </template>
 
 <script>
