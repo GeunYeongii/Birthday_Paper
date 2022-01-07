@@ -11,6 +11,7 @@ const route = [
   { path: '/notice', name: 'notice', component: () => import('@/views/notice/index') },
   { path: '/main', name: 'main', component: () => import('@/views/main/index') },
   { path: '/write', name: 'write', component: () => import('@/views/write/index') },
+  { path: '/myPage', name: 'myPage', component: () => import('@/views/myPage/index') },
 ]
 
 export default new Router({
