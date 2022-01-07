@@ -1,49 +1,36 @@
 <!--
   name : 이에닮
   desc : intro
-  date : 2022-01-05
+  date : 2022-01-07
 -->
 <template>
-  <v-container>
-    <div class="intro">
-      <v-card elevation="3" class="intro-logo">
-        <v-card-text>
-          <v-img src="@/assets/img/logo.png"></v-img>
-        </v-card-text>
-      </v-card>
+  <div class="intro">
+    <v-row no-gutters justify="center" class="mt-16 mb-2">
+      <v-col cols="12">
+        <v-img width="250" class="mauto mb-6"
+          src="@/assets/img/logo.png"></v-img>
 
-      <v-card elevation="0" class="mt-4">
-        <v-card-actions bottom>
-          <div class="mauto">
-            <v-btn color="primary" @click="goLogin()" rounded dark elevation="3">
-              로그인
-            </v-btn>
-            <v-btn class="ml-4" color="primary" @click="goJoin()" rounded dark elevation="3">
-              회원가입
-            </v-btn>
-          </div>
-        </v-card-actions>
-      </v-card>
-
-    </div>
-  </v-container>
+        <v-img width="210" class="mauto mb-6"
+          src="@/assets/img/gift-box.png"></v-img>
+      </v-col>
+      
+      <v-btn class="mb-2" color="primary" width="90vw" dark @click="goLogin()">
+        로그인
+      </v-btn>
+      <v-btn class="mt-2" color="primary" width="90vw" dark @click="goJoin()">
+        회원가입
+      </v-btn>
+    </v-row>
+  </div>
 </template>
 
 <script>
 
 export default {
   name: 'Intro',
-  components: {
-  },
-  filters: {
-  },
   data () {
     return {
     }
-  },
-  created () {
-  },
-  mounted () {
   },
   methods: {
     goLogin() {
