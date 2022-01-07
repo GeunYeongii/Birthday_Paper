@@ -60,7 +60,7 @@
 
       </v-col>
 
-      <v-btn class="mauto mt-4" color="primary" width="90vw" dark @click="JoinStart()">
+      <v-btn class="mauto mt-4" color="primary" width="90vw" dark @click="joinStart()">
         회원가입
       </v-btn>
     
@@ -90,7 +90,7 @@ export default {
     goIntro(){
       this.$router.push('/')
     },
-    JoinStart(){
+    joinStart(){
       
     }
   }

@@ -39,7 +39,7 @@
       </v-btn>
 
       <div class="mauto mt-12 text-gray accountText">
-        Don't have an account? <a href="/join">Sign Up.</a>
+        Don't have an account? <a href="#" @click="goJoin()">Sign Up.</a>
       </div>
     
     </v-row>
