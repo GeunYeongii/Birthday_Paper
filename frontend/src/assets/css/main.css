@@ -4,6 +4,16 @@ html{max-width: 600px; margin: auto;}
 @font-face {src:url("../fonts/BMJUA_ttf.ttf");font-family:"jua";}
 .jua_font{font-family:"jua";}
 
+.intro,
+.login,
+.join{
+    background-image: url("../img/pngwing.png");
+    height: 100vh;
+    background-repeat : no-repeat;
+    background-size : cover;
+}
+
+.f_rit{float: right;}
 .mauto{margin:auto;}
 .main_card{height: 70vh;}
 .text-gray{color: #434a50;}
