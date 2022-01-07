@@ -6,12 +6,11 @@
 <template>
   <div class="header">
     <v-row no-gutters class="mt-3 mb-2">
-      <v-col cols="9">
+      <v-col cols="9" @click="goMain()">
         <v-img
         contain
         max-height="65"
         max-width="250"
-        @click="goMain()"
         src="@/assets/img/logo_2.png"></v-img>
       </v-col>
       <v-col cols="3">
@@ -50,7 +49,7 @@
         </v-list-item-content>
       </v-list-item>
 
-      <v-divider></v-divider>
+      <v-divider class="menu_divider"></v-divider>
 
       <v-list dense>
         <v-list-item
@@ -59,7 +58,7 @@
           @click="clickMenu(item)"
           link
         >
-          <v-list-item-icon>
+          <v-list-item-icon class="mr-0">
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-icon>
 
@@ -74,6 +73,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'Header',
   components: {
@@ -82,25 +82,17 @@ export default {
     return {
       menuDialog: false,
       items: [
-        { icon: 'mdi-checkbox-blank-circle-outline', title: '메인화면', path: '/main' },
-        { icon: 'mdi-checkbox-blank-circle-outline', title: '공지사항', path: '/notice' },
+        { icon: 'mdi-circle-small', title: '메인화면', path: '/main' },
+        { icon: 'mdi-circle-small', title: '공지사항', path: '/notice' },
       ],
     }
   },
   methods: {
     goMain() {
-      if(this.$route.path!=="/main") {
-        this.$router.push('/main')
-      } else {
-        this.toggleDialog()
-      }
+      this.$router.push('/main').catch(() => {})
     },
     goMyPage() {
-      if(this.$route.path!=="/myPage") {
-        this.$router.push('/myPage')
-      } else {
-        this.toggleDialog()
-      }
+      this.$router.push('/myPage').catch(() => {})
     },
     clickMenu(item) {
       if(this.$route.path!==item.path) {
@@ -122,5 +114,9 @@ export default {
 <style>
 .nav_icon{
   float: right;
+}
+.menu_divider{
+  margin-top:0.5rem;
+  margin-bottom:0rem;
 }
 </style>
