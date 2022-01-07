@@ -4,33 +4,33 @@
   date : 2022-01-05
 -->
 <template>
-  <v-dialog
-    v-model="writeDetailDialog"
-    persistent
-    scrollable>
-
-    <v-card id="popupBox" class="popupBox_pcNheightA">
-      <v-card-title class="pop_title_2">
+  <v-dialog v-model="writeDetailDialog">
+    <v-card>
+      <v-card-title class="pb-0">
+        <v-row no-gutters>
+          <v-text-field
+            class="p-0"
+            label="닉네임"
+            v-model="nickName"
+            :rules="rules"
+          ></v-text-field>
+        </v-row>
       </v-card-title>
-      
-        <v-card-text class="conTR_reJ_txtinP">
-          <v-container>
-            <v-row no-gutters>
-              <v-col cols="12">
-                testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
-              </v-col>
-            </v-row>
-          </v-container>
-        </v-card-text>
 
-        <v-card-actions class="pop_boT_btnCon justify-center">
-          <v-btn class="mauto" color="primary" @click="sendMassage()" rounded dark elevation="3">
-            저장하기
-          </v-btn>
-          <v-btn class="mauto" color="primary" @click="close()" rounded dark elevation="3">
-            닫기
-          </v-btn>
-        </v-card-actions>
+      <v-card-text class="pb-0">
+        <v-textarea
+          class="p-0"
+          label="편지의 내용을 작성해주세요"
+          v-model="magData"
+        ></v-textarea>
+      </v-card-text>
+
+      <v-card-actions class="pt-0">
+        <v-spacer></v-spacer>
+        <v-btn color="primary" @click="sendMassage()">
+          확인
+        </v-btn>
+      </v-card-actions>
 
     </v-card>
   </v-dialog>
@@ -46,7 +46,12 @@ export default {
   },
   data () {
     return {
-      writeDetailDialog: false
+      writeDetailDialog: false,
+      nickName: '',
+      magData: '',
+      rules: [
+        value => !!value || '필수값 입니다',
+      ],
     }
   },
   created () {
@@ -55,7 +60,8 @@ export default {
   },
   methods: {
     sendMassage() {
-
+      console.log(this.nickName)
+      console.log(this.magData)
     },
     open() {
       this.writeDetailDialog = true
