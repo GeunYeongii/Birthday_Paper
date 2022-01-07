@@ -1,86 +1,72 @@
 <!--
   name : 이에닮
   desc : login
-  date : 2022-01-05
+  date : 2022-01-07
 -->
 <template>
-  <v-container>
-    <s-header></s-header>
-    <div class="login">
+  <div class="login">
+    <v-row no-gutters justify="center" class="mt-16 mb-2">
+      <v-col cols="12" class="mt-6">
+        <v-img width="250" class="mauto mb-6" @click="goIntro()"
+          src="@/assets/img/logo.png"></v-img>
 
-      <h1 class="text-gray">로그인</h1>
+        <v-card elevation="3" width="90vw" class="mauto">
+          <v-card-text>
+            <form ref="joinForm">
+              <v-row no-gutters>
+                <v-text-field
+                  v-model="form.id"
+                  label="ID"
+                  :rules="rules"
+                ></v-text-field>
+              </v-row>
+              <v-row no-gutters>
+                <v-text-field
+                  v-model="form.password"
+                  label="PW"
+                  :type="'password'"
+                  :rules="rules"
+                ></v-text-field>
+              </v-row>
+            </form>
+          </v-card-text>
+        </v-card>
 
-      <v-divider></v-divider>
+      </v-col>
 
-      <v-row justify="center">
-        <v-col cols="12">
-          <v-card elevation="3">
-            <v-card-text>
+      <v-btn class="mauto mt-6" color="primary" width="90vw" dark @click="loginStart()">
+        로그인
+      </v-btn>
 
-              <form ref="joinForm">
-                <v-row no-gutters>
-                  <v-text-field
-                    label="ID"
-                    :rules="rules"
-                  ></v-text-field>
-                </v-row>
-
-                <v-row no-gutters>
-                  <v-text-field
-                    label="PW"
-                    :rules="rules"
-                  ></v-text-field>
-                </v-row>
-              </form>
-
-            </v-card-text>
-          </v-card>
-
-          <v-card elevation="0" class="mt-4">
-            <v-card-actions>
-              <div class="mauto">
-                <v-btn color="primary" @click="login()" rounded dark elevation="3">
-                  로그인
-                </v-btn>
-                <v-btn class="ml-4" color="primary" @click="goJoin()" rounded dark elevation="3">
-                  회원가입
-                </v-btn>
-              </div>
-            </v-card-actions>
-          </v-card>
-          
-        </v-col>
-      </v-row>
-
-    </div>
-  </v-container>
+      <div class="mauto mt-12 text-gray accountText">
+        Don't have an account? <a href="/join">Sign Up.</a>
+      </div>
+    
+    </v-row>
+  </div>
 </template>
 
 <script>
-import SHeader from '@/views/layout/header'
 
 export default {
   name: 'Login',
-  components: {
-    SHeader
-  },
-  filters: {
-  },
   data () {
     return {
+      form:{
+        id: '',
+        password: ''
+      },
       rules: [
-        value => !!value || 'Required.',
-        value => (value && value.length >= 3) || 'Min 3 characters',
+        value => !!value || '필수값 입니다',
       ],
     }
   },
-  created () {
-  },
-  mounted () {
-  },
   methods: {
-    login(){
+    loginStart(){
       this.$router.push('/main')
+    },
+    goIntro(){
+      this.$router.push('/')
     },
     goJoin(){
       this.$router.push('/join')
@@ -88,3 +74,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.accountText{
+  text-align: center;
+}
+</style>
