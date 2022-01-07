@@ -4,7 +4,9 @@
   date : 2022-01-05
 -->
 <template>
-  <v-dialog v-model="writeDetailDialog">
+  <v-dialog
+    max-width="600"
+    v-model="writeDetailDialog">
     <v-card>
       <v-card-title class="pb-0">
         <v-row no-gutters>
@@ -27,6 +29,9 @@
 
       <v-card-actions class="pt-0">
         <v-spacer></v-spacer>
+        <v-btn @click="close()">
+          취소
+        </v-btn>
         <v-btn color="primary" @click="sendMassage()">
           확인
         </v-btn>

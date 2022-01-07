@@ -4,7 +4,9 @@
   date : 2022-01-05
 -->
 <template>
-  <v-dialog v-model="cardDetailDialog">
+  <v-dialog
+    max-width="600"
+    v-model="cardDetailDialog">
     <v-card>
       <v-card-title>
         <h5>000님이 보낸 편지입니다</h5>
