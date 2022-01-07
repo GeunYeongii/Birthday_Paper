@@ -32,13 +32,13 @@
       </v-list-item>
       
       <v-list-item>
-        <v-list-item-avatar>
+        <v-list-item-avatar @click="goMyPage()">
           <v-img src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>
         </v-list-item-avatar>
 
         <v-list-item-content>
           <v-row no-gutters>
-            <v-col cols="6">
+            <v-col cols="6" @click="goMyPage()">
               <v-list-item-title class="text-gray c_mt-6">OOO 님</v-list-item-title>
             </v-col>
             <v-col cols="6">
@@ -89,7 +89,18 @@ export default {
   },
   methods: {
     goMain() {
-      this.$router.push('/')
+      if(this.$route.path!=="/main") {
+        this.$router.push('/main')
+      } else {
+        this.toggleDialog()
+      }
+    },
+    goMyPage() {
+      if(this.$route.path!=="/myPage") {
+        this.$router.push('/myPage')
+      } else {
+        this.toggleDialog()
+      }
     },
     clickMenu(item) {
       if(this.$route.path!==item.path) {
