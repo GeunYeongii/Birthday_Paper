@@ -128,10 +128,10 @@
         <v-card elevation="0" class="">
           <v-card-actions bottom>
             <div class="mauto">
-              <v-btn color="primary" dark>
+              <v-btn color="primary" dark @click="changePw()">
                 PW 변경
               </v-btn>
-              <v-btn class="ml-4" color="primary" dark>
+              <v-btn class="ml-4" color="primary" dark @click="deleteUser()">
                 회원탈퇴
               </v-btn>
             </div>
@@ -163,6 +163,12 @@ export default {
   mounted () {
   },
   methods: {
+    changePw() {
+
+    },
+    deleteUser() {
+      
+    }
   }
 }
 </script>
