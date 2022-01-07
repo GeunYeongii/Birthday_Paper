@@ -4,19 +4,15 @@
   date : 2022-01-05
 -->
 <template>
-  <v-container>
-    <s-header></s-header>
-    <div class="join">
+  <div class="join">
+      
+    <v-row no-gutters justify="center" class="mt-12 mb-2">
+      <v-col cols="12">
+        <v-img width="250" class="mauto mb-4" @click="goIntro()"
+          src="@/assets/img/logo_2.png"></v-img>
 
-      <h1 class="text-gray">회원가입</h1>
-
-      <v-divider></v-divider>
-
-      <v-row justify="center">
-        <v-col cols="12">
-          <v-card elevation="3">
-            <v-card-text>
-
+        <v-card elevation="3" width="90vw" class="mauto">
+          <v-card-text>
               <form ref="joinForm">
                 <v-row no-gutters>
                   <v-text-field
@@ -45,41 +41,44 @@
                     :rules="rules"
                   ></v-text-field>
                 </v-row>
+
+                <v-row no-gutters>
+                  <v-text-field
+                    label="생년월일"
+                    :rules="rules"
+                  ></v-text-field>
+                </v-row>
+
+                <v-row no-gutters>
+                  <v-text-field
+                    label="프로필 이미지"
+                  ></v-text-field>
+                </v-row>
               </form>
+          </v-card-text>
+        </v-card>
 
-            </v-card-text>
-          </v-card>
+      </v-col>
 
-          <v-card elevation="0" class="mt-4">
-            <v-card-actions>
-              <v-btn class="mauto" color="primary" @click="join()" rounded dark elevation="3">
-                회원가입
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-          
-        </v-col>
-      </v-row>
+      <v-btn class="mauto mt-4" color="primary" width="90vw" dark @click="JoinStart()">
+        회원가입
+      </v-btn>
+    
+    </v-row>
 
-    </div>
-  </v-container>
+
+
+  </div>
 </template>
 
 <script>
-import SHeader from '@/views/layout/header'
 
 export default {
   name: 'Join',
-  components: {
-    SHeader
-  },
-  filters: {
-  },
   data () {
     return {
       rules: [
         value => !!value || 'Required.',
-        value => (value && value.length >= 3) || 'Min 3 characters',
       ],
     }
   },
@@ -88,8 +87,11 @@ export default {
   mounted () {
   },
   methods: {
-    join(){
-      console.log('회원가입버튼')
+    goIntro(){
+      this.$router.push('/')
+    },
+    JoinStart(){
+      
     }
   }
 }
