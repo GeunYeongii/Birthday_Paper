@@ -103,6 +103,7 @@
 import SHeader from '@/views/layout/header'
 import cardDetail from '@/views/main/components/cardDetail'
 import { mdiCheck } from '@mdi/js'
+import { kakaoShare } from '@/utils/share'
 
 export default {
   name: 'Main',
@@ -128,7 +129,7 @@ export default {
       this.$refs.cardDetail.open()
     },
     shareKakao() {
-      
+      kakaoShare()
     }
   }
 }
