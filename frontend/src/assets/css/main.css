@@ -1,4 +1,7 @@
-html{max-width: 600px; margin: auto;}
+html{
+    max-width: 600px;
+    margin: auto;
+}
 
 /* 배달의민족 주아체 */
 @font-face {src:url("../fonts/BMJUA_ttf.ttf");font-family:"jua";}
@@ -7,7 +10,7 @@ html{max-width: 600px; margin: auto;}
 .intro,
 .login,
 .join{
-    background-image: url("../img/pngwing.png");
+    background-image: url("../img/background.png");
     height: 100vh;
     background-repeat : no-repeat;
     background-size : cover;
@@ -49,3 +52,4 @@ html{max-width: 600px; margin: auto;}
 #jangSTpop .v-card__actions > .v-btn.v-btn {padding: 0 1.6em; height:2.6em !important; border:1px solid #434a50;}
 .pop_boT_btnCon.line_top{border-top: 1px solid #ccc;}
 .conTR_reJ_txtinP {margin-bottom: 1rem; padding: 0 !important;}
+
