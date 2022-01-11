@@ -1,47 +1,59 @@
 <!--
   name : 이에닮
   desc : login
-  date : 2022-01-07
+  date : 2022-01-11
 -->
 <template>
   <div class="login">
-    <v-row no-gutters justify="center" class="mt-16 mb-2">
-      <v-col cols="12" class="mt-6">
-        <v-img width="250" class="mauto mb-6" @click="goIntro()"
-          src="@/assets/img/logo.png"></v-img>
+    <v-row no-gutters justify="center" class="mt-8">
 
-        <v-card elevation="3" width="90vw" class="mauto">
+      <v-col no-gutters cols="12" class="text-center mb-5">
+        <v-img
+          class="m-auto mt-8 mb-4"
+          max-width="125px"
+          width="23vw"
+          src="@/assets/img/cake.png"
+          @click="goIntro()"></v-img>
+        <p class="h6 txtC_474775">BIRTHDAY PAPER</p>
+      </v-col>
+      
+      <v-col no-gutters cols="12" class="pl-12 pr-12">
+        <v-card width="90vw" class="m-auto shadow_eft">
           <v-card-text>
             <form ref="joinForm">
               <v-row no-gutters>
                 <v-text-field
-                  v-model="form.id"
+                  class="m-0 p-0"
+                  v-model="id"
                   label="ID"
                   :rules="rules"
+                  hide-details
                 ></v-text-field>
               </v-row>
               <v-row no-gutters>
                 <v-text-field
-                  v-model="form.password"
+                  class="m-0 mt-4 p-0"
+                  v-model="password"
                   label="PW"
                   :type="'password'"
                   :rules="rules"
+                  hide-details
                 ></v-text-field>
+              </v-row>
+              <v-row no-gutters class="mt-4">
+                <v-btn text class="txtC_474775" @click="goLogin()">
+                  로그인
+                </v-btn>
               </v-row>
             </form>
           </v-card-text>
         </v-card>
-
       </v-col>
 
-      <v-btn class="mauto mt-6" color="primary" width="90vw" dark @click="loginStart()">
-        로그인
-      </v-btn>
+      <p class="text-center mt-4 txtC_474775">
+        Don't have an account? <a href="#" class="txtC_474775" @click="goJoin()">Sign Up.</a>
+      </p>
 
-      <div class="mauto mt-12 text-gray accountText">
-        Don't have an account? <a href="#" @click="goJoin()">Sign Up.</a>
-      </div>
-    
     </v-row>
   </div>
 </template>
@@ -52,10 +64,8 @@ export default {
   name: 'Login',
   data () {
     return {
-      form:{
-        id: '',
-        password: ''
-      },
+      id: '',
+      password: '',
       rules: [
         value => !!value || '필수값 입니다',
       ],
@@ -76,7 +86,5 @@ export default {
 </script>
 
 <style>
-.accountText{
-  text-align: center;
-}
+
 </style>
