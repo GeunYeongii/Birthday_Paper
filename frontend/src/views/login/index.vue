@@ -41,7 +41,7 @@
                 ></v-text-field>
               </v-row>
               <v-row no-gutters class="mt-4">
-                <v-btn text color="primary" class="txtC_474775" @click="loginStart()">
+                <v-btn text color="secondary" class="txtC_474775" @click="loginStart()">
                   로그인
                 </v-btn>
               </v-row>

@@ -5,16 +5,12 @@
 -->
 <template>
   <div class="header">
-    <v-row no-gutters class="mt-3 mb-2">
-      <v-col cols="9" @click="goMain()">
-        <v-img
-        contain
-        max-height="65"
-        max-width="250"
-        src="@/assets/img/logo_2.png"></v-img>
+    <v-row no-gutters class="text-center mt-2">
+      <v-col cols="8" offset="2" @click="goMain()">
+        <p class="h6 mt-5 txtC_474775">BIRTHDAY PAPER</p>
       </v-col>
-      <v-col cols="3">
-        <v-app-bar-nav-icon class="nav_icon mt-1" @click="toggleDialog()"></v-app-bar-nav-icon>
+      <v-col cols="2">
+        <v-app-bar-nav-icon class="nav_icon mt-1 txtC_474775" x-large @click="toggleDialog()"></v-app-bar-nav-icon>
       </v-col>
     </v-row>
 

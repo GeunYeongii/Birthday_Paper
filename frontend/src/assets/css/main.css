@@ -17,6 +17,14 @@ html{ max-width: 600px; max-height: 100vh; margin: auto; }
   background-size : cover;
   opacity: 0.9;
 }
+.main{
+  height: 100vh;
+  background-image: url("../img/background.png");
+  background-repeat : no-repeat;
+  background-position: center;
+  background-size : cover;
+  opacity: 0.9;
+}
 
 /* Intro */
 .shadow_eft { /* 그림자 효과 */

@@ -25,6 +25,7 @@
               <v-row no-gutters>
                 <v-text-field
                   label="ID"
+                  color="secondary"
                   :rules="rules"
                   hide-details
                 ></v-text-field>
@@ -64,7 +65,7 @@
                 ></v-text-field>
               </v-row>
               <v-row no-gutters class="mt-4">
-                <v-btn text color="primary" class="txtC_474775" @click="joinStart()">
+                <v-btn text color="secondary" @click="joinStart()">
                   회원가입
                 </v-btn>
               </v-row>
