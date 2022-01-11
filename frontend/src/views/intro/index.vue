@@ -1,14 +1,19 @@
 <!--
   name : 이에닮
   desc : intro
-  date : 2022-01-07
+  date : 2022-01-11
 -->
 <template>
   <div class="intro">
     <v-row no-gutters justify="center" class="mt-8">
 
       <v-col no-gutters cols="12" class="text-center mb-6">
-        <v-img class="m-auto mt-8 mb-5" max-width="125px" width="23vw" src="@/assets/img/cake.png"></v-img>
+        <v-img
+          class="m-auto mt-8 mb-4"
+          max-width="125px"
+          width="23vw"
+          src="@/assets/img/cake.png"
+          @click="goIntro()"></v-img>
         <p class="h6 txtC_474775">BIRTHDAY PAPER</p>
       </v-col>
 
