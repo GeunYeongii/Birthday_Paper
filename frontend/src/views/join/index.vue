@@ -1,72 +1,77 @@
 <!--
   name : 이에닮
   desc : join
-  date : 2022-01-05
+  date : 2022-01-11
 -->
 <template>
   <div class="join">
+    <v-row no-gutters justify="center" class="mt-8">
+
+      <v-col no-gutters cols="12" class="text-center">
+        <v-img
+          class="m-auto mt-4 mb-2"
+          max-width="125px"
+          width="23vw"
+          src="@/assets/img/cake.png"
+          @click="goIntro()"></v-img>
+        <p class="h6 txtC_474775">BIRTHDAY PAPER</p>
+      </v-col>
+    </v-row>
       
-    <v-row no-gutters justify="center" class="mt-12 mb-2">
-      <v-col cols="12">
-        <v-img width="250" class="mauto mb-4" @click="goIntro()"
-          src="@/assets/img/logo_2.png"></v-img>
-
-        <v-card elevation="3" width="90vw" class="mauto">
+      <v-col no-gutters cols="12" class="pl-12 pr-12">
+        <v-card width="90vw" class="m-auto shadow_eft">
           <v-card-text>
-              <form ref="joinForm">
-                <v-row no-gutters>
-                  <v-text-field
-                    label="ID"
-                    :rules="rules"
-                  ></v-text-field>
-                </v-row>
-
-                <v-row no-gutters>
-                  <v-text-field
-                    label="PW"
-                    :rules="rules"
-                  ></v-text-field>
-                </v-row>
-
-                <v-row no-gutters>
-                  <v-text-field
-                    label="PW 체크"
-                    :rules="rules"
-                  ></v-text-field>
-                </v-row>
-
-                <v-row no-gutters>
-                  <v-text-field
-                    label="닉네임"
-                    :rules="rules"
-                  ></v-text-field>
-                </v-row>
-
-                <v-row no-gutters>
-                  <v-text-field
-                    label="생년월일"
-                    :rules="rules"
-                  ></v-text-field>
-                </v-row>
-
-                <v-row no-gutters>
-                  <v-text-field
-                    label="프로필 이미지"
-                  ></v-text-field>
-                </v-row>
-              </form>
+            <form ref="joinForm">
+              <v-row no-gutters>
+                <v-text-field
+                  label="ID"
+                  :rules="rules"
+                  hide-details
+                ></v-text-field>
+              </v-row>
+              <v-row no-gutters>
+                <v-text-field
+                  label="PW"
+                  :rules="rules"
+                  hide-details
+                ></v-text-field>
+              </v-row>
+              <v-row no-gutters>
+                <v-text-field
+                  label="PW 체크"
+                  :rules="rules"
+                  hide-details
+                ></v-text-field>
+              </v-row>
+              <v-row no-gutters>
+                <v-text-field
+                  label="닉네임"
+                  :rules="rules"
+                  hide-details
+                ></v-text-field>
+              </v-row>
+              <v-row no-gutters>
+                <v-text-field
+                  label="생년월일"
+                  :rules="rules"
+                  hide-details
+                ></v-text-field>
+              </v-row>
+              <v-row no-gutters>
+                <v-text-field
+                  label="프로필 이미지"
+                  hide-details
+                ></v-text-field>
+              </v-row>
+              <v-row no-gutters class="mt-4">
+                <v-btn text color="primary" class="txtC_474775" @click="joinStart()">
+                  회원가입
+                </v-btn>
+              </v-row>
+            </form>
           </v-card-text>
         </v-card>
-
       </v-col>
-
-      <v-btn class="mauto mt-4" color="primary" width="90vw" dark @click="joinStart()">
-        회원가입
-      </v-btn>
-    
-    </v-row>
-
-
 
   </div>
 </template>
@@ -88,7 +93,7 @@ export default {
   },
   methods: {
     goIntro(){
-      this.$router.push('/')
+      this.$router.push('/').catch(() => {})
     },
     joinStart(){
       
