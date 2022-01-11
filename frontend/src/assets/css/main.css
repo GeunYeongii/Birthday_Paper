@@ -15,6 +15,7 @@ html{ max-width: 600px; max-height: 100vh; margin: auto; }
   background-repeat : no-repeat;
   background-position: center;
   background-size : cover;
+  opacity: 0.9;
 }
 
 /* Intro */
