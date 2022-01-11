@@ -51,10 +51,10 @@
         </v-row>
       </v-col>
       
-      <v-btn text class="mt-8" @click="goLogin()">
+      <v-btn text color="primary" class="mt-8 txtC_474775" @click="goLogin()">
         로그인
       </v-btn>
-      <v-btn text @click="goJoin()">
+      <v-btn text color="primary" @click="goJoin()">
         회원가입
       </v-btn>
 

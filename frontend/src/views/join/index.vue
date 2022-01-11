@@ -64,7 +64,7 @@
                 ></v-text-field>
               </v-row>
               <v-row no-gutters class="mt-4">
-                <v-btn text class="txtC_474775" @click="joinStart()">
+                <v-btn text color="primary" class="txtC_474775" @click="joinStart()">
                   회원가입
                 </v-btn>
               </v-row>
