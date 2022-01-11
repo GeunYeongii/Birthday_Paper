@@ -1,51 +1,39 @@
-html{max-width: 600px; margin: auto;}
-
 /* 배달의민족 주아체 */
 @font-face {src:url("../fonts/BMJUA_ttf.ttf");font-family:"jua";}
 .jua_font{font-family:"jua";}
 
-.intro,
-.login,
-.join{
-    background-image: url("../img/pngwing.png");
-    height: 100vh;
-    background-repeat : no-repeat;
-    background-size : cover;
+
+html{ max-width: 600px; max-height: 100vh; margin: auto; }
+
+/* Color */
+.txtC_474775{ color: #474775; }
+
+/* Intro Css */
+.intro{
+  height: 100vh;
+  background-image: url("../img/background.png");
+  background-repeat : no-repeat;
+  background-position: center;
+  background-size : cover;
+}
+.shadow_eft { /* 그림자 효과 */
+  box-shadow: 0px 5px 5px 1px #d6d6d6
+}
+.card_angle{  /* 카드 기울기 조절 */
+  transform: matrix(0.99, -0.12, 0.12, 0.99, 0, 0);
 }
 
-.f_rit{float: right;}
-.mauto{margin:auto;}
-.main_card{height: 70vh;}
-.text-gray{color: #434a50;}
-.v-btn__content {font-size: 0.9em;}
-.c_mt-6{margin-top: 6px;}
 
-/*popup*/
-.btn_pop_closeTop {position: absolute; top:12px; right: 0;}
-#popupBox {box-sizing: border-box; padding: 0 30px;}
-#popupBox .pop_title {position: relative; padding: 0; height: 3em; font-size: .9rem; color:#231f20; border-bottom: 1px solid #ccc;}
-#popupBox .pop_title_02 {position: relative; padding: 0; height: auto; font-size: .9rem; color:#231f20; font-weight: 300; border-bottom: 1px solid #ccc;}
-#popupBox .pop_title_Hauto {position: relative; padding: .9em 0; line-height: 1.2em;; font-size: .9rem; color:#231f20; border-bottom: 1px solid #ccc;}
-#popupBox .pop_title .txt_tt {font-weight: 400;}
-#popupBox .pop_title_Hauto .txt_tt {width: calc(100% - 40px); font-weight: 400;}
-#popupBox .pop_boT_btnCon_mdIB {display: block; margin: 0; padding: 0; padding-bottom: .83em; position: relative; height: auto; min-height: 4em; text-align: center; border-top: 1px solid #ccc;}
-#pop_size_s {box-sizing: border-box; padding: 0 20px; height: 60vh;}
-#pop_size_s .pop_title {position: relative; padding: 0; height: 3em; font-size: .9rem; color:#231f20; border-bottom: 1px solid #ccc;}
-#pop_size_s .pop_con {padding: 0 !important; height: calc(100% - 6.4rem); overflow-y: auto;}
-#pop_size_s .pop_boT_btnCon {margin: 0; padding: 0; position: relative; height: 3.4em; text-align: center; border-top: 1px solid #ccc;}
-.pop_title.borB_none {border-bottom: none !important;}
-.pop_boT_btnCon.borB_none {border-top: none !important;}
-#popFix_s {box-sizing: border-box; padding: 0 20px; height: auto;}
-#popFix_s .pop_title {position: relative; padding: 0; height: 3em; font-size: .9rem; color:#231f20; font-weight: 500; border-bottom: 1px solid #ccc;}
-#popFix_s .pop_title.borDbt_none {border-bottom: 0 !important;}
-#popFix_s .pop_con {padding: 1.4rem 0 2rem !important; height: auto; font-size: 1rem;}
-#popFix_s .btnSt_line00 {min-width: 0 !important; margin-left: 0; margin-right: 14px;}
-#popFix_s .btnSt_line00:last-child {margin-right: 0;}
-#popFix_s .pop_boT_btnCon {padding-bottom: 1rem;}
-#jangSTpop {padding: 0 20px;}
-#jangSTpop .title {display: block; padding: 0; height: 3em; line-height: 3em; font-size: .9rem !important; color:#231f20; font-weight: 500; text-align: center; border-bottom: 1px solid #ccc;}
-.v-dialog > #jangSTpop > .v-card__text {padding: 2.4rem 20px; font-size: .8rem !important; color:#9a9a9c; font-weight: 300; text-align: center; word-break: keep-all;}
-#jangSTpop .v-card__actions {position: relative; margin: 0; padding: 0; height: 3.4em; text-align: center; border-top: 1px solid #ccc;}
-#jangSTpop .v-card__actions > .v-btn.v-btn {padding: 0 1.6em; height:2.6em !important; border:1px solid #434a50;}
-.pop_boT_btnCon.line_top{border-top: 1px solid #ccc;}
-.conTR_reJ_txtinP {margin-bottom: 1rem; padding: 0 !important;}
+/* 반응형 Css */
+@media screen and (max-width: 400px) {
+  .intro .v-btn__content{ font-size: 16px; }
+  .intro p { font-size: 16px;margin:0; }
+}
+
+@media screen and (min-width: 400px) {
+  .intro .v-btn__content{ font-size: 20px; }
+  .intro p {
+    font-size: 30px;
+    margin-top: 40px;
+  }
+}

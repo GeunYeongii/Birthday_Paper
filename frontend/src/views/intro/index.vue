@@ -5,21 +5,54 @@
 -->
 <template>
   <div class="intro">
-    <v-row no-gutters justify="center" class="mt-16 mb-2">
-      <v-col cols="12">
-        <v-img width="250" class="mauto mb-6"
-          src="@/assets/img/logo.png"></v-img>
+    <v-row no-gutters justify="center" class="mt-8">
 
-        <v-img width="210" class="mauto mb-6"
-          src="@/assets/img/gift-box.png"></v-img>
+      <v-col no-gutters cols="12" class="text-center mb-6">
+        <v-img class="m-auto mt-8 mb-5" max-width="125px" width="23vw" src="@/assets/img/cake.png"></v-img>
+        <p class="h6 txtC_474775">BIRTHDAY PAPER</p>
+      </v-col>
+
+      <v-col no-gutters cols="12" class="pl-6 pr-6">
+        <v-row no-gutters>
+          <v-col class="d-inline-block">
+            <v-img class="m-auto shadow_eft mt-3" max-width="90" width="16vw" src="@/assets/img/asset_4.png"></v-img>
+          </v-col>
+          <v-col class="d-inline-block">
+            <v-img class="m-auto shadow_eft card_angle mt-3" max-width="90" width="16vw" src="@/assets/img/asset_3.png"></v-img>
+          </v-col>
+          <v-col class="d-inline-block">
+            <v-img class="m-auto shadow_eft" max-width="90" width="16vw" src="@/assets/img/asset_2.png"></v-img>
+          </v-col>
+          <v-col class="d-inline-block">
+            <v-img class="m-auto shadow_eft mt-3" max-width="90" width="16vw" src="@/assets/img/asset_1.png"></v-img>
+          </v-col>
+        </v-row>
       </v-col>
       
-      <v-btn class="mb-2" color="primary" width="90vw" dark @click="goLogin()">
+      <v-col no-gutters cols="12" class="mt-4 pl-6 pr-6">
+        <v-row no-gutters>
+          <v-col class="d-inline-block">
+            <v-img class="m-auto shadow_eft mt-1" max-width="90" width="16vw" src="@/assets/img/asset_1.png"></v-img>
+          </v-col>
+          <v-col class="d-inline-block">
+            <v-img class="m-auto shadow_eft mt-3" max-width="90" width="16vw" src="@/assets/img/asset_2.png"></v-img>
+          </v-col>
+          <v-col class="d-inline-block">
+            <v-img class="m-auto shadow_eft mt-1" max-width="90" width="16vw" src="@/assets/img/asset_4.png"></v-img>
+          </v-col>
+          <v-col class="d-inline-block">
+            <v-img class="m-auto shadow_eft card_angle" max-width="90" width="16vw" src="@/assets/img/asset_3.png"></v-img>
+          </v-col>
+        </v-row>
+      </v-col>
+      
+      <v-btn text class="mt-8" @click="goLogin()">
         로그인
       </v-btn>
-      <v-btn class="mt-2" color="primary" width="90vw" dark @click="goJoin()">
+      <v-btn text @click="goJoin()">
         회원가입
       </v-btn>
+
     </v-row>
   </div>
 </template>
