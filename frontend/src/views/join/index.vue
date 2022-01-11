@@ -93,7 +93,7 @@ export default {
   },
   methods: {
     goIntro(){
-      this.$router.push('/')
+      this.$router.push('/').catch(() => {})
     },
     joinStart(){
       

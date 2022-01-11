@@ -71,11 +71,14 @@ export default {
     }
   },
   methods: {
+    goIntro(){
+      this.$router.push('/').catch(() => {})
+    },
     goLogin() {
-      this.$router.push('/login')
+      this.$router.push('/login').catch(() => {})
     },
     goJoin() {
-      this.$router.push('/join')
+      this.$router.push('/join').catch(() => {})
     }
   }
 }

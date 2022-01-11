@@ -41,7 +41,7 @@
                 ></v-text-field>
               </v-row>
               <v-row no-gutters class="mt-4">
-                <v-btn text class="txtC_474775" @click="goLogin()">
+                <v-btn text class="txtC_474775" @click="loginStart()">
                   로그인
                 </v-btn>
               </v-row>
@@ -51,7 +51,7 @@
       </v-col>
 
       <p class="text-center mt-4 txtC_474775">
-        Don't have an account? <a href="#" class="txtC_474775" @click="goJoin()">Sign Up.</a>
+        Don't have an account? <span class="text-decoration-underline" @click="goJoin()">Sign Up.</span>
       </p>
 
     </v-row>
@@ -73,13 +73,13 @@ export default {
   },
   methods: {
     loginStart(){
-      this.$router.push('/main')
+      this.$router.push('/main').catch(() => {})
     },
     goIntro(){
-      this.$router.push('/')
+      this.$router.push('/').catch(() => {})
     },
     goJoin(){
-      this.$router.push('/join')
+      this.$router.push('/join').catch(() => {})
     }
   }
 }
