@@ -29,16 +29,24 @@
                   <v-col no-gutters cols="12" class="mt-2 pl-3 pr-3">
                     <v-row no-gutters>
                       <v-col class="d-inline-block">
-                        <v-img class="m-auto shadow_eft mt-3" max-width="90" width="16vw" src="@/assets/img/asset_4.png"></v-img>
+                        <v-img class="m-auto shadow_eft mt-3" max-width="90" width="16vw" src="@/assets/img/asset_4.png">
+                          <div class="senderNm">이예닮</div>
+                        </v-img>
                       </v-col>
                       <v-col class="d-inline-block">
-                        <v-img class="m-auto shadow_eft card_angle mt-3" max-width="90" width="16vw" src="@/assets/img/asset_3.png"></v-img>
+                        <v-img class="m-auto shadow_eft card_angle mt-3" max-width="90" width="16vw" src="@/assets/img/asset_3.png">
+                          <div class="senderNm">주근영</div>
+                        </v-img>
                       </v-col>
                       <v-col class="d-inline-block">
-                        <v-img class="m-auto shadow_eft" max-width="90" width="16vw" src="@/assets/img/asset_2.png"></v-img>
+                        <v-img class="m-auto shadow_eft" max-width="90" width="16vw" src="@/assets/img/asset_2.png">
+                          <div class="senderNm">훈제족발</div>
+                        </v-img>
                       </v-col>
                       <v-col class="d-inline-block">
-                        <v-img class="m-auto shadow_eft mt-3" max-width="90" width="16vw" src="@/assets/img/asset_1.png"></v-img>
+                        <v-img class="m-auto shadow_eft mt-3" max-width="90" width="16vw" src="@/assets/img/asset_1.png">
+                          <div class="senderNm">Gnyiii</div>
+                        </v-img>
                       </v-col>
                     </v-row>
                   </v-col>
@@ -46,16 +54,24 @@
                   <v-col no-gutters cols="12" class="mt-2 pl-3 pr-3">
                     <v-row no-gutters>
                       <v-col class="d-inline-block">
-                        <v-img class="m-auto shadow_eft mt-1" max-width="90" width="16vw" src="@/assets/img/asset_1.png"></v-img>
+                        <v-img class="m-auto shadow_eft mt-1" max-width="90" width="16vw" src="@/assets/img/asset_1.png">
+                          <div class="senderNm">HunJeJugBal</div>
+                        </v-img>
                       </v-col>
                       <v-col class="d-inline-block">
-                        <v-img class="m-auto shadow_eft mt-3" max-width="90" width="16vw" src="@/assets/img/asset_2.png"></v-img>
+                        <v-img class="m-auto shadow_eft mt-3" max-width="90" width="16vw" src="@/assets/img/asset_2.png">
+                          <div class="senderNm">birthday paper</div>
+                        </v-img>
                       </v-col>
                       <v-col class="d-inline-block">
-                        <v-img class="m-auto shadow_eft mt-1" max-width="90" width="16vw" src="@/assets/img/asset_4.png"></v-img>
+                        <v-img class="m-auto shadow_eft mt-1" max-width="90" width="16vw" src="@/assets/img/asset_4.png">
+                          <div class="senderNm">bp</div>
+                        </v-img>
                       </v-col>
                       <v-col class="d-inline-block">
-                        <v-img class="m-auto shadow_eft card_angle" max-width="90" width="16vw" src="@/assets/img/asset_3.png"></v-img>
+                        <v-img class="m-auto shadow_eft card_angle" max-width="90" width="16vw" src="@/assets/img/asset_3.png">
+                          <div class="senderNm">사용자</div>
+                        </v-img>
                       </v-col>
                     </v-row>
                   </v-col>
