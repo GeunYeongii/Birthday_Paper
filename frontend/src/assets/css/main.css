@@ -48,6 +48,15 @@ html { max-width: 600px; max-height: 100vh; margin: auto; }
   transform: translate(-50%, -50%);
 }
 
+.senderNm {
+  font-size: 13px;
+  width: 100%;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .tns-controls, .tns-nav{ display: none; }
 
 /* 반응형 Css */
@@ -66,10 +75,12 @@ html { max-width: 600px; max-height: 100vh; margin: auto; }
   .main p { font-size: 20px; padding-top: 40px; }
   .no_latter { font-size: 20px; }
   .main_card { width:85vw; }
+  .senderNm { font-size: 16px; }
 }
 
 @media screen and (min-width: 600px) {
   .main_card { width:510px; }
+  .senderNm { font-size: 20px; }
 }
 
 @media screen and (max-height: 700px) {
