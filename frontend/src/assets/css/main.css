@@ -1,23 +1,26 @@
 /* 배달의민족 주아체 */
 @font-face {src:url("../fonts/BMJUA_ttf.ttf");font-family:"jua";}
-.jua_font{font-family:"jua";}
+.jua_font {font-family:"jua";}
 
 
-html{ max-width: 600px; max-height: 100vh; margin: auto; }
+html { max-width: 600px; max-height: 100vh; margin: auto; }
 
 /* Color */
-.txtC_474775{ color: #474775; }
+.txtC_474775 { color: #474775; }
 
 /* Background */
-.intro,.login,.join{
+.intro,
+.login,
+.join {
   height: 100vh;
   background-image: url("../img/background.png");
   background-repeat : no-repeat;
   background-position: center;
   background-size : cover;
   opacity: 0.9;
+  
 }
-.main{
+.main {
   height: 100vh;
   background-image: url("../img/background.png");
   background-repeat : no-repeat;
@@ -30,24 +33,48 @@ html{ max-width: 600px; max-height: 100vh; margin: auto; }
 .shadow_eft { /* 그림자 효과 */
   box-shadow: 0px 5px 5px 1px #d6d6d6
 }
-.card_angle{  /* 카드 기울기 조절 */
+.card_angle {  /* 카드 기울기 조절 */
   transform: matrix(0.99, -0.12, 0.12, 0.99, 0, 0);
 }
-.v-text-field__details{
+.v-text-field__details {
   display: none;
 }
 
+.no_latter {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.tns-controls, .tns-nav{ display: none; }
+
 /* 반응형 Css */
 @media screen and (max-width: 400px) {
-  .intro .v-btn__content{ font-size: 16px; }
-  .login .v-btn__content{ font-size: 16px; }
-  .intro p { font-size: 16px;margin:0; }
-  .login p { font-size: 13px;margin:0; }
+  .v-btn__content { font-size: 16px; }
+  .intro p, .header p, .main p { font-size: 16px; margin:0; }
+  .login p { font-size: 13px; margin:0; }
+  .no_latter { font-size: 16px; }
+  .main_card { width:85vw; }
 }
 
 @media screen and (min-width: 400px) {
-  .intro .v-btn__content{ font-size: 20px; }
-  .login .v-btn__content{ font-size: 20px; }
-  .intro p { font-size: 30px;margin-top: 40px; }
-  .login p { font-size: 20px;margin-top: 40px; }
+  .v-btn__content { font-size: 20px; }
+  .intro p { font-size: 30px; margin-top: 40px; }
+  .login p,.header p { font-size: 20px; margin-top: 40px; }
+  .main p { font-size: 20px; padding-top: 40px; }
+  .no_latter { font-size: 20px; }
+  .main_card { width:85vw; }
+}
+
+@media screen and (min-width: 600px) {
+  .main_card { width:510px; }
+}
+
+@media screen and (max-height: 700px) {
+  /* .no_latter { padding-top: 40%; } */
+}
+@media screen and (min-height: 700px) {
+  /* .no_latter { padding-top: 40%; } */
 }
