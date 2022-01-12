@@ -17,7 +17,7 @@
     <v-col no-gutters cols="12" class="text-center">
       <v-card height="50Vh" class="m-auto main_card" elevation="10">
 
-        <div class="txtC_474775">
+        <div class="txtC_474775" v-if="testList.length > 0">
           <p class="pt-5">♥n개의 편지가 도착했어요♥</p>
         </div>
 
