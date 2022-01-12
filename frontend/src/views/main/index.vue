@@ -141,8 +141,55 @@ export default {
   created () {
   },
   mounted() {
+    this.getLetterList()
   },
   methods: {
+    getLetterList() {
+      /*
+      로그인 한 사용자 id를 보내면 해당 유저의 letter List를 return 받아오는 api 호출
+      
+      [API return sample]
+      {
+        "letterList": [
+          {
+            "0": [
+              { "idx": "0", "userNm": "test1" },
+              { "idx": "1", "userNm": "test2" },
+              { "idx": "2", "userNm": "test3" },
+              { "idx": "3", "userNm": "test4" },
+              { "idx": "4", "userNm": "test5" },
+              { "idx": "5", "userNm": "test6" },
+              { "idx": "6", "userNm": "test7" },
+              { "idx": "7", "userNm": "test8" }
+            ],
+            "1": [
+              { "idx": "8", "userNm": "test9" },
+              { "idx": "9", "userNm": "test10" },
+              { "idx": "10", "userNm": "test11" },
+              { "idx": "11", "userNm": "test12" },
+              { "idx": "12", "userNm": "test13" },
+              { "idx": "13", "userNm": "test14" },
+              { "idx": "14", "userNm": "test15" },
+              { "idx": "15", "userNm": "test16" }
+            ],
+            "2": [
+              { "idx": "16", "userNm": "test17" },
+              { "idx": "17", "userNm": "test18" },
+              { "idx": "18", "userNm": "test19" },
+              { "idx": "19", "userNm": "test20" },
+            ]
+          }
+        ],
+        "totalCount": "20",
+        "pageCount": "3"
+      }
+
+      letterList => 사용자가 받은 편지 List 3중배열
+      totalCount => 사용자가 받은 편지 total count
+      pageCount => 생성할 페이지 수
+
+      */    
+    },
     openDetail() {
       this.$refs.cardDetail.open()
     },
