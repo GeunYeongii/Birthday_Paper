@@ -7,10 +7,10 @@
   <div class="header">
     <v-row no-gutters class="text-center mt-2">
       <v-col cols="8" offset="2" @click="goMain()">
-        <p class="h6 mt-5 txtC_474775">BIRTHDAY PAPER</p>
+        <p class="h6 text_logo mt-5 txtC_474775">BIRTHDAY PAPER</p>
       </v-col>
       <v-col cols="2">
-        <v-app-bar-nav-icon class="nav_icon mt-1 txtC_474775" x-large @click="toggleDialog()"></v-app-bar-nav-icon>
+        <v-app-bar-nav-icon class="nav_icon menu_icon txtC_474775" x-large @click="toggleDialog()"></v-app-bar-nav-icon>
       </v-col>
     </v-row>
 
@@ -19,31 +19,18 @@
       absolute
       temporary
     >
-      <v-list-item>
-        <v-img
-          @click="goMain()"
-          src="@/assets/img/logo_2.png" class="mt-4">
-        </v-img>
-      </v-list-item>
-      
-      <v-list-item>
-        <v-list-item-avatar @click="goMyPage()">
-          <v-img src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>
-        </v-list-item-avatar>
+      <v-row no-gutters class="text-center mt-2">
+        <v-col cols="12">
+          <p class="h6 text_logo mt-5 txtC_474775" @click="goMain()">BIRTHDAY PAPER</p>
 
-        <v-list-item-content>
-          <v-row no-gutters>
-            <v-col cols="6" @click="goMyPage()">
-              <v-list-item-title class="text-gray c_mt-6">OOO 님</v-list-item-title>
-            </v-col>
-            <v-col cols="6">
-              <v-btn color="primary" @click="logout()" small rounded dark elevation="3">
-                로그아웃
-              </v-btn>
-            </v-col>
-          </v-row>
-        </v-list-item-content>
-      </v-list-item>
+          <v-img class="profile_img mt-1" src="https://randomuser.me/api/portraits/men/78.jpg" @click="goMyPage()"></v-img>
+          <p class="h6 profile_name txtC_474775" @click="goMyPage()">000 님</p>
+
+          <v-btn text color="secondary" @click="logout()">
+            로그아웃
+          </v-btn>
+        </v-col>
+      </v-row>
 
       <v-divider class="menu_divider"></v-divider>
 
@@ -108,11 +95,11 @@ export default {
 </script>
 
 <style>
-.nav_icon{
-  float: right;
-}
 .menu_divider{
   margin-top:0.5rem;
   margin-bottom:0rem;
 }
+/* .v-avatar{
+  width: 80px;
+} */
 </style>
