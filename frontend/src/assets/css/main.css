@@ -3,7 +3,7 @@
 .jua_font {font-family:"jua";}
 
 
-html { max-width: 600px; max-height: 100vh; margin: auto; }
+html { max-width: 600px; max-height: 100vh; margin: auto; background: linear-gradient(lightblue, lightgoldenrodyellow); }
 
 /* Color */
 .txtC_474775 { color: #474775; }
