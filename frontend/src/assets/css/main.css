@@ -20,7 +20,7 @@ html { max-width: 600px; max-height: 100vh; margin: auto; background: linear-gra
   opacity: 0.9;
   
 }
-.main {
+.main,.notice {
   height: 100vh;
   background-image: url("../img/background.png");
   background-repeat : no-repeat;
