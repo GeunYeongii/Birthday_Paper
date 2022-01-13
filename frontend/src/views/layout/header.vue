@@ -7,10 +7,10 @@
   <div class="header">
     <v-row no-gutters class="text-center mt-2">
       <v-col cols="8" offset="2" @click="goMain()">
-        <p class="h6 mt-5 txtC_474775">BIRTHDAY PAPER</p>
+        <p class="h6 text_logo mt-5 txtC_474775">BIRTHDAY PAPER</p>
       </v-col>
       <v-col cols="2">
-        <v-app-bar-nav-icon class="nav_icon mr-2 txtC_474775" x-large @click="toggleDialog()"></v-app-bar-nav-icon>
+        <v-app-bar-nav-icon class="nav_icon menu_icon txtC_474775" x-large @click="toggleDialog()"></v-app-bar-nav-icon>
       </v-col>
     </v-row>
 
@@ -21,16 +21,10 @@
     >
       <v-row no-gutters class="text-center mt-2">
         <v-col cols="12" @click="goMain()">
-          <p class="h6 mt-5 txtC_474775">BIRTHDAY PAPER</p>
-          <v-avatar
-            class="mt-1"
-            color="primary"
-            size="80"
-          >
-            <v-img src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>
-          </v-avatar>
+          <p class="h6 text_logo mt-5 txtC_474775">BIRTHDAY PAPER</p>
+          <v-img class="profile_img mt-1" src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>
 
-          <p class="h6 mt-3 txtC_474775">000 님</p>
+          <p class="h6 profile_name txtC_474775">000 님</p>
           <v-btn text color="secondary" @click="logout()">
             로그아웃
           </v-btn>
@@ -104,4 +98,7 @@ export default {
   margin-top:0.5rem;
   margin-bottom:0rem;
 }
+/* .v-avatar{
+  width: 80px;
+} */
 </style>

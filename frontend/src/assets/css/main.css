@@ -58,11 +58,15 @@ html { max-width: 600px; max-height: 100vh; margin: auto; background: linear-gra
 }
 
 .tns-controls, .tns-nav{ display: none; }
+.profile_img{
+  border-radius: 100%;
+  margin: auto;
+}
 
 /* 반응형 Css */
 @media screen and (max-width: 400px) {
   .v-btn__content { font-size: 16px; }
-  .intro p, .header p, .main p { font-size: 16px; margin:0; }
+  .intro p, .text_logo { font-size: 16px; margin:0; }
   .login p { font-size: 13px; margin:0; }
   .no_latter { font-size: 16px; }
   .main_card { width:85vw; }
@@ -86,17 +90,25 @@ html { max-width: 600px; max-height: 100vh; margin: auto; background: linear-gra
     left: 50%;
     transform: translate(-50%, -50%);
   }
+  .profile_img{
+    width: 80px;
+  }
+  .profile_name{ margin-top: 1rem; }
+  .menu_icon{ margin-top: 0.1rem; }
 }
 
 @media screen and (min-width: 400px) {
   .v-btn__content { font-size: 20px; }
   .intro p { font-size: 30px; margin-top: 40px; }
-  .login p,.header p { font-size: 20px; margin-top: 40px; }
-  .main p { font-size: 20px; padding-top: 40px; }
+  .login p { font-size: 20px; margin-top: 40px; }
+  .text_logo { font-size: 20px; padding-top: 40px; }
   .no_latter { font-size: 20px; }
   .main_card { width:85vw; }
   .main_card_no { width:85vw; height: 400px; }
   .senderNm { font-size: 16px; }
+  .profile_img{
+    width: 100px;
+  }
 }
 
 @media screen and (min-width: 600px) {
@@ -125,6 +137,12 @@ html { max-width: 600px; max-height: 100vh; margin: auto; background: linear-gra
     left: 50%;
     transform: translate(-50%, -50%);
   }
+  .profile_img{
+    width: 120px;
+  }
+  .profile_name{ margin-top: 1rem; padding: 0px; font-size: 20px; }
+  .menu_icon{ margin-top: 2.7rem; }
+  .main .v-btn--icon.v-size--x-large .v-icon{ font-size: 45px; }
 }
 
 @media screen and (max-height: 700px) {
