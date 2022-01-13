@@ -7,6 +7,10 @@ import { mdiBullhornOutline } from '@mdi/js';
 
 import '@/assets/css/main.css'
 
+import VueTinySlider from "vue-tiny-slider";
+import "tiny-slider/src/tiny-slider.scss";
+
+Vue.component("tiny-slider", VueTinySlider);
 Vue.config.productionTip = false
 
 new Vue({
