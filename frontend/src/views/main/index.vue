@@ -79,6 +79,7 @@ import cardDetail from '@/views/main/components/cardDetail'
 import { mdiCheck } from '@mdi/js'
 import { kakaoShare } from '@/utils/share'
 import { setMainCss, setCardDesign, setCardSrc } from '@/utils/filters'
+import { test } from '@/api/api'
 
 
 export default {
@@ -112,6 +113,18 @@ export default {
   },
   methods: {
     getLetterList() {
+      
+      
+      
+      
+      test({ test:"test" }).then(response => {
+        console.log(response)
+      })
+
+
+
+
+
       var data = {
         "letterList": [
           [
