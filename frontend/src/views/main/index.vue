@@ -15,67 +15,25 @@
         ></v-img>
     </v-col>
     <v-col no-gutters cols="12" class="text-center">
-      <v-card class="m-auto main_card" elevation="10">
+      <v-card :class="totalCount | setMainCss" elevation="10">
 
-        <div v-if="length > 0">
+        <div v-if="totalCount > 0">
           <div class="txtC_474775">
-            <p class="pt-5">♥n개의 편지가 도착했어요♥</p>
+            <p class="pt-5">♥{{totalCount}}개의 편지가 도착했어요♥</p>
           </div>
 
           <v-card flat tile>
-            <v-window v-model="onboarding">
-              <v-window-item v-for="n in length" :key="`card-${n}`">
-                <div>
-                  <v-col no-gutters cols="12" class="mt-2 pl-3 pr-3">
-                    <v-row no-gutters>
-                      <v-col class="d-inline-block">
-                        <v-img class="m-auto shadow_eft mt-3" max-width="90" width="16vw" src="@/assets/img/asset_4.png">
-                          <div class="senderNm">이예닮</div>
-                        </v-img>
-                      </v-col>
-                      <v-col class="d-inline-block">
-                        <v-img class="m-auto shadow_eft card_angle mt-3" max-width="90" width="16vw" src="@/assets/img/asset_3.png">
-                          <div class="senderNm">주근영</div>
-                        </v-img>
-                      </v-col>
-                      <v-col class="d-inline-block">
-                        <v-img class="m-auto shadow_eft" max-width="90" width="16vw" src="@/assets/img/asset_2.png">
-                          <div class="senderNm">훈제족발</div>
-                        </v-img>
-                      </v-col>
-                      <v-col class="d-inline-block">
-                        <v-img class="m-auto shadow_eft mt-3" max-width="90" width="16vw" src="@/assets/img/asset_1.png">
-                          <div class="senderNm">Gnyiii</div>
-                        </v-img>
-                      </v-col>
-                    </v-row>
-                  </v-col>
-                  
-                  <v-col no-gutters cols="12" class="mt-2 pl-3 pr-3">
-                    <v-row no-gutters>
-                      <v-col class="d-inline-block">
-                        <v-img class="m-auto shadow_eft mt-1" max-width="90" width="16vw" src="@/assets/img/asset_1.png">
-                          <div class="senderNm">HunJeJugBal</div>
-                        </v-img>
-                      </v-col>
-                      <v-col class="d-inline-block">
-                        <v-img class="m-auto shadow_eft mt-3" max-width="90" width="16vw" src="@/assets/img/asset_2.png">
-                          <div class="senderNm">birthday paper</div>
-                        </v-img>
-                      </v-col>
-                      <v-col class="d-inline-block">
-                        <v-img class="m-auto shadow_eft mt-1" max-width="90" width="16vw" src="@/assets/img/asset_4.png">
-                          <div class="senderNm">bp</div>
-                        </v-img>
-                      </v-col>
-                      <v-col class="d-inline-block">
-                        <v-img class="m-auto shadow_eft card_angle" max-width="90" width="16vw" src="@/assets/img/asset_3.png">
-                          <div class="senderNm">사용자</div>
-                        </v-img>
-                      </v-col>
-                    </v-row>
-                  </v-col>
-                </div>
+            <v-window v-model="pageKey">
+              <v-window-item v-for="(letter, i) in letterList" :key="`card-${i}`">
+                <v-col no-gutters cols="12" class="mt-2 pl-3 pr-3">
+                  <v-row no-gutters>
+                    <v-col class="d-inline-block"  v-for="(letter, j) in letter" :key="`card-list-${j}`" @click="openDetail(letter, j)">
+                      <v-img :class="j | setCardDesign" max-width="100" width="16vw" :src="letter.imgUrl">
+                        <div class="senderNm txtC_474775">{{letter.userNm}}</div>
+                      </v-img>
+                    </v-col>
+                  </v-row>
+                </v-col>
 
               </v-window-item>
             </v-window>
@@ -85,8 +43,8 @@
                 <v-icon>mdi-chevron-left</v-icon>
               </v-btn>
               
-              <v-item-group v-model="onboarding" class="text-center" mandatory>
-                <v-item v-for="n in length" :key="`btn-${n}`" v-slot="{ active, toggle }">
+              <v-item-group v-model="pageKey" class="text-center" mandatory>
+                <v-item v-for="k in totalPage" :key="`btn-${k}`" v-slot="{ active, toggle }">
                   <v-btn :input-value="active" icon @click="toggle">
                     <v-icon>mdi-record</v-icon>
                   </v-btn>
@@ -110,56 +68,104 @@
       </v-btn>
     </v-col>
 
+    <card-detail ref="cardDetail"></card-detail>
+
   </div>
 </template>
 
 <script>
 import SHeader from '@/views/layout/header'
-// import cardDetail from '@/views/main/components/cardDetail'
+import cardDetail from '@/views/main/components/cardDetail'
 import { mdiCheck } from '@mdi/js'
 import { kakaoShare } from '@/utils/share'
+import { setMainCss, setCardDesign, setCardSrc } from '@/utils/filters'
+
 
 export default {
   name: 'Main',
   components: {
     SHeader,
-    // cardDetail
+    cardDetail
   },
   filters: {
+    setMainCss,
+    setCardDesign,
+    setCardSrc
   },
   data () {
     return {
+      cardDetailDialog: true,
+      letterList: [],
+      totalCount: 0,
+      totalPage: 0,
+      pageKey: 0,
+      /* icon */
       icons: {
         mdiCheck
       },
-      // page수
-      length: 5,
-      // 현재 page 위치
-      onboarding: 0,
     }
   },
   created () {
   },
   mounted() {
+    this.getLetterList()
   },
   methods: {
-    openDetail() {
-      this.$refs.cardDetail.open()
+    getLetterList() {
+      var data = {
+        "letterList": [
+          [
+            { idx: 0, userNm: "test1", imgUrl: require('@/assets/img/asset_4.png') },
+            { idx: 1, userNm: "test2", imgUrl: require('@/assets/img/asset_3.png') },
+            { idx: 2, userNm: "test3", imgUrl: require('@/assets/img/asset_2.png') },
+            { idx: 3, userNm: "test4", imgUrl: require('@/assets/img/asset_1.png') },
+            { idx: 4, userNm: "test5", imgUrl: require('@/assets/img/asset_1.png') },
+            { idx: 5, userNm: "test6", imgUrl: require('@/assets/img/asset_2.png') },
+            { idx: 6, userNm: "test7", imgUrl: require('@/assets/img/asset_4.png') },
+            { idx: 7, userNm: "test8", imgUrl: require('@/assets/img/asset_3.png') }
+          ],[
+            { idx: 8, userNm: "test9", imgUrl: require('@/assets/img/asset_4.png') },
+            { idx: 9, userNm: "test10", imgUrl: require('@/assets/img/asset_3.png') },
+            { idx: 10, userNm: "test11", imgUrl: require('@/assets/img/asset_2.png') },
+            { idx: 11, userNm: "test12", imgUrl: require('@/assets/img/asset_1.png') },
+            { idx: 12, userNm: "test13", imgUrl: require('@/assets/img/asset_1.png') },
+            { idx: 13, userNm: "test14", imgUrl: require('@/assets/img/asset_2.png') },
+            { idx: 14, userNm: "test15", imgUrl: require('@/assets/img/asset_4.png') },
+            { idx: 15, userNm: "test16", imgUrl: require('@/assets/img/asset_3.png') }
+          ],[
+            { idx: 16, userNm: "test17", imgUrl: require('@/assets/img/asset_4.png') },
+            { idx: 17, userNm: "test18", imgUrl: require('@/assets/img/asset_3.png') },
+            { idx: 18, userNm: "test19", imgUrl: require('@/assets/img/asset_2.png') },
+            { idx: 19, userNm: "test20", imgUrl: require('@/assets/img/asset_1.png') }
+          ]
+        ],
+        "totalCount": 20,
+        "totalPage": 3
+      }
+      this.totalPage = data.totalPage
+      this.totalCount = data.totalCount
+      this.letterList = data.letterList
+    },
+    openDetail(letter, idx) {
+      this.$refs.cardDetail.open(letter, idx)
     },
     shareKakao() {
       kakaoShare()
     },
     next () {
-      this.onboarding = this.onboarding + 1 === this.length ? 0 : this.onboarding + 1
+      this.pageKey = this.pageKey + 1 === this.totalPage ? 0 : this.pageKey + 1
     },
     prev () {
-      this.onboarding = this.onboarding - 1 < 0 ? this.length - 1 : this.onboarding - 1
+      this.pageKey = this.pageKey - 1 < 0 ? this.totalPage - 1 : this.pageKey - 1
     },
   }
 }
 </script>
 
 <style>
+.v-dialog,.v-dialog--active{
+  box-shadow:none;
+}
 .v-btn--icon.v-size--default {
   height: 20px;
   width: 20px;
