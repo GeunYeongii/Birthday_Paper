@@ -23,19 +23,18 @@ class User(UserMixin):
         user = db_cursor.fetchone()
         if not user:
             return None
-
-        user = User(user_id=user[0], user_pw=user[1],user_nickName=user[2],user_birth=user[3],user_profile=user[4])
+        
         return user
 
 
     @staticmethod
-    def create(user_email, user_pw):
+    def create(user_email, user_pw,user_nickName,user_birth,user_profile=None):
         user = User.get(user_email)
         if user == None:
             mysql_db = conn_mysqldb()
             db_cursor = mysql_db.cursor()
-            sql = "INSERT INTO user_info (USER_ID, USER_PW) VALUES ('%s', '%s')" % (
-                str(user_email), str(user_pw))
+            sql = "INSERT INTO user_info (USER_ID, USER_PW,NICKNAME,BIRTH) VALUES ('%s', '%s', '%s', '%d')" % (
+                str(user_email), str(user_pw),str(user_nickName),str(user_birth))
             db_cursor.execute(sql)
             mysql_db.commit()
             return User.get(user_email)
