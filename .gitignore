@@ -1,2 +1,2 @@
-# python 실행파일 무시
-backend/application/__pycache__
+# __pycache__ 실행파일 무시
+*.pyc
