@@ -4,37 +4,35 @@
   date : 2022-01-05
 -->
 <template>
-  <v-container>
+  <div class="notice">
     <s-header></s-header>
-    <div class="notice">
 
-      <h1 class="text-gray">공지사항</h1>
+    <h6 class="text-gray text-center txtC_474775 mt-6">공지사항</h6>
 
-      <v-divider></v-divider>
+    <v-divider></v-divider>
 
-      <v-row justify="center">
-        <v-col cols="12">
+    <v-row justify="center">
+      <v-col cols="12">
 
-          <v-card elevation="1">
-            <v-expansion-panels>
-              <v-expansion-panel
-                v-for="(item,i) in 5"
-                :key="i"
-              >
-                <v-expansion-panel-header>
-                  Item
-                </v-expansion-panel-header>
-                <v-expansion-panel-content>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </v-expansion-panel-content>
-              </v-expansion-panel>
-            </v-expansion-panels>
-          </v-card>
-        </v-col>
-      </v-row>
+        <v-card class="ml-6 mr-6" elevation="1">
+          <v-expansion-panels>
+            <v-expansion-panel
+              v-for="(item,i) in 5"
+              :key="i"
+            >
+              <v-expansion-panel-header class="txtC_474775">
+                Item
+              </v-expansion-panel-header>
+              <v-expansion-panel-content class="txtC_474775">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              </v-expansion-panel-content>
+            </v-expansion-panel>
+          </v-expansion-panels>
+        </v-card>
+      </v-col>
+    </v-row>
 
-    </div>
-  </v-container>
+  </div>
 </template>
 
 <script>
