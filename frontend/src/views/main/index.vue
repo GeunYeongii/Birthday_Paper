@@ -29,7 +29,7 @@
                   <v-row no-gutters>
                     <v-col class="d-inline-block"  v-for="(letter, j) in letter" :key="`card-list-${j}`" @click="openDetail(letter, j)">
                       <v-img :class="j | setCardDesign" max-width="100" width="16vw" :src="letter.imgUrl">
-                        <div class="senderNm">{{letter.userNm}}</div>
+                        <div class="senderNm txtC_474775">{{letter.userNm}}</div>
                       </v-img>
                     </v-col>
                   </v-row>
