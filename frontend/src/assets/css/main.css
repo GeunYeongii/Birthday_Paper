@@ -66,6 +66,7 @@ html { max-width: 600px; max-height: 100vh; margin: auto; }
   .login p { font-size: 13px; margin:0; }
   .no_latter { font-size: 16px; }
   .main_card { width:85vw; }
+  .main_card_no { width:85vw; height: 300px; }
 }
 
 @media screen and (min-width: 400px) {
@@ -75,6 +76,7 @@ html { max-width: 600px; max-height: 100vh; margin: auto; }
   .main p { font-size: 20px; padding-top: 40px; }
   .no_latter { font-size: 20px; }
   .main_card { width:85vw; }
+  .main_card_no { width:85vw; height: 400px; }
   .senderNm { font-size: 16px; }
 }
 
