@@ -27,8 +27,8 @@
               <v-window-item v-for="(letter, i) in letterList" :key="`card-${i}`">
                 <v-col no-gutters cols="12" class="mt-2 pl-3 pr-3">
                   <v-row no-gutters>
-                    <v-col class="d-inline-block"  v-for="(letter, j) in letter" :key="`card-list-${j}`" @click="openDetail(letter.idx)">
-                      <v-img :class="j | setCardDesign" max-width="90" width="16vw" :src="letter.imgUrl">
+                    <v-col class="d-inline-block"  v-for="(letter, j) in letter" :key="`card-list-${j}`" @click="openDetail(letter, j)">
+                      <v-img :class="j | setCardDesign" max-width="100" width="16vw" :src="letter.imgUrl">
                         <div class="senderNm">{{letter.userNm}}</div>
                       </v-img>
                     </v-col>
@@ -68,12 +68,14 @@
       </v-btn>
     </v-col>
 
+    <card-detail ref="cardDetail"></card-detail>
+
   </div>
 </template>
 
 <script>
 import SHeader from '@/views/layout/header'
-// import cardDetail from '@/views/main/components/cardDetail'
+import cardDetail from '@/views/main/components/cardDetail'
 import { mdiCheck } from '@mdi/js'
 import { kakaoShare } from '@/utils/share'
 import { setMainCss, setCardDesign, setCardSrc } from '@/utils/filters'
@@ -83,7 +85,7 @@ export default {
   name: 'Main',
   components: {
     SHeader,
-    // cardDetail
+    cardDetail
   },
   filters: {
     setMainCss,
@@ -92,6 +94,7 @@ export default {
   },
   data () {
     return {
+      cardDetailDialog: true,
       letterList: [],
       totalCount: 0,
       totalPage: 0,
@@ -109,7 +112,6 @@ export default {
   },
   methods: {
     getLetterList() {
-      
       var data = {
         "letterList": [
           [
@@ -144,9 +146,8 @@ export default {
       this.totalCount = data.totalCount
       this.letterList = data.letterList
     },
-    openDetail(idx) {
-      console.log(idx)
-      // this.$refs.cardDetail.open()
+    openDetail(letter, idx) {
+      this.$refs.cardDetail.open(letter, idx)
     },
     shareKakao() {
       kakaoShare()
@@ -162,6 +163,9 @@ export default {
 </script>
 
 <style>
+.v-dialog,.v-dialog--active{
+  box-shadow:none;
+}
 .v-btn--icon.v-size--default {
   height: 20px;
   width: 20px;

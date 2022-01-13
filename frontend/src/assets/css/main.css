@@ -67,6 +67,25 @@ html { max-width: 600px; max-height: 100vh; margin: auto; }
   .no_latter { font-size: 16px; }
   .main_card { width:85vw; }
   .main_card_no { width:85vw; height: 300px; }
+  .cardDetail {
+    font-size: 13px;
+    width: 100%;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .cardDetail p {
+    padding: 1rem;
+  }
+  .cardDetail-footer {
+    font-size: 13px;
+    width: 100%;
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 @media screen and (min-width: 400px) {
@@ -83,6 +102,29 @@ html { max-width: 600px; max-height: 100vh; margin: auto; }
 @media screen and (min-width: 600px) {
   .main_card { width:510px; }
   .senderNm { font-size: 20px; }
+  .cardDetail {
+    font-size: 13px;
+    width: 100%;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .cardDetail h6 {
+    font-size: 25px;
+  }
+  .cardDetail p {
+    font-size: 16px;
+    padding: 2rem;
+  }
+  .cardDetail-footer {
+    font-size: 13px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 @media screen and (max-height: 700px) {
