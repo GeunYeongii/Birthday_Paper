@@ -67,6 +67,7 @@ export default {
       items: [
         { icon: 'mdi-circle-small', title: '메인화면', path: '/main' },
         { icon: 'mdi-circle-small', title: '공지사항', path: '/notice' },
+        { icon: 'mdi-circle-small', title: 'Introduce', path: '/introduce' },
       ],
     }
   },
@@ -99,7 +100,4 @@ export default {
   margin-top:0.5rem;
   margin-bottom:0rem;
 }
-/* .v-avatar{
-  width: 80px;
-} */
 </style>
