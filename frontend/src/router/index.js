@@ -12,11 +12,10 @@ const route = [
   { path: '/main', name: 'main', component: () => import('@/views/main/index') },
   { path: '/write', name: 'write', component: () => import('@/views/write/index') },
   { path: '/myPage', name: 'myPage', component: () => import('@/views/myPage/index') },
+  { path: '/introduce', name: 'introduce', component: () => import('@/views/introduce/index') },
 ]
 
 export default new Router({
   mode: 'history',
   routes: route
 })
-
-
