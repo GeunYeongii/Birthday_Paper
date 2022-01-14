@@ -1,45 +1,48 @@
 <!--
   name : 이에닮
-  desc : writeDetail
+  desc : cardDetail
   date : 2022-01-05
 -->
 <template>
-  <v-dialog
-    max-width="600"
-    v-model="writeDetailDialog">
-    <v-card>
-      <v-card-title class="pb-0">
-        <v-row no-gutters>
-          <v-text-field
-            class="p-0"
-            label="닉네임"
-            v-model="nickName"
-            :rules="rules"
-          ></v-text-field>
-        </v-row>
-      </v-card-title>
+  <div>
+    <v-dialog max-width="550" v-model="writeDetailDialog" content-class="elevation-0">
+      <v-img src="@/assets/img/asset_8.png">
 
-      <v-card-text class="pb-0">
-        <v-textarea
-          class="p-0"
-          label="편지의 내용을 작성해주세요"
-          v-model="magData"
-        ></v-textarea>
-      </v-card-text>
+        <div class="text-center writeDetail txtC_474775">
+          <v-card-title class="pb-0">
+            <v-row no-gutters>
+              <v-text-field
+                class="p-0"
+                label="닉네임"
+                v-model="nickName"
+                :rules="rules"
+              ></v-text-field>
+            </v-row>
+          </v-card-title>
+          
+          <v-card-text class="pb-0 mt-4">
+            <v-textarea
+              class="p-0"
+              label="편지의 내용을 작성해주세요"
+              v-model="magData"
+            ></v-textarea>
+          </v-card-text>
+        </div>
+        
+        <v-col no-gutters cols="12" class="writeDetail-footer text-center">
+          <v-btn text color="secondary" @click="close()">
+            취소
+          </v-btn>
+          <v-btn text color="secondary" @click="sendMassage()">
+            확인
+          </v-btn>
+        </v-col>
 
-      <v-card-actions class="pt-0">
-        <v-spacer></v-spacer>
-        <v-btn @click="close()">
-          취소
-        </v-btn>
-        <v-btn color="primary" @click="sendMassage()">
-          확인
-        </v-btn>
-      </v-card-actions>
-
-    </v-card>
-  </v-dialog>
+      </v-img>
+    </v-dialog>
+  </div>
 </template>
+
 
 <script>
 
@@ -77,3 +80,11 @@ export default {
   }
 }
 </script>
+
+<style>
+.transparent {
+   background-color: white!important;
+   opacity: 0.65;
+   border-color: transparent!important;
+ }
+</style>

@@ -63,7 +63,7 @@
         </div>
 
       </v-card>
-      <v-btn text color="secondary" class="mt-6" @click="shareKakao()">
+      <v-btn text color="secondary" class="mt-6" @click="writeCard()">
         작성하기
       </v-btn>
     </v-col>
@@ -93,13 +93,15 @@
       </v-img>
     </v-dialog>
 
+    <write-detail ref="writeDetail"></write-detail>
+
   </div>
 </template>
 
 <script>
 import SHeader from '@/views/layout/header'
+import writeDetail from '@/views/write/components/writeDetail'
 import { mdiCheck } from '@mdi/js'
-import { kakaoShare } from '@/utils/share'
 import { setMainCss, setCardDesign, setCardSrc } from '@/utils/filters'
 
 
@@ -107,6 +109,7 @@ export default {
   name: 'Main',
   components: {
     SHeader,
+    writeDetail
   },
   filters: {
     setMainCss,
@@ -167,8 +170,8 @@ export default {
       this.totalCount = data.totalCount
       this.letterList = data.letterList
     },
-    shareKakao() {
-      kakaoShare()
+    writeCard() {
+      this.$refs.writeDetail.open()
     },
     next () {
       this.pageKey = this.pageKey + 1 === this.totalPage ? 0 : this.pageKey + 1

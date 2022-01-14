@@ -82,6 +82,9 @@ html { max-width: 600px; max-height: 100vh; margin: auto; background: linear-gra
   .unableRead h6 { font-size: 13px; }
   .unableRead-footer { font-size: 13px; width: 100%; position: absolute; bottom: -25px; left: 50%; transform: translate(-50%, -50%); }
   .unableReadImg { width: 35%; margin: 20px auto; }
+  
+  .writeDetail { font-size: 13px; width: 100%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+  .writeDetail-footer { font-size: 13px; width: 100%; position: absolute; bottom: -25px; left: 50%; transform: translate(-50%, -50%); }
 
   .profile_img{ width: 80px; }
   .introduce_img{ width: 80px; }
@@ -115,6 +118,10 @@ html { max-width: 600px; max-height: 100vh; margin: auto; background: linear-gra
   .unableRead h6 { font-size: 30px; }
   .unableRead-footer { font-size: 30px; width: 100%; position: absolute; bottom: -25px; left: 50%; transform: translate(-50%, -50%); }
   .unableReadImg { width: 35%; margin: 20px auto; }
+
+  .writeDetail { font-size: 13px; width: 100%; position: absolute; top: 52%; left: 50%; transform: translate(-50%, -50%); }
+  .writeDetail-footer { font-size: 13px; width: 100%; position: absolute; bottom: 0; left: 50%; transform: translate(-50%, -50%); }
+  .v-text-field__slot textarea { height: 300px; }
 
   .profile_img{ width: 120px; }
   .introduce_img{ width: 120px; }
