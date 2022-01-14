@@ -108,11 +108,8 @@ export default {
   methods: {
     open(letter,idx) {
       this.openDialog(idx)
-      var data = {
-        letterContents: "1월9일 생일 진심으로 축하해! 너랑 모든 순간이 행복했고, 함께해준 너에게 항상 고마워 :) 오늘은 맛있는것도 많이 먹고, 좋은 사람들과 즐거운 시간 보내면서 누구보다 행복했으면 좋겠다. 너를 언제나 응원하고 있어! 생일축하하고, 항상 행복한 하루 보내길 바래♥"
-      }
       this.userName = letter.userNm
-      this.letterContents = data.letterContents
+      this.letterContents = letter.letterContent
     },
     close() {
       this.cardDetailDialog1= false
