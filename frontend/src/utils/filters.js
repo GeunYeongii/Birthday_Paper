@@ -44,28 +44,20 @@ export function setCardSrc(idx) {
   var imgUrl = ''
   switch(idx) {
     case 0:
-      imgUrl = '@/assets/img/asset_4.png'
+    case 6:
+      imgUrl = require('@/assets/img/asset_4.png')
       break
     case 1:
-      imgUrl = '@/assets/img/asset_3.png'
+    case 7:
+      imgUrl = require('@/assets/img/asset_3.png')
       break
     case 2:
-      imgUrl = '@/assets/img/asset_2.png'
+    case 5:
+      imgUrl = require('@/assets/img/asset_2.png')
       break
     case 3:
-      imgUrl = '@/assets/img/asset_1.png'
-      break
     case 4:
-      imgUrl = '@/assets/img/asset_1.png'
-      break
-    case 5:
-      imgUrl = '@/assets/img/asset_2.png'
-      break
-    case 6:
-      imgUrl = '@/assets/img/asset_4.png'
-      break
-    case 7:
-      imgUrl = '@/assets/img/asset_3.png'
+      imgUrl = require('@/assets/img/asset_1.png')
       break
   }
   return imgUrl
