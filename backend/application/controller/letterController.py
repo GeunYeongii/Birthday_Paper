@@ -10,8 +10,9 @@ def getLetterList():
     request_data = request.get_json()
     userIdx = request_data['userIdx']
 
+    # [TODO] 데이터 베이스 서버 오픈되면 실 데이터 주고 받는거 테스트 해야함
     # 받은 user idx 값으로 user 데이터 조회
-    # user 데이터로 card_data 에서 해당 user가 받은 card list 조회
+    # user 데이터로 card_data 에서 해당 user가 받은 card list 조회 
     
     data = {
       'data' : {

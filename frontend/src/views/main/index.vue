@@ -113,7 +113,7 @@ export default {
   },
   methods: {
     getLetterList() {
-      // 로그인 한 user idx 값
+      // [TODO] 로그인 한 user idx 값으로 데이터 조회
       getLetterList({userIdx: 1}).then(response => {
         if (response.code == 20000) {
           this.totalPage = response.data.totalPage
@@ -128,7 +128,11 @@ export default {
       this.$refs.cardDetail.open(letter, idx)
     },
     shareKakao() {
-      kakaoShare()
+      // [TODO] 카카오 템플릿 수정 완료 해야함 받아야 하는 파라미터 값 정의 해서 보내야함
+      var shareData = {
+        'user':'test'
+      }
+      kakaoShare(shareData)
     },
     next () {
       this.pageKey = this.pageKey + 1 === this.totalPage ? 0 : this.pageKey + 1
