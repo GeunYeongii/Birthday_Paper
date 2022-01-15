@@ -85,7 +85,7 @@
 </template>
 
 <script>
-import { joinStart } from '@/api/join'
+import { joinStart } from '@/api/user'
 import datePicker  from '@/components/datePicker'
 
 export default {

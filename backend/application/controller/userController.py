@@ -1,10 +1,9 @@
 from flask import jsonify, request
 from flask import Blueprint
-from flask.helpers import make_response
 
-join = Blueprint("join", __name__, url_prefix="/join")
+user = Blueprint("user", __name__, url_prefix="/user")
 
-@join.route("/joinStart", methods=['POST'])
+@user.route("/joinStart", methods=['POST'])
 def joinStart():
   try:
     request_data = request.get_json()

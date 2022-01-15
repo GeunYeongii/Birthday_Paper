@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function joinStart (params) {
   return request({
-    url: '/join/joinStart',
+    url: '/user/joinStart',
     method: 'POST',
     data: params
   })
