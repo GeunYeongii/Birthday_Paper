@@ -69,7 +69,7 @@
     </v-col>
 
     <card-detail ref="cardDetail"></card-detail>
-
+    <s-alert ref="alert"></s-alert>
   </div>
 </template>
 
@@ -120,7 +120,7 @@ export default {
           this.totalCount = response.data.totalCount
           this.letterList = response.data.letterList
         } else {
-          console.log('데이터 조회 실패')
+          this.$refs.alert.open('데이터 조회 실패','카드정보를 불러오지 못했어요.<br>잠시 후 다시 시도해 주세요.')
         }
       })
     },

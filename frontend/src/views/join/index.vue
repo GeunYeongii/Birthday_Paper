@@ -127,7 +127,7 @@ export default {
           this.$refs.alert.open('회원가입 실패','생년월일을 입력해 주세요.')
           return
         }
-        
+
         joinStart(this.joinData).then(response => {
           if (response.code == 20000) {
             this.$router.push('/main').catch(() => {})
