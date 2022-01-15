@@ -21,9 +21,10 @@
       <v-col no-gutters cols="12" class="pl-12 pr-12">
         <v-card width="90vw" class="m-auto shadow_eft">
           <v-card-text>
-            <form ref="joinForm">
+            <v-form ref="joinForm">
               <v-row no-gutters>
                 <v-text-field
+                  v-model="joinData.id"
                   label="ID"
                   color="secondary"
                   :rules="rules"
@@ -32,20 +33,25 @@
               </v-row>
               <v-row no-gutters>
                 <v-text-field
+                  v-model="joinData.pw"
                   label="PW"
+                  :type="'password'"
                   :rules="rules"
                   hide-details
                 ></v-text-field>
               </v-row>
               <v-row no-gutters>
                 <v-text-field
+                  v-model="checkPw"
                   label="PW 체크"
-                  :rules="rules"
+                  :type="'password'"
+                  :rules="pwCheckRules"
                   hide-details
                 ></v-text-field>
               </v-row>
               <v-row no-gutters>
                 <v-text-field
+                  v-model="joinData.nickNm"
                   label="닉네임"
                   :rules="rules"
                   hide-details
@@ -53,14 +59,18 @@
               </v-row>
               <v-row no-gutters>
                 <v-text-field
+                  v-model="joinData.birth"
                   label="생년월일"
+                  :type="'date'"
                   :rules="rules"
                   hide-details
                 ></v-text-field>
               </v-row>
               <v-row no-gutters>
                 <v-text-field
+                  v-model="joinData.profileImg"
                   label="프로필 이미지"
+                  :type="'file'"
                   hide-details
                 ></v-text-field>
               </v-row>
@@ -69,7 +79,7 @@
                   회원가입
                 </v-btn>
               </v-row>
-            </form>
+            </v-form>
           </v-card-text>
         </v-card>
       </v-col>
@@ -78,6 +88,7 @@
 </template>
 
 <script>
+import { joinStart } from '@/api/join'
 
 export default {
   name: 'Join',
@@ -86,6 +97,18 @@ export default {
       rules: [
         value => !!value || 'Required.',
       ],
+      pwCheckRules: [
+        value => !!value || 'Required.',
+        value => value == this.joinData.pw || 'Required.',
+      ],
+      joinData: {
+        id:'',
+        pw:'',
+        nickNm:'',
+        birth:'',
+        profileImg:[]
+      },
+      checkPw:''
     }
   },
   created () {
@@ -97,7 +120,18 @@ export default {
       this.$router.push('/').catch(() => {})
     },
     joinStart(){
-      
+      if (this.$refs.joinForm.validate()) {
+        joinStart(this.joinData).then(response => {
+          if (response.code == 20000) {
+            console.log('회원가입 성공')
+            this.$router.push('/main').catch(() => {})
+          } else {
+            console.error('회원가입 실패')
+          }
+        })
+      } else {
+        console.error('빈 값을 넣어주세요')
+      }
     }
   }
 }
