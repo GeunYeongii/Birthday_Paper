@@ -19,7 +19,7 @@
 
         <div v-if="totalCount > 0">
           <div class="txtC_474775">
-            <p class="pt-5">♥{{totalCount}}개의 편지가 도착했어요♥</p>
+            <p class="pt-5 main_title">♥{{totalCount}}개의 편지가 도착했어요♥</p>
           </div>
 
           <v-card flat tile>
@@ -69,7 +69,7 @@
     </v-col>
 
     <card-detail ref="cardDetail"></card-detail>
-
+    <s-alert ref="alert"></s-alert>
   </div>
 </template>
 
@@ -120,7 +120,7 @@ export default {
           this.totalCount = response.data.totalCount
           this.letterList = response.data.letterList
         } else {
-          console.log('데이터 조회 실패')
+          this.$refs.alert.open('데이터 조회 실패','카드정보를 불러오지 못했어요.<br>잠시 후 다시 시도해 주세요.')
         }
       })
     },
