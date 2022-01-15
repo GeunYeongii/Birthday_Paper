@@ -1,5 +1,5 @@
 <template>
-  <v-app class="jua_font">
+  <v-app>
     <router-view></router-view>
   </v-app>
 </template>

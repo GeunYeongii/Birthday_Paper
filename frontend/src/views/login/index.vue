@@ -51,7 +51,7 @@
       </v-col>
 
       <p class="text-center mt-4 txtC_474775">
-        Don't have an account? <span class="text-decoration-underline" @click="goJoin()">Sign Up.</span>
+        Don't have an account? <span class="text-decoration-underline cursor_pointer" @click="goJoin()">Sign Up.</span>
       </p>
 
     </v-row>
