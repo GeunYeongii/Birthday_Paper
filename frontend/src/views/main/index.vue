@@ -19,7 +19,7 @@
 
         <div v-if="totalCount > 0">
           <div class="txtC_474775">
-            <p class="pt-5">♥{{totalCount}}개의 편지가 도착했어요♥</p>
+            <p class="pt-5 main_title">♥{{totalCount}}개의 편지가 도착했어요♥</p>
           </div>
 
           <v-card flat tile>

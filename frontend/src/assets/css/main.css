@@ -61,6 +61,10 @@ html { max-width: 600px; max-height: 100vh; margin: auto; background: linear-gra
   margin: auto;
 }
 
+.cursor_pointer {
+  cursor:pointer
+}
+
 /* 반응형 Css */
 @media screen and (max-width: 400px) {
   .v-btn__content { font-size: 16px; }
@@ -86,6 +90,7 @@ html { max-width: 600px; max-height: 100vh; margin: auto; background: linear-gra
   .profile_name{ margin-top: 1rem; }
   .menu_icon{ margin-top: 0.1rem; }
   .mypage_profile{ width: 100px; }
+  .main_title { font-size: 15px;}
 }
 
 @media screen and (min-width: 400px) {
@@ -126,6 +131,7 @@ html { max-width: 600px; max-height: 100vh; margin: auto; background: linear-gra
   .mypage_profile{ width: 150px; }
   .myPage .v-list-item__subtitle { font-size: 16px; }
   .myPage .history_title { font-size: 16px; }
+  .main_title { font-size: 20px;}
 }
 
 @media screen and (max-height: 700px) {

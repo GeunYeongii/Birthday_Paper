@@ -6,7 +6,7 @@
 <template>
   <div class="header">
     <v-row no-gutters class="text-center mt-2">
-      <v-col cols="8" offset="2" @click="goMain()">
+      <v-col class="cursor_pointer" cols="8" offset="2" @click="goMain()">
         <p class="h6 text_logo mt-5 txtC_474775">BIRTHDAY PAPER</p>
       </v-col>
       <v-col cols="2">
@@ -21,10 +21,10 @@
     >
       <v-row no-gutters class="text-center mt-2">
         <v-col cols="12">
-          <p class="h6 text_logo mt-5 txtC_474775" @click="goMain()">BIRTHDAY PAPER</p>
+          <p class="h6 text_logo mt-5 cursor_pointer txtC_474775" @click="goMain()">BIRTHDAY PAPER</p>
 
-          <v-img class="profile_img mt-1" src="https://randomuser.me/api/portraits/men/78.jpg" @click="goMyPage()"></v-img>
-          <p class="h6 profile_name txtC_474775" @click="goMyPage()">000 님</p>
+          <v-img class="profile_img mt-1 cursor_pointer" src="https://randomuser.me/api/portraits/men/78.jpg" @click="goMyPage()"></v-img>
+          <p class="h6 profile_name cursor_pointer txtC_474775" @click="goMyPage()">000 님</p>
 
           <v-btn text color="secondary" @click="logout()">
             로그아웃

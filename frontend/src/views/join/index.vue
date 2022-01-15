@@ -9,7 +9,7 @@
 
       <v-col no-gutters cols="12" class="text-center">
         <v-img
-          class="m-auto mt-4 mb-2"
+          class="m-auto mt-4 mb-2 cursor_pointer"
           max-width="125px"
           width="23vw"
           src="@/assets/img/cake.png"
