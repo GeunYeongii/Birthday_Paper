@@ -10,9 +10,7 @@
         <div class="text-center cardDetail txtC_474775">
           <h6>{{userName}} 님이 보낸 편지입니다</h6>
           
-          <p>
-            {{letterContents}}
-          </p>
+            <p v-html="letterContents"></p>
         </div>
         
         <v-col no-gutters cols="12" class="cardDetail-footer text-center">
@@ -29,9 +27,7 @@
         <div class="text-center cardDetail txtC_474775">
           <h6>{{userName}} 님이 보낸 편지입니다</h6>
           
-          <p>
-            {{letterContents}}
-          </p>
+            <p v-html="letterContents"></p>
         </div>
         
         <v-col no-gutters cols="12" class="cardDetail-footer text-center">
@@ -48,9 +44,7 @@
         <div class="text-center cardDetail txtC_474775">
           <h6>{{userName}} 님이 보낸 편지입니다</h6>
           
-          <p>
-            {{letterContents}}
-          </p>
+            <p v-html="letterContents"></p>
         </div>
         
         <v-col no-gutters cols="12" class="cardDetail-footer text-center">
@@ -67,9 +61,7 @@
         <div class="text-center cardDetail txtC_474775">
           <h6>{{userName}} 님이 보낸 편지입니다</h6>
           
-          <p>
-            {{letterContents}}
-          </p>
+            <p v-html="letterContents"></p>
         </div>
         
         <v-col no-gutters cols="12" class="cardDetail-footer text-center">
@@ -109,7 +101,7 @@ export default {
     open(letter,idx) {
       this.openDialog(idx)
       this.userName = letter.userNm
-      this.letterContents = letter.letterContent
+      this.letterContents = letter.letterContent.replace(/\n/g, "<br />")
     },
     close() {
       this.cardDetailDialog1= false
