@@ -20,7 +20,7 @@
       <v-col no-gutters cols="12" class="pl-12 pr-12">
         <v-card width="90vw" class="m-auto shadow_eft">
           <v-card-text>
-            <form ref="joinForm">
+            <v-form ref="loginForm">
               <v-row no-gutters>
                 <v-text-field
                   class="m-0 p-0"
@@ -45,7 +45,7 @@
                   로그인
                 </v-btn>
               </v-row>
-            </form>
+            </v-form>
           </v-card-text>
         </v-card>
       </v-col>
@@ -55,10 +55,13 @@
       </p>
 
     </v-row>
+
+    <s-alert ref="alert"></s-alert>
   </div>
 </template>
 
 <script>
+import { loginStart } from '@/api/user'
 
 export default {
   name: 'Login',
@@ -73,7 +76,17 @@ export default {
   },
   methods: {
     loginStart(){
-      this.$router.push('/main').catch(() => {})
+      if (this.$refs.loginForm.validate()) {
+        loginStart({ id: this.id, pw: this.password }).then(response => {
+          if (response.code == 20000) {
+            this.$router.push('/main').catch(() => {})
+          } else {
+            this.$refs.alert.open('로그인 실패','로그인에 실패 하였습니다.')
+          }
+        })
+      } else {
+        this.$refs.alert.open('로그인 실패','아이디 / 패스워드를 입력해주세요.')
+      }
     },
     goIntro(){
       this.$router.push('/').catch(() => {})

@@ -7,3 +7,11 @@ export function joinStart (params) {
     data: params
   })
 }
+
+export function loginStart (params) {
+  return request({
+    url: '/user/loginStart',
+    method: 'POST',
+    data: params
+  })
+}
