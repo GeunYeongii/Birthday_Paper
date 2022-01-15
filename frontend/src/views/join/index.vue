@@ -27,7 +27,7 @@
                   v-model="joinData.id"
                   label="ID"
                   color="secondary"
-                  :rules="rules"
+                  :rules="textRules"
                   hide-details
                 ></v-text-field>
               </v-row>
@@ -36,7 +36,7 @@
                   v-model="joinData.pw"
                   label="PW"
                   :type="'password'"
-                  :rules="rules"
+                  :rules="textRules"
                   hide-details
                 ></v-text-field>
               </v-row>
@@ -53,26 +53,23 @@
                 <v-text-field
                   v-model="joinData.nickNm"
                   label="닉네임"
-                  :rules="rules"
+                  :rules="textRules"
                   hide-details
                 ></v-text-field>
               </v-row>
-              <v-row no-gutters>
-                <v-text-field
+              <v-row no-gutters class="mt-2">
+                <date-picker
                   v-model="joinData.birth"
                   label="생년월일"
-                  :type="'date'"
-                  :rules="rules"
-                  hide-details
-                ></v-text-field>
+                  :rules="textRules"
+                  range/>
               </v-row>
               <v-row no-gutters>
-                <v-text-field
+                <v-file-input
                   v-model="joinData.profileImg"
                   label="프로필 이미지"
-                  :type="'file'"
                   hide-details
-                ></v-text-field>
+                ></v-file-input>
               </v-row>
               <v-row no-gutters class="mt-4">
                 <v-btn text color="secondary" @click="joinStart()">
@@ -89,13 +86,18 @@
 
 <script>
 import { joinStart } from '@/api/join'
+import datePicker  from '@/components/datePicker'
 
 export default {
   name: 'Join',
+  components: {
+    datePicker
+  },
   data () {
     return {
-      rules: [
-        value => !!value || 'Required.',
+      /* Rules */
+      textRules: [
+				v => !!v || '필수 입력값입니다. 입력해주세요.',
       ],
       pwCheckRules: [
         value => !!value || 'Required.',
