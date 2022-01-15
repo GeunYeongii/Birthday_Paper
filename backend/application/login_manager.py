@@ -1,7 +1,7 @@
 from flask import jsonify, request, render_template, make_response, session, current_app
 from flask_login import LoginManager, current_user, login_required, login_user, logout_user
 from flask import current_app
-from .control.user_mgmt import User
+from .common.user_mgmt import User
 
 login_manager = LoginManager()
 login_manager.init_app(login_manager.init_app(current_app))
