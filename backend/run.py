@@ -1,4 +1,4 @@
-from application import app;
+from app import app;
 
 if not app.debug:   # debug=False 모드 일 때 Product Mode 전환 후 로그 기록
     import logging
