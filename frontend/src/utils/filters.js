@@ -13,28 +13,28 @@ export function setCardDesign(idx) {
   var classCss = ''
   switch(idx) {
     case 0:
-      classCss = 'm-auto shadow_eft mt-3'
+      classCss = 'm-auto shadow_eft mt-3 cursor_pointer'
       break
     case 1:
-      classCss = 'm-auto shadow_eft card_angle mt-3'
+      classCss = 'm-auto shadow_eft card_angle mt-3 cursor_pointer'
       break
     case 2:
-      classCss = 'm-auto shadow_eft'
+      classCss = 'm-auto shadow_eft cursor_pointer'
       break
     case 3:
-      classCss = 'm-auto shadow_eft mt-3'
+      classCss = 'm-auto shadow_eft mt-3 cursor_pointer'
       break
     case 4:
-      classCss = 'm-auto shadow_eft mt-4'
+      classCss = 'm-auto shadow_eft mt-4 cursor_pointer'
       break
     case 5:
-      classCss = 'm-auto shadow_eft mt-6'
+      classCss = 'm-auto shadow_eft mt-6 cursor_pointer'
       break
     case 6:
-      classCss = 'm-auto shadow_eft mt-4'
+      classCss = 'm-auto shadow_eft mt-4 cursor_pointer'
       break
     case 7:
-      classCss = 'm-auto shadow_eft card_angle mt-4'
+      classCss = 'm-auto shadow_eft card_angle mt-4 cursor_pointer'
       break
   }
   return classCss
