@@ -1,5 +1,6 @@
 from flask import jsonify, request
 from flask import Blueprint
+from ..common.user_mgmt import User
 
 user = Blueprint("user", __name__, url_prefix="/user")
 
@@ -14,6 +15,9 @@ def joinStart():
     nickNm = request_data['nickNm']
     birth = request_data['birth']
     profileImg = request_data['profileImg']
+    
+    User.create(id, pw, nickNm, birth, profileImg)
+    
     
     data = { 'code' : 20000 }
     return jsonify(data)
