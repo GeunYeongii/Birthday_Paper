@@ -24,4 +24,16 @@ class User(db.Model, UserMixin):
     
     email = db.Column(db.String(255, collation='utf8mb4_0900_ai_ci'), nullable=True, unique=True)
     
-
+class Card(db.Model, UserMixin):
+    __tablename__ = 'card'
+    id = db.Column(db.Integer, primary_key=True)
+    
+    # User authentication information
+    sender_nm = db.Column(db.String(500), nullable=True)
+    receiver_nm = db.Column(db.String(500), nullable=True)
+    receiver_id = db.Column(db.Integer, nullable=True)
+    card_msg = db.Column(db.String(500), nullable=True, unique=True)
+    c_date = db.Column(db.String(50), nullable=True, unique=True)
+    timestamp = db.Column(db.String(50), nullable=True, unique=True)
+    
+    
