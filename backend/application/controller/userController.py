@@ -2,7 +2,7 @@ from flask import jsonify, request
 from flask import Blueprint
 from ..common.UserMgmt import UserMgmt
 from ..common.Message import Message
-import hashlib
+import hashlib, jwt
 
 user = Blueprint("user", __name__, url_prefix="/user")
 
@@ -43,10 +43,24 @@ def loginStart():
     userEmail = request_data['email']
     userPw = request_data['pw']
 
+
     user = UserMgmt.findUserEmail(userEmail)
     if user is not None:
       if check_password(userPw, user['USER_PW']):
-        Result = { 'code' : 20000, 'message' : Message.Login.success.value }
+        token = jwt.encode(
+          {
+            "email":user['USER_EMAIL'],
+            "nickName":user['NICKNAME'],
+          },
+          "secret",
+          algorithm="HS256"
+        )
+
+        Result = { 
+          'code' : 20000,
+          'message' : Message.Login.success.value,
+          'data' : user,
+          'Authorization' : token }
       else:
         Result = { 'code' : 50000, 'message' : Message.Login.differentPasswords.value }
     else:
