@@ -1,5 +1,8 @@
 # __pycache__ 실행파일 무시
 *.pyc
 
+# pycache log 무시
+*.log
+
 # package-lock.json 삭제
 package-lock.json
