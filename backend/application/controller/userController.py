@@ -2,7 +2,11 @@ from flask import jsonify, request
 from flask import Blueprint
 from ..common.UserMgmt import UserMgmt
 from ..common.Message import Message
-import hashlib, jwt
+import hashlib, datetime
+from flask_jwt_extended import (
+    JWTManager, jwt_required, create_access_token, get_jwt_identity, unset_jwt_cookies, create_refresh_token, 
+    # jwt_refresh_token_required
+)
 
 user = Blueprint("user", __name__, url_prefix="/user")
 
@@ -47,20 +51,16 @@ def loginStart():
     user = UserMgmt.findUserEmail(userEmail)
     if user is not None:
       if check_password(userPw, user['USER_PW']):
-        token = jwt.encode(
-          {
-            "email":user['USER_EMAIL'],
-            "nickName":user['NICKNAME'],
-          },
-          "secret",
-          algorithm="HS256"
-        )
+
+        delta = datetime.timedelta(days = 1)
+        access_token = create_access_token(identity = user['USER_EMAIL'], expires_delta = delta)
+        # refresh_token = create_refresh_token(identity = user['USER_EMAIL'], expires_delta = delta)
 
         Result = { 
           'code' : 20000,
           'message' : Message.Login.success.value,
           'data' : user,
-          'Authorization' : token }
+          'access_token' : access_token }
       else:
         Result = { 'code' : 50000, 'message' : Message.Login.differentPasswords.value }
     else:

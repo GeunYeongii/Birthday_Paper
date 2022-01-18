@@ -35,7 +35,7 @@ const user = {
         loginStart({ email: userInfo.email, pw: userInfo.pw }).then(response => {
           if (response.code == 20000) {
             const data = response.data
-            commit('SET_TOKEN', response.Authorization)
+            commit('SET_TOKEN', response.access_token)
             commit('SET_IDX', data.IDX)
             commit('SET_EMAIL', data.USER_EMAIL)
             commit('SET_NICK_NAME', data.NICKNAME)
