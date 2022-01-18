@@ -21,7 +21,7 @@
         :rules="rules"
       ></v-text-field>
   </template>
-    <v-date-picker v-model="date" :value="value" @input="getDate" :range="range" locale="ko" :allowed-dates="allowedDates" color="#f95f43">
+    <v-date-picker v-model="date" :value="value" @input="getDate" :range="range" locale="ko" :allowed-dates="allowedDates" color="#474775">
       <v-spacer></v-spacer>
       <v-btn text color="primary" @click="visible = false">취소</v-btn>
       <v-btn text color="primary" @click="$refs.dialog.save(date)">확인</v-btn>
