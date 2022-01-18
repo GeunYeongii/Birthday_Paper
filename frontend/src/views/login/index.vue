@@ -24,8 +24,8 @@
               <v-row no-gutters>
                 <v-text-field
                   class="m-0 p-0"
-                  v-model="id"
-                  label="ID"
+                  v-model="email"
+                  label="EMAIL"
                   :rules="rules"
                   hide-details
                 ></v-text-field>
@@ -67,7 +67,7 @@ export default {
   name: 'Login',
   data () {
     return {
-      id: '',
+      email: '',
       password: '',
       rules: [
         value => !!value || '필수값 입니다',
@@ -77,11 +77,11 @@ export default {
   methods: {
     loginStart(){
       if (this.$refs.loginForm.validate()) {
-        loginStart({ id: this.id, pw: this.password }).then(response => {
+        loginStart({ email: this.email, pw: this.password }).then(response => {
           if (response.code == 20000) {
             this.$router.push('/main').catch(() => {})
           } else {
-            this.$refs.alert.open('로그인 실패','로그인에 실패 하였습니다.')
+            this.$refs.alert.open('로그인 실패', response.message)
           }
         })
       } else {
