@@ -24,11 +24,10 @@
           <v-form ref="joinForm">
             <v-row no-gutters>
               <v-text-field
-                v-model="joinData.id"
-                label="ID"
+                v-model="joinData.email"
+                label="EMAIL"
                 color="secondary"
-                :rules="textRules"
-                hide-details
+                :rules="emailRules"
               ></v-text-field>
             </v-row>
             <v-row no-gutters>
@@ -37,7 +36,6 @@
                 label="PW"
                 :type="'password'"
                 :rules="textRules"
-                hide-details
               ></v-text-field>
             </v-row>
             <v-row no-gutters>
@@ -46,7 +44,6 @@
                 label="PW 체크"
                 :type="'password'"
                 :rules="pwCheckRules"
-                hide-details
               ></v-text-field>
             </v-row>
             <v-row no-gutters>
@@ -54,7 +51,6 @@
                 v-model="joinData.nickNm"
                 label="닉네임"
                 :rules="textRules"
-                hide-details
               ></v-text-field>
             </v-row>
             <v-row no-gutters class="mt-2">
@@ -99,12 +95,17 @@ export default {
       textRules: [
 				v => !!v || '필수 입력값입니다. 입력해주세요.',
       ],
-      pwCheckRules: [
-        value => !!value || 'Required.',
-        value => value == this.joinData.pw || 'Required.',
+      emailRules: [
+				v => !!v || '필수 입력값입니다. 입력해주세요.',
+				v => /.+@.+\..+/.test(v) || '이메일 형식을 확인 해주세요.',
       ],
+      pwCheckRules: [
+        v => !!v || '필수 입력값입니다. 입력해주세요.',
+        v => v == this.joinData.pw || '비밀번호가 다릅니다.',
+      ],
+
       joinData: {
-        id:'',
+        email:'',
         pw:'',
         nickNm:'',
         birth:'',
@@ -132,7 +133,7 @@ export default {
           if (response.code == 20000) {
             this.$router.push('/main').catch(() => {})
           } else {
-            this.$refs.alert.open('회원가입 실패','회원가입에 실패 하였습니다.')
+            this.$refs.alert.open('회원가입 실패',response.message)
           }
         })
       } else {

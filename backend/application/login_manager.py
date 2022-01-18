@@ -1,17 +1,16 @@
-from flask import jsonify, request, render_template, make_response, session, current_app
-from flask_login import LoginManager, current_user, login_required, login_user, logout_user
+from flask import jsonify, request, make_response, session, current_app
+from flask_login import LoginManager
 from flask import current_app
-from .common.user_mgmt import User
+from .common.UserMgmt import UserMgmt
 
 login_manager = LoginManager()
 login_manager.init_app(login_manager.init_app(current_app))
 login_manager.session_protection = 'strong'
 
 
-
 @login_manager.user_loader
 def load_user(user_id):
-    return User.get(user_id)
+    return UserMgmt.get(user_id)
 
 
 @login_manager.unauthorized_handler

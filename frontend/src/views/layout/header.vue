@@ -86,7 +86,9 @@ export default {
       }
     },
     logout() {
-      console.log('로그아웃버튼')
+      this.$store.dispatch('LogOut').then(() => {
+        this.$router.push('/').catch(() => {})
+      })
     },
     toggleDialog() {
       this.menuDialog = !this.menuDialog

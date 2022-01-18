@@ -1,6 +1,5 @@
 from flask import Flask
 from flask_cors import CORS
-from . import main
 from .controller.letterController import letter
 from .controller.userController import user
 import os
@@ -11,7 +10,6 @@ app = Flask(__name__)
 CORS(app)
 app.secret_key = 'cky0935'
 
-app.register_blueprint(main.main)
 app.register_blueprint(letter)
 app.register_blueprint(user)
 

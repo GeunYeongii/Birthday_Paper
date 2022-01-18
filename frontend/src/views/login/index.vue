@@ -24,9 +24,9 @@
               <v-row no-gutters>
                 <v-text-field
                   class="m-0 p-0"
-                  v-model="id"
-                  label="ID"
-                  :rules="rules"
+                  v-model="email"
+                  label="EMAIL"
+                  :rules="emailRules"
                   hide-details
                 ></v-text-field>
               </v-row>
@@ -36,7 +36,7 @@
                   v-model="password"
                   label="PW"
                   :type="'password'"
-                  :rules="rules"
+                  :rules="textRules"
                   hide-details
                 ></v-text-field>
               </v-row>
@@ -61,28 +61,27 @@
 </template>
 
 <script>
-import { loginStart } from '@/api/user'
 
 export default {
   name: 'Login',
   data () {
     return {
-      id: '',
+      email: '',
       password: '',
-      rules: [
-        value => !!value || '필수값 입니다',
+      textRules: [
+				v => !!v || '필수 입력값입니다. 입력해주세요.',
+      ],
+      emailRules: [
+				v => !!v || '필수 입력값입니다. 입력해주세요.',
+				v => /.+@.+\..+/.test(v) || '이메일 형식을 확인 해주세요.',
       ],
     }
   },
   methods: {
     loginStart(){
       if (this.$refs.loginForm.validate()) {
-        loginStart({ id: this.id, pw: this.password }).then(response => {
-          if (response.code == 20000) {
-            this.$router.push('/main').catch(() => {})
-          } else {
-            this.$refs.alert.open('로그인 실패','로그인에 실패 하였습니다.')
-          }
+        this.$store.dispatch('Login', { email: this.email, pw: this.password }).then(() => {
+          this.$router.push('/main').catch(() => {})
         })
       } else {
         this.$refs.alert.open('로그인 실패','아이디 / 패스워드를 입력해주세요.')

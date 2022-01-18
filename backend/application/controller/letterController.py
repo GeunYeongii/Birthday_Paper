@@ -1,6 +1,6 @@
 from flask import jsonify, request
 from flask import Blueprint
-from flask.helpers import make_response
+from ..common.UserMgmt import UserMgmt
 
 letter = Blueprint("letter", __name__, url_prefix="/letter")
 
