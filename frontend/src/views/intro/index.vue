@@ -57,8 +57,9 @@
       <v-btn text color="secondary" @click="goJoin()">
         회원가입
       </v-btn>
-
     </v-row>
+
+    <s-spinner ref="spinner"></s-spinner>
   </div>
 </template>
 
@@ -72,10 +73,16 @@ export default {
   },
   methods: {
     goLogin() {
-      this.$router.push('/login').catch(() => {})
+      this.$refs.spinner.open()
+      this.$router.push('/login').then(() => {
+        this.$refs.spinner.close()
+      }).catch(() => {})
     },
     goJoin() {
-      this.$router.push('/join').catch(() => {})
+      this.$refs.spinner.open()
+      this.$router.push('/join').then(() => {
+        this.$refs.spinner.close()
+      }).catch(() => {})
     }
   }
 }
