@@ -81,7 +81,6 @@ import { kakaoShare } from '@/utils/share'
 import { setMainCss, setCardDesign, setCardSrc } from '@/utils/filters'
 import { getLetterList } from '@/api/letter'
 
-
 export default {
   name: 'Main',
   components: {
@@ -114,13 +113,13 @@ export default {
   methods: {
     getLetterList() {
       // [TODO] 로그인 한 user idx 값으로 데이터 조회
-      getLetterList({userIdx: 1}).then(response => {
+      getLetterList().then(response => {
         if (response.code == 20000) {
           this.totalPage = response.data.totalPage
           this.totalCount = response.data.totalCount
           this.letterList = response.data.letterList
         } else {
-          this.$refs.alert.open('데이터 조회 실패','카드정보를 불러오지 못했어요.<br>잠시 후 다시 시도해 주세요.')
+          this.$refs.alert.open('데이터 조회 실패','카드정보를 불러오지 못했어요. 잠시 후 다시 시도해 주세요.')
         }
       })
     },

@@ -1,14 +1,17 @@
 from flask import jsonify, request
 from flask import Blueprint
+from functools import wraps
+
+from ..common.JwtService import JwtService
 from ..model.UserRepository import UserRepository
 
 letter = Blueprint("letter", __name__, url_prefix="/letter")
 
 @letter.route("/getLetterList", methods=['POST'])
-def getLetterList():
+@JwtService.checkJwtRequired
+def getLetterList(userEmail):
   try:
-    request_data = request.get_json()
-    userIdx = request_data['userIdx']
+    print('userEmail',userEmail)
 
     # [TODO] 데이터 베이스 서버 오픈되면 실 데이터 주고 받는거 테스트 해야함
     # 받은 user idx 값으로 user 데이터 조회
@@ -47,13 +50,7 @@ def getLetterList():
       },
       'code' : 20000
     }
-    
-    # for page in data['data']['letterList'] :
-    #   for List in page :
-    #     List['letterContent'].replace('안녕','시발') 
 
-    
-    
     return jsonify(data)
 
   except Exception as e:
