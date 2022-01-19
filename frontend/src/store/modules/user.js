@@ -1,10 +1,11 @@
 /* eslint-disable */
 import { loginStart } from '@/api/user'
-import { getToken, setToken, removeToken } from '@/utils/auth'
+import { getAcToken, setAcToken, removeAcToken, getRfToken, setRfToken, removeRfToken } from '@/utils/auth'
 
 const user = {
   state: {
-    token: getToken(),
+    actoken: getAcToken(),
+    rftoken: getRfToken(),
     idx: '',
     email: '',
     nickname: '',
@@ -12,8 +13,11 @@ const user = {
   },
 
   mutations: {
-    SET_TOKEN: (state, token) => {
-      state.token = token
+    SET_ACTOKEN: (state, actoken) => {
+      state.actoken = actoken
+    },
+    SET_RFTOKEN: (state, rftoken) => {
+      state.rftoken = rftoken
     },
     SET_IDX: (state, idx) => {
       state.idx = idx
@@ -35,11 +39,14 @@ const user = {
         loginStart({ email: userInfo.email, pw: userInfo.pw }).then(response => {
           if (response.code == 20000) {
             const data = response.data
-            commit('SET_TOKEN', response.access_token)
+            commit('SET_ACTOKEN', response.accessToken)
+            commit('SET_RFTOKEN', response.refreshToken)
             commit('SET_IDX', data.IDX)
             commit('SET_EMAIL', data.USER_EMAIL)
             commit('SET_NICK_NAME', data.NICKNAME)
             commit('SET_BIRTH', data.BIRTH)
+            setAcToken(response.accessToken)
+            setRfToken(response.refreshToken)
             resolve()
           } else {
             console.error('로그인 실패', response.message)
@@ -53,15 +60,25 @@ const user = {
     },
     LogOut({ commit, state }) {
       return new Promise((resolve) => {
-        commit('SET_TOKEN', '')
+        commit('SET_ACTOKEN', '')
+        commit('SET_RFTOKEN', '')
         commit('SET_IDX', '')
         commit('SET_EMAIL', '')
         commit('SET_NICK_NAME', '')
         commit('SET_BIRTH', '')
-        removeToken()
+        removeAcToken()
+        removeRfToken()
         resolve()
       })
     },
+    RefreshActoken({ commit }, actoken){
+      return new Promise((resolve) => {
+        commit('SET_ACTOKEN', '')
+        commit('SET_ACTOKEN', actoken)
+        setAcToken(actoken)
+        resolve()
+      })
+    }
   }
 }
 
