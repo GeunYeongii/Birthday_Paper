@@ -12,8 +12,8 @@ const request = axios.create({
 // axios 모든 요청 보내기전에 수행
 request.interceptors.request.use(function (config) {
   if (store.getters.rftoken) {
-    config.headers.Authorization = 'Bearer ' + getAcToken()
-    config.headers.rfToken = 'Bearer ' + getRfToken()
+    config.headers.access_token = getAcToken()
+    config.headers.refresh_token = getRfToken()
   }
   return config;
 }, function (error) {
