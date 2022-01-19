@@ -9,9 +9,15 @@ letter = Blueprint("letter", __name__, url_prefix="/letter")
 
 @letter.route("/getLetterList", methods=['POST'])
 @JwtService.checkJwtRequired
-def getLetterList(user, token=None):
+def getLetterList(user=None, token=None):
   try:
-    print(user, token)
+    if (user) and (token is None):
+      print('access 토큰 유효 Refresh 토큰 유효')
+    elif (user) and (token):
+      print('access 토큰 만료 Refresh 토큰 유효 => access 재발행')
+    else:
+      print('access 토큰 만료 Refresh 토큰 만료')
+      
     # [TODO] 데이터 베이스 서버 오픈되면 실 데이터 주고 받는거 테스트 해야함
     # 받은 user idx 값으로 user 데이터 조회
     # user 데이터로 card_data 에서 해당 user가 받은 card list 조회 
