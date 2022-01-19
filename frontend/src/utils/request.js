@@ -1,18 +1,33 @@
 import axios from 'axios'
+import store from '@/store'
+import { getAcToken, getRfToken } from '@/utils/auth'
 
-const service = axios.create({
+const request = axios.create({
   baseURL: process.env.VUE_APP_REQUEST_URL,
-  timeout: 180000,
+  timeout: 1000 * 60 * 3,
   headers: {
     'Content-Type': 'application/json'
   }
 })
+// axios 모든 요청 보내기전에 수행
+request.interceptors.request.use(function (config) {
+  if (store.getters.rftoken) {
+    config.headers.access_token = getAcToken()
+    config.headers.refresh_token = getRfToken()
+  }
+  return config;
+}, function (error) {
+  return Promise.reject(error);
+});
 
-service.interceptors.response.use(response => {
-  return response.data
-}, error => {
-  console.log(error)
-})
-  
-export default service
-  
+// axios 모든 응답 리턴전에 수행
+request.interceptors.response.use(function (response) {
+  return response.data;
+}, function (error) {
+  if (error.response.status === 401) {
+    console.log('토큰 검증 실패')
+  }
+  return Promise.reject(error);
+});
+
+export default request

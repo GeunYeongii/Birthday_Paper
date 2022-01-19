@@ -9,7 +9,7 @@ const whiteList = [
 ]
 
 router.beforeEach((to, from, next) => {
-  if (store.getters.token) {
+  if (store.getters.actoken) {
     if (whiteList.indexOf(to.path) !== -1) {
       next('/main')
     } else {
