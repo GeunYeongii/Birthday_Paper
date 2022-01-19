@@ -1,14 +1,14 @@
 import pymysql
 
-MYSQL_HOST = '211.47.75.102'
+MYSQL_HOST = 'localhost'
 class Database():
   def __init__(self):
     self.db = pymysql.connect(
       host=MYSQL_HOST,
       port=3306,
-      user='public0917',
-      passwd='public2423!',
-      db='dbpublic0917',
+      user='root',
+      passwd='dldPekfa1!',
+      db='birthday_paper',
       charset='utf8'
     )
     self.cursor = self.db.cursor(pymysql.cursors.DictCursor)
