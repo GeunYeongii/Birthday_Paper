@@ -118,8 +118,13 @@ export default {
           this.totalPage = response.data.totalPage
           this.totalCount = response.data.totalCount
           this.letterList = response.data.letterList
+
+          if (response.token){
+            this.$store.dispatch('RefreshActoken', response.token)
+          }
         } else {
-          this.$refs.alert.open('데이터 조회 실패','카드정보를 불러오지 못했어요. 잠시 후 다시 시도해 주세요.')
+          this.$refs.alert.open('카드정보 조회 실패', response.message)
+          // 이후 login 으로 리다이렉트
         }
       })
     },

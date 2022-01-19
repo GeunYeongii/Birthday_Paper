@@ -13,7 +13,7 @@ class JwtService:
     return access_token
   
   def createRefreshToken(userEmail):
-    payload = {'userEmail': userEmail, 'exp': datetime.datetime.utcnow() +timedelta(seconds=30)}
+    payload = {'userEmail': userEmail, 'exp': datetime.datetime.utcnow() +timedelta(minutes=1)}
     refresh_token = jwt.encode(payload, "SECRET_KEY", algorithm="HS256")
     return refresh_token
   
@@ -39,6 +39,7 @@ class JwtService:
 
       if atuser:
         user = atuser
+        token = None
       elif rtuser:
         user = rtuser
         token = JwtService.createAccessToken(user['USER_EMAIL'])
