@@ -15,7 +15,7 @@ class CardRepository(UserMixin):
     print('== card_data findCardByReceiverIdx ==')
     try:
       db_class = Database()
-      sql = "SELECT * FROM card_data WHERE RECEIVER_IDX = '" + int(userIdx) + "'"
+      sql = "SELECT * FROM card_data WHERE RECEIVER_IDX = '" + str(userIdx) + "'"
       cardList = db_class.executeAll(sql)
       return dict(cardList)
     except Exception as e:

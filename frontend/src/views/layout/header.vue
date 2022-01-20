@@ -73,10 +73,10 @@ export default {
   },
   methods: {
     goMain() {
-      this.$router.push('/main').catch(() => {})
+      this.$router.push('/main')
     },
     goMyPage() {
-      this.$router.push('/myPage').catch(() => {})
+      this.$router.push('/myPage')
     },
     clickMenu(item) {
       if(this.$route.path!==item.path) {
@@ -87,7 +87,7 @@ export default {
     },
     logout() {
       this.$store.dispatch('LogOut').then(() => {
-        this.$router.push('/').catch(() => {})
+        this.$router.push('/')
       })
     },
     toggleDialog() {

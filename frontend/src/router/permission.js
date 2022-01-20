@@ -1,5 +1,6 @@
 import router from '@/router'
-import store from '@/store'
+
+import { getAcToken } from '@/utils/auth'
 
 // 토큰 검사 제외할 페이지
 const whiteList = [
@@ -9,21 +10,17 @@ const whiteList = [
 ]
 
 router.beforeEach((to, from, next) => {
-  if (store.getters.actoken) {
+  if (getAcToken()){
     if (whiteList.indexOf(to.path) !== -1) {
-      next('/main')
+      next({ path: '/main' })
     } else {
       next()
     }
   } else {
-    if (whiteList.indexOf(to.path) !== -1) {
-      next()
+    if (whiteList.indexOf(to.path) == -1) {
+      next('/login')
     } else {
-      if (store.getters.token) {
-        next()
-      } else {
-        next('/login')
-      }
+      next()
     }
   }
 })

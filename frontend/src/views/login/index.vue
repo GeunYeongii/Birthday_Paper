@@ -56,7 +56,7 @@
 
     </v-row>
 
-    <s-alert ref="alert"></s-alert>
+    <s-confirm ref="confirm"></s-confirm>
     <s-spinner ref="spinner"></s-spinner>
   </div>
 </template>
@@ -82,26 +82,32 @@ export default {
     loginStart(){
       if (this.$refs.loginForm.validate()) {
         this.$refs.spinner.open()
-        this.$store.dispatch('Login', { email: this.email, pw: this.password }).then(() => {
-          this.$router.push('/main').then(() => {
-            this.$refs.spinner.close()
-          }).catch(() => {})
+        this.$store.dispatch('Login', { email: this.email, pw: this.password }).then(response => {
+          this.$refs.spinner.close()
+          if (response.code == 20000) {
+            this.$router.push('/main')
+          } else {
+            this.$refs.confirm.open('alert','로그인 실패',response.message)
+          }
+        }).catch(e => {
+          this.$refs.spinner.close()
+          console.log(e)
         })
       } else {
-        this.$refs.alert.open('로그인 실패','아이디 / 패스워드를 입력해주세요.')
+        this.$refs.confirm.open('alert','로그인 실패','아이디 / 패스워드를 입력해주세요.')
       }
     },
     goIntro(){
       this.$refs.spinner.open()
       this.$router.push('/').then(() => {
         this.$refs.spinner.close()
-      }).catch(() => {})
+      })
     },
     goJoin(){
       this.$refs.spinner.open()
       this.$router.push('/join').then(() => {
         this.$refs.spinner.close()
-      }).catch(() => {})
+      })
     }
   }
 }

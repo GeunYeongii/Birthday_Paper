@@ -76,7 +76,7 @@
       </v-card>
     </v-col>
 
-    <s-alert ref="alert"></s-alert>
+    <s-confirm ref="confirm"></s-confirm>
   </div>
 </template>
 
@@ -120,24 +120,26 @@ export default {
   },
   methods: {
     goIntro(){
-      this.$router.push('/').catch(() => {})
+      this.$router.push('/')
     },
     joinStart(){
       if (this.$refs.joinForm.validate()) {
         if (this.joinData.birth == []) {
-          this.$refs.alert.open('회원가입 실패','생년월일을 입력해 주세요.')
+          this.$refs.confirm.open('alert','회원가입 실패','생년월일을 입력해 주세요.')
           return
         }
 
         joinStart(this.joinData).then(response => {
           if (response.code == 20000) {
-            this.$router.push('/main').catch(() => {})
+            this.$refs.confirm.open('alert','회원가입 성공',response.message).then(() => {
+              this.$router.push('/main')
+            })
           } else {
-            this.$refs.alert.open('회원가입 실패',response.message)
+            this.$refs.confirm.open('alert','회원가입 실패',response.message)
           }
         })
       } else {
-        this.$refs.alert.open('회원가입 실패','필수값을 채워주세요.')
+        this.$refs.confirm.open('alert','회원가입 실패','필수값을 채워주세요.')
       }
     }
   }

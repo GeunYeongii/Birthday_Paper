@@ -76,13 +76,13 @@ export default {
       this.$refs.spinner.open()
       this.$router.push('/login').then(() => {
         this.$refs.spinner.close()
-      }).catch(() => {})
+      })
     },
     goJoin() {
       this.$refs.spinner.open()
       this.$router.push('/join').then(() => {
         this.$refs.spinner.close()
-      }).catch(() => {})
+      })
     }
   }
 }

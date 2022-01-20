@@ -6,7 +6,7 @@ import vuetify from './plugins/vuetify'
 import VueCookies from "vue-cookies";
 import { mdiBullhornOutline } from '@mdi/js';
 // 공통으로 사용하는 컴포넌트
-import alert from '@/components/alert'
+import confirm from '@/components/confirm'
 import spinner from '@/components/spinner'
 import '@/router/permission'
 
@@ -14,7 +14,7 @@ import '@/assets/css/main.css'
 
 Vue.config.productionTip = false
 // 공통으로 사용하는 컴포넌트 등록
-Vue.component('s-alert', alert)
+Vue.component('s-confirm', confirm)
 Vue.component('s-spinner', spinner)
 
 Vue.use(VueCookies);
