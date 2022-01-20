@@ -19,7 +19,7 @@
 
         <div v-if="totalCount > 0">
           <div class="txtC_474775">
-            <p class="pt-5">♥{{totalCount}}개의 편지가 도착했어요♥</p>
+            <p class="pt-5 main_title">♥{{receiver.nickName}}님은 {{totalCount}}개의 편지를 받았어요♥</p>
           </div>
 
           <v-card flat tile>
@@ -28,8 +28,8 @@
                 <v-col no-gutters cols="12" class="mt-2 pl-3 pr-3">
                   <v-row no-gutters>
                     <v-col class="d-inline-block"  v-for="(letter, j) in letter" :key="`card-list-${j}`" @click="openUnableRead()">
-                      <v-img :class="j | setCardDesign" max-width="100" width="16vw" :src="letter.imgUrl">
-                        <div class="senderNm txtC_474775">{{letter.userNm}}</div>
+                      <v-img :class="j | setCardDesign" max-width="100" width="16vw" :src="j | setCardSrc">
+                        <div class="senderNm txtC_474775">{{letter.senderNm}}</div>
                       </v-img>
                     </v-col>
                   </v-row>
@@ -67,7 +67,6 @@
         작성하기
       </v-btn>
     </v-col>
-
     
     <v-dialog max-width="550" v-model="unableRead" content-class="elevation-0">
       <v-img src="@/assets/img/asset_8.png">
@@ -78,12 +77,12 @@
             class="unableReadImg"
             src="@/assets/img/sorry.png">
           </v-img>
-          
+
           <p>
             생일카드는 본인만 볼 수 있습니다!
           </p>
         </div>
-        
+
         <v-col no-gutters cols="12" class="unableRead-footer text-center">
           <v-btn text color="secondary" class="" @click="closeUnableRead()">
             확인
@@ -94,6 +93,7 @@
     </v-dialog>
 
     <write-detail ref="writeDetail"></write-detail>
+    <s-confirm ref="confirm"></s-confirm>
 
   </div>
 </template>
@@ -103,6 +103,7 @@ import SHeader from '@/views/layout/header'
 import writeDetail from '@/views/write/components/writeDetail'
 import { mdiCheck } from '@mdi/js'
 import { setMainCss, setCardDesign, setCardSrc } from '@/utils/filters'
+import { getNonMemberLetterList } from '@/api/letter'
 
 
 export default {
@@ -120,6 +121,7 @@ export default {
     return {
       unableRead: false,
       letterList: [],
+      receiver: [],
       totalCount: 0,
       totalPage: 0,
       pageKey: 0,
@@ -132,46 +134,20 @@ export default {
   created () {
   },
   mounted() {
-    this.getLetterList()
+    this.userIdx = this.$route.query.userIdx
+    this.getNonMemberLetterList()
   },
   methods: {
-    getLetterList() {
-      var data = {
-        "letterList": [
-          [
-            { idx: 0, userNm: "test1", imgUrl: require('@/assets/img/asset_4.png') },
-            { idx: 1, userNm: "test2", imgUrl: require('@/assets/img/asset_3.png') },
-            { idx: 2, userNm: "test3", imgUrl: require('@/assets/img/asset_2.png') },
-            { idx: 3, userNm: "test4", imgUrl: require('@/assets/img/asset_1.png') },
-            { idx: 4, userNm: "test5", imgUrl: require('@/assets/img/asset_1.png') },
-            { idx: 5, userNm: "test6", imgUrl: require('@/assets/img/asset_2.png') },
-            { idx: 6, userNm: "test7", imgUrl: require('@/assets/img/asset_4.png') },
-            { idx: 7, userNm: "test8", imgUrl: require('@/assets/img/asset_3.png') }
-          ],[
-            { idx: 8, userNm: "test9", imgUrl: require('@/assets/img/asset_4.png') },
-            { idx: 9, userNm: "test10", imgUrl: require('@/assets/img/asset_3.png') },
-            { idx: 10, userNm: "test11", imgUrl: require('@/assets/img/asset_2.png') },
-            { idx: 11, userNm: "test12", imgUrl: require('@/assets/img/asset_1.png') },
-            { idx: 12, userNm: "test13", imgUrl: require('@/assets/img/asset_1.png') },
-            { idx: 13, userNm: "test14", imgUrl: require('@/assets/img/asset_2.png') },
-            { idx: 14, userNm: "test15", imgUrl: require('@/assets/img/asset_4.png') },
-            { idx: 15, userNm: "test16", imgUrl: require('@/assets/img/asset_3.png') }
-          ],[
-            { idx: 16, userNm: "test17", imgUrl: require('@/assets/img/asset_4.png') },
-            { idx: 17, userNm: "test18", imgUrl: require('@/assets/img/asset_3.png') },
-            { idx: 18, userNm: "test19", imgUrl: require('@/assets/img/asset_2.png') },
-            { idx: 19, userNm: "test20", imgUrl: require('@/assets/img/asset_1.png') }
-          ]
-        ],
-        "totalCount": 20,
-        "totalPage": 3
-      }
-      this.totalPage = data.totalPage
-      this.totalCount = data.totalCount
-      this.letterList = data.letterList
+    getNonMemberLetterList() {
+      getNonMemberLetterList({ userIdx : this.userIdx}).then(response => {
+        this.receiver = response.data.receiver
+        this.totalPage = response.data.totalPage
+        this.totalCount = response.data.totalCount
+        this.letterList = response.data.letterList
+      })
     },
     writeCard() {
-      this.$refs.writeDetail.open()
+      this.$refs.writeDetail.open(this.receiver)
     },
     next () {
       this.pageKey = this.pageKey + 1 === this.totalPage ? 0 : this.pageKey + 1

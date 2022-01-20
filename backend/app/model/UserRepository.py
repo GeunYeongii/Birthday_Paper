@@ -15,10 +15,21 @@ class UserRepository(UserMixin):
 
   @staticmethod
   def findUserByEmail(userEmail):
-    print('== user_info findUserEmail ==')
+    print('== user_info findUserByEmail ==')
     try:
       db_class = Database()
       sql = "SELECT * FROM user_info WHERE USER_EMAIL = '" + str(userEmail) + "'"
+      user = db_class.executeOne(sql)
+      return dict(user)
+    except Exception as e:
+      print(e)
+      
+  @staticmethod
+  def findUserByIdx(userIdx):
+    print('== user_info findUserByIdx ==')
+    try:
+      db_class = Database()
+      sql = "SELECT * FROM user_info WHERE IDX = '" + str(userIdx) + "'"
       user = db_class.executeOne(sql)
       return dict(user)
     except Exception as e:
