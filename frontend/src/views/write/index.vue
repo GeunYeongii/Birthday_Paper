@@ -59,7 +59,7 @@
         </div>
 
         <div class="txtC_474775 no_latter" v-else>
-          아직 받은 편지가 없습니다.<br>친구들에게 공유해서 편지를 받아보세요!
+          {{receiver.nickName}}님이 받은 편지가 없어요! ㅠ<br>제일 먼저 편지를 작성해볼까요?
         </div>
 
       </v-card>
