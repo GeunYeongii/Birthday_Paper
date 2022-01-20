@@ -9,7 +9,7 @@ class Database():
       user='root',
       passwd='dldPekfa1!',
       db='birthday_paper',
-      charset='utf8'
+      charset='utf8mb4'
     )
     self.cursor = self.db.cursor(pymysql.cursors.DictCursor)
 

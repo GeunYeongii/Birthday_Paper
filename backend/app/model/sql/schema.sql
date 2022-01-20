@@ -18,3 +18,7 @@ CREATE TABLE card_data(
   C_DATE DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY(IDX)
 );
+
+-- 이모티콘 등록시 1366 에러 방지용 character set 을 utf8mb4로 설정
+ALTER DATABASE birthday_paper CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
+ALTER TABLE card_data CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
