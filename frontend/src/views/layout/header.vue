@@ -67,7 +67,7 @@ export default {
       user: [],
       items: [
         { icon: 'mdi-circle-small', title: '메인화면', path: '/main' },
-        { icon: 'mdi-circle-small', title: '공지사항', path: '/notice' },
+        // { icon: 'mdi-circle-small', title: '공지사항', path: '/notice' },
         { icon: 'mdi-circle-small', title: 'Introduce', path: '/introduce' }
       ]
     }
