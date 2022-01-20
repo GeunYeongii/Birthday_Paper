@@ -35,7 +35,7 @@ const user = {
 
   actions: {
     Login({ commit }, userInfo) {
-      return new Promise((resolve) => {
+      return new Promise((resolve, reject) => {
         loginStart({ email: userInfo.email, pw: userInfo.pw }).then(response => {
           if (response.code == 20000) {
             const data = response.data
@@ -47,15 +47,17 @@ const user = {
             commit('SET_BIRTH', data.BIRTH)
             setAcToken(response.accessToken)
             setRfToken(response.refreshToken)
-            resolve()
+            resolve(response)
           } else {
-            console.error('로그인 실패', response.message)
+            resolve(response)
           }
         }).catch(error => {
-          console.error(error)
+          console.log(error)
+          reject(error)
         })
       }).catch(error => {
-        console.error(error)
+        console.log(error)
+        reject(error)
       })
     },
     LogOut({ commit, state }) {
