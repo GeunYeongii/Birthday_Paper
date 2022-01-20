@@ -8,7 +8,7 @@
     <v-dialog max-width="550" v-model="cardDetailDialog1" content-class="elevation-0">
       <v-img src="@/assets/img/asset_5.png">
         <div class="text-center cardDetail txtC_474775">
-          <h6>{{userName}} 님이 보낸 편지입니다</h6>
+          <h6>{{senderNm}} 님이 보낸 편지입니다</h6>
           
             <p v-html="letterContents"></p>
         </div>
@@ -25,7 +25,7 @@
     <v-dialog max-width="550" v-model="cardDetailDialog2" content-class="elevation-0">
       <v-img src="@/assets/img/asset_6.png">
         <div class="text-center cardDetail txtC_474775">
-          <h6>{{userName}} 님이 보낸 편지입니다</h6>
+          <h6>{{senderNm}} 님이 보낸 편지입니다</h6>
           
             <p v-html="letterContents"></p>
         </div>
@@ -42,7 +42,7 @@
     <v-dialog max-width="550" v-model="cardDetailDialog3" content-class="elevation-0">
       <v-img src="@/assets/img/asset_7.png">
         <div class="text-center cardDetail txtC_474775">
-          <h6>{{userName}} 님이 보낸 편지입니다</h6>
+          <h6>{{senderNm}} 님이 보낸 편지입니다</h6>
           
             <p v-html="letterContents"></p>
         </div>
@@ -59,7 +59,7 @@
     <v-dialog max-width="550" v-model="cardDetailDialog4" content-class="elevation-0">
       <v-img src="@/assets/img/asset_8.png">
         <div class="text-center cardDetail txtC_474775">
-          <h6>{{userName}} 님이 보낸 편지입니다</h6>
+          <h6>{{senderNm}} 님이 보낸 편지입니다</h6>
           
             <p v-html="letterContents"></p>
         </div>
@@ -85,7 +85,7 @@ export default {
   },
   data () {
     return {
-      userName:'',
+      senderNm:'',
       letterContents:'',
       cardDetailDialog1: false,
       cardDetailDialog2: false,
@@ -100,7 +100,7 @@ export default {
   methods: {
     open(letter,idx) {
       this.openDialog(idx)
-      this.userName = letter.userNm
+      this.senderNm = letter.senderNm
       this.letterContents = letter.letterContent.replace(/\n/g, "<br />")
     },
     close() {
