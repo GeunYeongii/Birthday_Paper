@@ -128,7 +128,7 @@ export default {
       /* icon */
       icons: {
         mdiCheck
-      },
+      }
     }
   },
   created () {

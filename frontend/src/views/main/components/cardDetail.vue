@@ -90,7 +90,7 @@ export default {
       cardDetailDialog1: false,
       cardDetailDialog2: false,
       cardDetailDialog3: false,
-      cardDetailDialog4: false,
+      cardDetailDialog4: false
     }
   },
   created () {
