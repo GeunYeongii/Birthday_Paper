@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-import hashlib
+import hashlib, base64
 
 from ..model.UserRepository import UserRepository
 from ..common.JwtService import JwtService
@@ -12,18 +12,25 @@ user = Blueprint("user", __name__, url_prefix="/user")
 def joinStart():
   print('== joinStart ==')
   try:
-    request_data = request.get_json()
-    userEmail = request_data['email']
-    userPw = request_data['pw']
-    nickName = request_data['nickNm']
-    birth = request_data['birth']
-    profileImg = request_data['profileImg']
+    userEmail = request.form.get('email')
+    userPw = request.form.get('pw')
+    nickName = request.form.get('nickNm')
+    birth = request.form.get('birth')
+    profileImg = request.files.getlist("file[]")
 
     user = UserRepository.findUserByEmail(userEmail)
 
     if user is None:
       userPw = hash_password(userPw)
-      UserRepository.create(userEmail, userPw, nickName, birth, profileImg)
+    
+      # 이미지 바이너리화 후 저장
+      img_binary = None
+      if len(profileImg) != 0:
+        img_data = profileImg[0].read()
+        img_binary = base64.b64encode(img_data)
+        img_binary = img_binary.decode('UTF-8')
+
+      UserRepository.create(userEmail, userPw, nickName, birth, img_binary)
       Result = { 'code' : 20000, 'message' : Message.SignUp.success.value }
     else:
       Result = { 'code' : 50000, 'message' : Message.SignUp.noneUser.value }
