@@ -44,7 +44,7 @@ def getLetterList(user=None, token=None):
         }
     else:
       data = {
-        'code' : 50000,
+        'code' : 40000,
         'message' : Message.Token.expiredToken.value
       }
     return jsonify(data)

@@ -124,11 +124,13 @@ export default {
           if (response.token){
             this.$store.dispatch('RefreshActoken', response.token)
           }
-        } else {
+        } else if (response.code == 40000) {
           this.$store.dispatch('LogOut')
           this.$refs.confirm.open('alert','로그인 만료', response.message).then(() => {
             this.$router.push('/login')
           })
+        } else {
+          this.$refs.confirm.open('alert','카드정보 조회', response.message)
         }
         this.$refs.spinner.close()
       })
