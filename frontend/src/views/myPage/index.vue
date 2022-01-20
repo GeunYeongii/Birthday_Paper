@@ -24,7 +24,7 @@
                 닉네임
               </v-list-item-title>
               <v-list-item-subtitle>
-                <span class="txtC_474775">훈제족발</span>
+                <span class="txtC_474775">{{user.nickname}}</span>
               </v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
@@ -39,7 +39,7 @@
                 생년월일
               </v-list-item-title>
               <v-list-item-subtitle>
-                <span class="txtC_474775">1998-05-04</span>
+                <span class="txtC_474775">{{user.birth | dateFormatter}}</span>
               </v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
@@ -60,7 +60,7 @@
                 <v-overlay
                   v-if="hover"
                   absolute
-                  color="#036358"
+                  color="#474775"
                 >
                   <v-btn>편지 읽으러 가기</v-btn>
                 </v-overlay>
@@ -88,6 +88,7 @@
 
 <script>
 import SHeader from '@/views/layout/header'
+import { dateFormatter } from '@/utils/filters'
 
 export default {
   name: 'MyPage',
@@ -95,14 +96,17 @@ export default {
     SHeader,
   },
   filters: {
+    dateFormatter
   },
   data () {
     return {
+      user:[]
     }
   },
   created () {
   },
   mounted () {
+    this.user = this.$store.state.user
   },
   methods: {
     changePw() {

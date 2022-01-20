@@ -1,3 +1,11 @@
+import moment from 'moment'
+
+/* 날짜 포맷 YYYY-MM-DD */
+export function dateFormatter(value) {
+  if (value) {
+    return moment(value).add(0,'hour').format('YYYY-MM-DD')
+  }
+}
 
 export function setMainCss(idx){
   var classCss = ''

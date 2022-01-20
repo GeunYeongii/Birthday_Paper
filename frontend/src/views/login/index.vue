@@ -75,7 +75,7 @@ export default {
       emailRules: [
 				v => !!v || '필수 입력값입니다. 입력해주세요.',
 				v => /.+@.+\..+/.test(v) || '이메일 형식을 확인 해주세요.',
-      ],
+      ]
     }
   },
   methods: {
