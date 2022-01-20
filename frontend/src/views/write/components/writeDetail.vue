@@ -40,6 +40,9 @@
 
       </v-img>
     </v-dialog>
+
+    <s-confirm ref="confirm"></s-confirm>
+
   </div>
 </template>
 
@@ -72,7 +75,13 @@ export default {
   methods: {
     sendMassage() {
       sendMessage({receiver: this.receiver, sendParams: this.sendParams}).then(response => {
-        console.log(response)
+        if(response.code == 20000){
+          this.$refs.confirm.open('alert','카드발송 완료', response.message).then(() => {
+            location.reload()
+          })
+        } else {
+          this.$refs.confirm.open('alert','카드발송 실패', response.message)
+        }
       })
     },
     open(receiver) {

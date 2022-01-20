@@ -20,3 +20,15 @@ class CardRepository(UserMixin):
       return cardList
     except Exception as e:
       print(e)
+
+  @staticmethod
+  def create(sender_nm, receiver_nm, receiver_idx, card_msg):
+    print('== card_data create ==')
+    try:
+      db_class = Database()
+      sql = "INSERT INTO card_data (SENDER_NM, RECEIVER_NM, RECEIVER_IDX, CARD_MSG) VALUES ('%s', '%s', '%s', '%s')" % (
+        str(sender_nm), str(receiver_nm), str(receiver_idx), str(card_msg))
+      db_class.execute(sql)
+      db_class.commit()
+    except Exception as e:
+      print(e)

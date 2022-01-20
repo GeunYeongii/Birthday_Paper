@@ -40,12 +40,12 @@ def getLetterList(user=None, token=None):
       except Exception as e:
         data = {
           'code' : 50000,
-          'message' : Message.Letter.noneCard
+          'message' : Message.Letter.noneCard.value
         }
     else:
       data = {
         'code' : 50000,
-        'message' : Message.Token.expiredToken
+        'message' : Message.Token.expiredToken.value
       }
     return jsonify(data)
 
@@ -87,7 +87,7 @@ def getNonMemberLetterList():
   except Exception as e:
     data = {
       'code' : 50000,
-      'message' : Message.Letter.noneCard
+      'message' : Message.Letter.noneCard.value
     }
   
   return jsonify(data)
@@ -101,15 +101,18 @@ def sendMessage():
     receiver = request_data['receiver']
     sendParams = request_data['sendParams']
 
+    CardRepository.create(sendParams['nickName'],receiver['nickName'],receiver['idx'],sendParams['magData'])
+
     data = {
       'code' : 20000,
-      'message' : '성공'
+      'message' : Message.Letter.successSend.value
     }
 
   except Exception as e:
+    print(e)
     data = {
       'code' : 50000,
-      'message' : e
+      'message' : Message.Letter.errorSend.value
     }
   
   return jsonify(data)
