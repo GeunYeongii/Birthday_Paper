@@ -1,7 +1,4 @@
 
-from cgi import test
-
-
 class Formatter:
 
   def userBasicFormating(userDetail):
