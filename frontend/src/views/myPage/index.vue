@@ -13,7 +13,7 @@
 
     <v-row justify="center" class="ml-4 mr-4">
       <v-col cols="12">
-        <v-img class="mypage_profile mt-1" src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>
+        <v-img class="mypage_profile mt-1" :src="'data:image/jpeg;base64,'+user.profile"></v-img>
       </v-col>
 
       <v-col cols="6">
