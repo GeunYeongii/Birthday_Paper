@@ -108,6 +108,7 @@ export default {
   created () {
   },
   mounted() {
+    this.user = this.$store.state.user
     this.getLetterList()
   },
   methods: {
@@ -133,9 +134,9 @@ export default {
       this.$refs.cardDetail.open(letter, idx)
     },
     shareKakao() {
-      // [TODO] 카카오 템플릿 수정 완료 해야함 받아야 하는 파라미터 값 정의 해서 보내야함
       var shareData = {
-        'user':'test'
+        'nickname': this.user.nickname,
+        'userIdx': this.user.idx
       }
       kakaoShare(shareData)
     },
