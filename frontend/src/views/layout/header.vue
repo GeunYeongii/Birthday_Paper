@@ -23,12 +23,22 @@
         <v-col cols="12">
           <p class="h6 text_logo mt-5 cursor_pointer txtC_474775" @click="goMain()">BIRTHDAY PAPER</p>
 
-          <v-img class="profile_img mt-1 cursor_pointer" :src="'data:image/jpeg;base64,'+user.profile" @click="goMyPage()"></v-img>
-          <p class="h6 profile_name cursor_pointer txtC_474775" @click="goMyPage()">{{user.nickname}} 님</p>
+          <div v-if="user.idx">
+            <v-img class="profile_img mt-1 cursor_pointer" :src="'data:image/jpeg;base64,'+user.profile" @click="goMyPage()"></v-img>
+            <p class="h6 profile_name cursor_pointer txtC_474775" @click="goMyPage()">{{user.nickname}} 님</p>
 
-          <v-btn text color="secondary" @click="logout()">
-            로그아웃
-          </v-btn>
+            <v-btn text color="secondary" @click="logout()">
+              로그아웃
+            </v-btn>
+          </div>
+
+          <div v-else class="mt-8">
+            <p class="h6 profile_name cursor_pointer txtC_474775">로그인 을 해주세요!</p>
+
+            <v-btn text color="secondary" @click="login()">
+              로그인
+            </v-btn>
+          </div>
         </v-col>
       </v-row>
 
@@ -74,6 +84,7 @@ export default {
   },
   mounted () {
     this.user = this.$store.state.user
+    console.log(this.user)
   },
   methods: {
     goMain() {
@@ -88,6 +99,9 @@ export default {
       } else {
         this.toggleDialog()
       }
+    },
+    login() {
+      this.$router.push('/login')
     },
     logout() {
       this.$store.dispatch('LogOut').then(() => {
