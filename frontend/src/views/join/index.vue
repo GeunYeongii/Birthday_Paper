@@ -63,6 +63,7 @@
             <v-row no-gutters>
               <v-file-input
                 v-model="joinData.profileImg"
+                name="file[]"
                 label="프로필 이미지"
               ></v-file-input>
             </v-row>
@@ -97,13 +98,12 @@ export default {
       ],
       emailRules: [
 				v => !!v || '필수 입력값입니다. 입력해주세요.',
-				v => /.+@.+\..+/.test(v) || '이메일 형식을 확인 해주세요.',
+				v => /.+@.+\..+/.test(v) || '이메일 형식을 확인 해주세요.'
       ],
       pwCheckRules: [
         v => !!v || '필수 입력값입니다. 입력해주세요.',
-        v => v == this.joinData.pw || '비밀번호가 다릅니다.',
+        v => v == this.joinData.pw || '비밀번호가 다릅니다.'
       ],
-
       joinData: {
         email:'',
         pw:'',
@@ -129,7 +129,14 @@ export default {
           return
         }
 
-        joinStart(this.joinData).then(response => {
+        const data = new FormData()
+        data.append('email', this.joinData.email)
+        data.append('pw', this.joinData.pw)
+        data.append('nickNm', this.joinData.nickNm)
+        data.append('birth', this.joinData.birth)
+        data.append('file[]', this.joinData.profileImg)
+
+        joinStart(data).then(response => {
           if (response.code == 20000) {
             this.$refs.confirm.open('alert','회원가입 성공',response.message).then(() => {
               this.$router.push('/main')

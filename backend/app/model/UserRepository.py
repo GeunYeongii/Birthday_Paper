@@ -36,12 +36,12 @@ class UserRepository(UserMixin):
       print(e)
 
   @staticmethod
-  def create(userEmail, userPw, nickName, birth, profileImg):
+  def create(userEmail, userPw, nickName, birth, profileImg=None):
     print('== user_info create ==')
     try:
       db_class = Database()
-      sql = "INSERT INTO user_info (USER_EMAIL, USER_PW, NICKNAME, BIRTH) VALUES ('%s', '%s', '%s', '%s')" % (
-        str(userEmail), str(userPw), str(nickName), str(birth))
+      sql = "INSERT INTO user_info (USER_EMAIL, USER_PW, NICKNAME, BIRTH, USER_PROFILE) VALUES ('%s', '%s', '%s', '%s', '%s')" % (
+        str(userEmail), str(userPw), str(nickName), str(birth), str(profileImg))
       db_class.execute(sql)
       db_class.commit()
     except Exception as e:

@@ -65,7 +65,7 @@ export default {
       },
       rules: [
         value => !!value || '필수값 입니다',
-      ],
+      ]
     }
   },
   created () {
