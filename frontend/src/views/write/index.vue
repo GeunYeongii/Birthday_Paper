@@ -139,11 +139,13 @@ export default {
   },
   methods: {
     getNonMemberLetterList() {
+      this.$refs.spinner.open()
       getNonMemberLetterList({ userIdx : this.userIdx}).then(response => {
         this.receiver = response.data.receiver
         this.totalPage = response.data.totalPage
         this.totalCount = response.data.totalCount
         this.letterList = response.data.letterList
+        this.$refs.spinner.close()
       })
     },
     writeCard() {

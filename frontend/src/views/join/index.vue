@@ -128,7 +128,7 @@ export default {
           this.$refs.confirm.open('alert','회원가입 실패','생년월일을 입력해 주세요.')
           return
         }
-
+        this.$refs.spinner.open()
         const data = new FormData()
         data.append('email', this.joinData.email)
         data.append('pw', this.joinData.pw)
@@ -137,6 +137,7 @@ export default {
         data.append('file[]', this.joinData.profileImg)
 
         joinStart(data).then(response => {
+          this.$refs.spinner.close()
           if (response.code == 20000) {
             this.$refs.confirm.open('alert','회원가입 성공',response.message).then(() => {
               this.$router.push('/main')

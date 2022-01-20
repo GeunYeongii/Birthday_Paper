@@ -74,7 +74,9 @@ export default {
   },
   methods: {
     sendMassage() {
+      this.$refs.spinner.open()
       sendMessage({receiver: this.receiver, sendParams: this.sendParams}).then(response => {
+        this.$refs.spinner.close()
         if(response.code == 20000){
           this.$refs.confirm.open('alert','카드발송 완료', response.message).then(() => {
             location.reload()

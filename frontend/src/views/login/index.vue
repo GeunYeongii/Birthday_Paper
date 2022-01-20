@@ -91,6 +91,7 @@ export default {
           }
         }).catch(e => {
           this.$refs.spinner.close()
+          this.$refs.confirm.open('alert','로그인 실패','로그인에 실패하였습니다.')
           console.log(e)
         })
       } else {
@@ -98,16 +99,10 @@ export default {
       }
     },
     goIntro(){
-      this.$refs.spinner.open()
-      this.$router.push('/').then(() => {
-        this.$refs.spinner.close()
-      })
+      this.$router.push('/')
     },
     goJoin(){
-      this.$refs.spinner.open()
-      this.$router.push('/join').then(() => {
-        this.$refs.spinner.close()
-      })
+      this.$router.push('/join')
     }
   }
 }

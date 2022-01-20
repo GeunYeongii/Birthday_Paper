@@ -113,6 +113,7 @@ export default {
   },
   methods: {
     getLetterList() {
+      this.$refs.spinner.open()
       getLetterList().then(response => {
         if (response.code == 20000) {
           this.totalPage = response.data.totalPage
@@ -128,6 +129,7 @@ export default {
             this.$router.push('/login')
           })
         }
+        this.$refs.spinner.close()
       })
     },
     openDetail(letter, idx) {
