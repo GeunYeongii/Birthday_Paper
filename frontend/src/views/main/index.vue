@@ -29,7 +29,7 @@
                   <v-row no-gutters>
                     <v-col class="d-inline-block"  v-for="(letter, j) in letter" :key="`card-list-${j}`" @click="openDetail(letter, j)">
                       <v-img :class="j | setCardDesign" max-width="100" width="16vw" :src="j | setCardSrc">
-                        <div class="senderNm txtC_474775">{{letter.userNm}}</div>
+                        <div class="senderNm txtC_474775">{{letter.senderNm}}</div>
                       </v-img>
                     </v-col>
                   </v-row>
@@ -112,7 +112,6 @@ export default {
   },
   methods: {
     getLetterList() {
-      // [TODO] 로그인 한 user idx 값으로 데이터 조회
       getLetterList().then(response => {
         if (response.code == 20000) {
           this.totalPage = response.data.totalPage

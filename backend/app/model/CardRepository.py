@@ -1,5 +1,5 @@
 from flask_login import UserMixin
-from .dbModule import Database
+from .DbModule import Database
 
 class CardRepository(UserMixin):
 
@@ -17,6 +17,6 @@ class CardRepository(UserMixin):
       db_class = Database()
       sql = "SELECT * FROM card_data WHERE RECEIVER_IDX = '" + str(userIdx) + "'"
       cardList = db_class.executeAll(sql)
-      return dict(cardList)
+      return cardList
     except Exception as e:
       print(e)

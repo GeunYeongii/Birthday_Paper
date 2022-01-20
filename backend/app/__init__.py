@@ -1,10 +1,10 @@
-from flask import Flask
-from flask_cors import CORS
 from flask_jwt_extended import JWTManager
-
-from .controller.letterController import letter
-from .controller.userController import user
+from flask_cors import CORS
+from flask import Flask
 import os
+
+from .controller.LetterController import letter
+from .controller.UserController import user
 
 app = Flask(__name__)
 CORS(app)

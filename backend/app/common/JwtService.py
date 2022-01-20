@@ -1,10 +1,9 @@
-from ..model.UserRepository import UserRepository
-
 from datetime import datetime, timedelta
-from flask import jsonify, request
+from flask import request
 from functools import wraps
-
 import jwt, datetime
+
+from ..model.UserRepository import UserRepository
 
 class JwtService:
   def createAccessToken(userEmail):
