@@ -8,12 +8,12 @@ import jwt, datetime
 
 class JwtService:
   def createAccessToken(userEmail):
-    payload = {'userEmail': userEmail, 'exp': datetime.datetime.utcnow() +timedelta(seconds=5)}
+    payload = {'userEmail': userEmail, 'exp': datetime.datetime.utcnow() +timedelta(hours=1)}
     access_token = jwt.encode(payload, "SECRET_KEY", algorithm="HS256")
     return access_token
   
   def createRefreshToken(userEmail):
-    payload = {'userEmail': userEmail, 'exp': datetime.datetime.utcnow() +timedelta(minutes=1)}
+    payload = {'userEmail': userEmail, 'exp': datetime.datetime.utcnow() +timedelta(days=14)}
     refresh_token = jwt.encode(payload, "SECRET_KEY", algorithm="HS256")
     return refresh_token
   
