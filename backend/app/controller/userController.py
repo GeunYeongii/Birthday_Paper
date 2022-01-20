@@ -3,6 +3,7 @@ import hashlib, base64
 
 from ..model.UserRepository import UserRepository
 from ..common.JwtService import JwtService
+from ..common.Formatter import Formatter
 from ..common.Message import Message
 
 user = Blueprint("user", __name__, url_prefix="/user")
@@ -61,7 +62,7 @@ def loginStart():
         Result = { 
           'code' : 20000,
           'message' : Message.Login.success.value,
-          'data' : user,
+          'data' : Formatter.userFormating(user),
           'accessToken' : access_token,
           'refreshToken' : refresh_token }
       else:

@@ -23,12 +23,22 @@
         <v-col cols="12">
           <p class="h6 text_logo mt-5 cursor_pointer txtC_474775" @click="goMain()">BIRTHDAY PAPER</p>
 
-          <v-img class="profile_img mt-1 cursor_pointer" src="https://randomuser.me/api/portraits/men/78.jpg" @click="goMyPage()"></v-img>
-          <p class="h6 profile_name cursor_pointer txtC_474775" @click="goMyPage()">{{user.nickname}} 님</p>
+          <div v-if="user.idx">
+            <v-img class="profile_img mt-1 cursor_pointer" :src="'data:image/jpeg;base64,'+user.profile" @click="goMyPage()"></v-img>
+            <p class="h6 profile_name cursor_pointer txtC_474775" @click="goMyPage()">{{user.nickname}} 님</p>
 
-          <v-btn text color="secondary" @click="logout()">
-            로그아웃
-          </v-btn>
+            <v-btn text color="secondary" @click="logout()">
+              로그아웃
+            </v-btn>
+          </div>
+
+          <div v-else class="mt-8">
+            <p class="h6 profile_name cursor_pointer txtC_474775">로그인 을 해주세요!</p>
+
+            <v-btn text color="secondary" @click="login()">
+              로그인
+            </v-btn>
+          </div>
         </v-col>
       </v-row>
 
@@ -67,7 +77,7 @@ export default {
       user: [],
       items: [
         { icon: 'mdi-circle-small', title: '메인화면', path: '/main' },
-        { icon: 'mdi-circle-small', title: '공지사항', path: '/notice' },
+        // { icon: 'mdi-circle-small', title: '공지사항', path: '/notice' },
         { icon: 'mdi-circle-small', title: 'Introduce', path: '/introduce' }
       ]
     }
@@ -88,6 +98,9 @@ export default {
       } else {
         this.toggleDialog()
       }
+    },
+    login() {
+      this.$router.push('/login')
     },
     logout() {
       this.$store.dispatch('LogOut').then(() => {

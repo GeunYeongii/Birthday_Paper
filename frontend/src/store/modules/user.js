@@ -10,6 +10,7 @@ const user = {
     email: '',
     nickname: '',
     birth: '',
+    profile: '',
   },
 
   mutations: {
@@ -31,6 +32,9 @@ const user = {
     SET_BIRTH: (state, birth) => {
       state.birth = birth
     },
+    SET_PROFILE: (state, profile) => {
+      state.profile = profile
+    },
   },
 
   actions: {
@@ -41,10 +45,11 @@ const user = {
             const data = response.data
             commit('SET_ACTOKEN', response.accessToken)
             commit('SET_RFTOKEN', response.refreshToken)
-            commit('SET_IDX', data.IDX)
-            commit('SET_EMAIL', data.USER_EMAIL)
-            commit('SET_NICK_NAME', data.NICKNAME)
-            commit('SET_BIRTH', data.BIRTH)
+            commit('SET_IDX', data.idx)
+            commit('SET_EMAIL', data.userEmail)
+            commit('SET_NICK_NAME', data.nickName)
+            commit('SET_BIRTH', data.birth)
+            commit('SET_PROFILE', data.profile)
             setAcToken(response.accessToken)
             setRfToken(response.refreshToken)
             resolve(response)
@@ -68,6 +73,7 @@ const user = {
         commit('SET_EMAIL', '')
         commit('SET_NICK_NAME', '')
         commit('SET_BIRTH', '')
+        commit('SET_PROFILE', '')
         removeAcToken()
         removeRfToken()
         resolve()

@@ -70,6 +70,7 @@
 
     <card-detail ref="cardDetail"></card-detail>
     <s-confirm ref="confirm"></s-confirm>
+    <s-spinner ref="spinner"></s-spinner>
   </div>
 </template>
 
@@ -113,6 +114,7 @@ export default {
   },
   methods: {
     getLetterList() {
+      this.$refs.spinner.open()
       getLetterList().then(response => {
         if (response.code == 20000) {
           this.totalPage = response.data.totalPage
@@ -122,12 +124,15 @@ export default {
           if (response.token){
             this.$store.dispatch('RefreshActoken', response.token)
           }
-        } else {
+        } else if (response.code == 40000) {
           this.$store.dispatch('LogOut')
           this.$refs.confirm.open('alert','로그인 만료', response.message).then(() => {
             this.$router.push('/login')
           })
+        } else {
+          this.$refs.confirm.open('alert','카드정보 조회', response.message)
         }
+        this.$refs.spinner.close()
       })
     },
     openDetail(letter, idx) {

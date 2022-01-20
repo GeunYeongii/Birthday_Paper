@@ -59,7 +59,6 @@
       </v-btn>
     </v-row>
 
-    <s-spinner ref="spinner"></s-spinner>
   </div>
 </template>
 
@@ -73,16 +72,10 @@ export default {
   },
   methods: {
     goLogin() {
-      this.$refs.spinner.open()
-      this.$router.push('/login').then(() => {
-        this.$refs.spinner.close()
-      })
+      this.$router.push('/login')
     },
     goJoin() {
-      this.$refs.spinner.open()
-      this.$router.push('/join').then(() => {
-        this.$refs.spinner.close()
-      })
+      this.$router.push('/join')
     }
   }
 }

@@ -6,22 +6,26 @@ import { getAcToken } from '@/utils/auth'
 const whiteList = [
   '/',
   '/login',
-  '/join',
-  '/write',
+  '/join'
 ]
 
 router.beforeEach((to, from, next) => {
-  if (getAcToken()){
-    if (whiteList.indexOf(to.path) !== -1) {
-      next({ path: '/main' })
-    } else {
-      next()
-    }
+  // 작성 페이지로 들어올 경우 토큰에 관계없이 연결
+  if (to.path == '/write'){
+    next()
   } else {
-    if (whiteList.indexOf(to.path) == -1) {
-      next('/login')
+    if (getAcToken()){
+      if (whiteList.indexOf(to.path) !== -1) {
+        next({ path: '/main' })
+      } else {
+        next()
+      }
     } else {
-      next()
+      if (whiteList.indexOf(to.path) == -1) {
+        next('/login')
+      } else {
+        next()
+      }
     }
   }
 })

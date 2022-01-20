@@ -1,4 +1,3 @@
-from flask_jwt_extended import JWTManager
 from flask_cors import CORS
 from flask import Flask
 import os
@@ -14,5 +13,3 @@ app.config['SECRET_KEY'] = 'd9owj3982oi8329dsh38'
 
 app.register_blueprint(letter)
 app.register_blueprint(user)
-
-jwt = JWTManager(app)
