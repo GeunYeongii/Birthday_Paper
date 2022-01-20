@@ -46,7 +46,8 @@
         </v-card>
       </v-col>
 
-      <v-col cols="12" class="txtC_474775">
+      <!-- 기능 공개 X 나중에 공개 -->
+      <!-- <v-col cols="12" class="txtC_474775">
         <h6>Paper History</h6>
         <v-divider></v-divider>
         <v-hover class="mb-4">
@@ -69,7 +70,7 @@
             </v-card>
           </template>
         </v-hover>
-      </v-col>
+      </v-col> -->
       
       <v-col cols="12" class="text-center">
 
