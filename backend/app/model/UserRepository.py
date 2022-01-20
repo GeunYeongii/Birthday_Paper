@@ -1,5 +1,5 @@
 from flask_login import UserMixin
-from .dbModule import Database
+from .DbModule import Database
 
 class UserRepository(UserMixin):
 

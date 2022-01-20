@@ -1,10 +1,9 @@
-from flask import jsonify, request
-from flask import Blueprint
+from flask import Blueprint, jsonify, request
 import hashlib
 
 from ..model.UserRepository import UserRepository
-from ..common.Message import Message
 from ..common.JwtService import JwtService
+from ..common.Message import Message
 
 user = Blueprint("user", __name__, url_prefix="/user")
 

@@ -1,5 +1,4 @@
-from flask import jsonify
-from flask import Blueprint
+from flask import Blueprint, jsonify
 import math
 
 from ..model.CardRepository import CardRepository
