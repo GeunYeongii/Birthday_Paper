@@ -7,6 +7,7 @@ const whiteList = [
   '/',
   '/login',
   '/join',
+  '/write',
 ]
 
 router.beforeEach((to, from, next) => {
