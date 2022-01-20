@@ -69,7 +69,7 @@
     </v-col>
 
     <card-detail ref="cardDetail"></card-detail>
-    <s-alert ref="alert"></s-alert>
+    <s-confirm ref="confirm"></s-confirm>
   </div>
 </template>
 
@@ -123,8 +123,10 @@ export default {
             this.$store.dispatch('RefreshActoken', response.token)
           }
         } else {
-          this.$refs.alert.open('카드정보 조회 실패', response.message)
-          // 이후 login 으로 리다이렉트
+          this.$store.dispatch('LogOut')
+          this.$refs.confirm.open('alert','로그인 만료', response.message).then(() => {
+            this.$router.push('/login')
+          })
         }
       })
     },
