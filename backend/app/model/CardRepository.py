@@ -8,7 +8,7 @@ class CardRepository(UserMixin):
     self.receiver_nm = receiver_nm
     self.receiver_idx = receiver_idx
     self.card_msg = card_msg
-    self.c_date = c_date        
+    self.c_date = c_date
 
   @staticmethod
   def findCardByReceiverIdx(userIdx):
