@@ -1,0 +1,4 @@
+## 서버 log 관련 디렉토리
+*
+# .gitignore 는 추가
+!.gitignore
