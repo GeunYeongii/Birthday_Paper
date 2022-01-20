@@ -70,6 +70,7 @@
 
     <card-detail ref="cardDetail"></card-detail>
     <s-confirm ref="confirm"></s-confirm>
+    <s-spinner ref="spinner"></s-spinner>
   </div>
 </template>
 

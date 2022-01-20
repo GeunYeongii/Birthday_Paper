@@ -59,7 +59,6 @@
       </v-btn>
     </v-row>
 
-    <s-spinner ref="spinner"></s-spinner>
   </div>
 </template>
 

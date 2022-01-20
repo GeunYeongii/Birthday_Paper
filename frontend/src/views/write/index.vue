@@ -94,7 +94,7 @@
 
     <write-detail ref="writeDetail"></write-detail>
     <s-confirm ref="confirm"></s-confirm>
-
+    <s-spinner ref="spinner"></s-spinner>
   </div>
 </template>
 
