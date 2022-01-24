@@ -13,6 +13,8 @@ router.beforeEach((to, from, next) => {
   // 작성 페이지로 들어올 경우 토큰에 관계없이 연결
   if (to.path == '/write'){
     next()
+  } else if (to.path == '/introduce'){
+    next()
   } else {
     if (getAcToken()){
       if (whiteList.indexOf(to.path) !== -1) {
