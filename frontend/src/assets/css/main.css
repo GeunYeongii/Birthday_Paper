@@ -85,11 +85,11 @@ html { max-width: 600px; max-height: 100vh; margin: auto; background: linear-gra
   .writeDetail { font-size: 13px; width: 100%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
   .writeDetail-footer { font-size: 13px; width: 100%; position: absolute; bottom: -25px; left: 50%; transform: translate(-50%, -50%); }
 
-  .profile_img{ width: 80px; }
-  .introduce_img{ width: 80px; }
+  .profile_img{ width: 80px; height: 80px; }
+  .introduce_img{ width: 80px; height: 80px; }
   .profile_name{ margin-top: 1rem; }
   .menu_icon{ margin-top: 0.1rem; }
-  .mypage_profile{ width: 100px; }
+  .mypage_profile{ width: 100px; height: 100px; }
   .main_title { font-size: 15px;}
 }
 
@@ -102,8 +102,8 @@ html { max-width: 600px; max-height: 100vh; margin: auto; background: linear-gra
   .main_card { width:85vw; }
   .main_card_no { width:85vw; height: 400px; }
   .senderNm { font-size: 16px; }
-  .profile_img{ width: 100px; }
-  .introduce_img{ width: 100px; }
+  .profile_img{ width: 100px; height: 100px; }
+  .introduce_img{ width: 100px; height: 100px; }
 }
 
 @media screen and (min-width: 600px) {
@@ -123,12 +123,12 @@ html { max-width: 600px; max-height: 100vh; margin: auto; background: linear-gra
   .writeDetail-footer { font-size: 13px; width: 100%; position: absolute; bottom: 0; left: 50%; transform: translate(-50%, -50%); }
   .v-text-field__slot textarea { height: 300px; }
 
-  .profile_img{ width: 120px; }
-  .introduce_img{ width: 120px; }
+  .profile_img{ width: 120px; height: 120px; }
+  .introduce_img{ width: 120px; height: 120px; }
   .profile_name{ margin-top: 1rem; padding: 0px; font-size: 20px; }
   .menu_icon{ margin-top: 2.7rem; }
   .main .v-btn--icon.v-size--x-large .v-icon{ font-size: 45px; }
-  .mypage_profile{ width: 150px; }
+  .mypage_profile{ width: 150px; height: 150px; }
   .myPage .v-list-item__subtitle { font-size: 16px; }
   .myPage .history_title { font-size: 16px; }
   .main_title { font-size: 20px;}
