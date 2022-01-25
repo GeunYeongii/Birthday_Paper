@@ -34,7 +34,6 @@
                     </v-col>
                   </v-row>
                 </v-col>
-
               </v-window-item>
             </v-window>
 
@@ -77,6 +76,7 @@
 <script>
 import SHeader from '@/views/layout/header'
 import cardDetail from '@/views/main/components/cardDetail'
+
 import { mdiCheck } from '@mdi/js'
 import { kakaoShare } from '@/utils/share'
 import { setMainCss, setCardDesign, setCardSrc } from '@/utils/filters'
