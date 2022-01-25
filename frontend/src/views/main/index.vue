@@ -19,7 +19,8 @@
 
         <div v-if="totalCount > 0">
           <div class="txtC_474775">
-            <p class="pt-5 main_title">♥{{totalCount}}개의 편지가 도착했어요♥</p>
+            <p class="pt-5 main_title p-0 m-0">♥ {{year}}년도에는 ♥</p>
+            <p class="pt-0 main_title">♥ {{totalCount}}개의 편지가 도착했어요 ♥</p>
           </div>
 
           <v-card flat tile>
@@ -34,7 +35,6 @@
                     </v-col>
                   </v-row>
                 </v-col>
-
               </v-window-item>
             </v-window>
 
@@ -77,6 +77,7 @@
 <script>
 import SHeader from '@/views/layout/header'
 import cardDetail from '@/views/main/components/cardDetail'
+
 import { mdiCheck } from '@mdi/js'
 import { kakaoShare } from '@/utils/share'
 import { setMainCss, setCardDesign, setCardSrc } from '@/utils/filters'
@@ -103,19 +104,23 @@ export default {
       /* icon */
       icons: {
         mdiCheck
-      }
+      },
+      year: new Date().getFullYear()
     }
   },
   created () {
   },
   mounted() {
     this.user = this.$store.state.user
-    this.getLetterList()
+    if (this.$route.params.year) {
+      this.year = this.$route.params.year
+    }
+    this.getLetterList(this.year)
   },
   methods: {
-    getLetterList() {
+    getLetterList(year) {
       this.$refs.spinner.open()
-      getLetterList().then(response => {
+      getLetterList({ year : year }).then(response => {
         if (response.code == 20000) {
           this.totalPage = response.data.totalPage
           this.totalCount = response.data.totalCount

@@ -45,32 +45,6 @@
           </v-list-item>
         </v-card>
       </v-col>
-
-      <!-- 기능 공개 X 나중에 공개 -->
-      <!-- <v-col cols="12" class="txtC_474775">
-        <h6>Paper History</h6>
-        <v-divider></v-divider>
-        <v-hover class="mb-4">
-          <template v-slot:default="{ hover }">
-            <v-card>
-              <v-card-text>
-                <span class="txtC_474775 history_title">2021년도 에는 34명의 친구들이 편지를 보냈어요</span>
-              </v-card-text>
-                
-              <v-fade-transition>
-                <v-overlay
-                  v-if="hover"
-                  absolute
-                  color="#474775"
-                >
-                  <v-btn>편지 읽으러 가기</v-btn>
-                </v-overlay>
-              </v-fade-transition>
-
-            </v-card>
-          </template>
-        </v-hover>
-      </v-col> -->
       
       <v-col cols="12" class="text-center">
 
@@ -81,6 +55,7 @@
           회원탈퇴
         </v-btn>
       </v-col>
+      <history></history>
 
     </v-row>
 
@@ -89,12 +64,15 @@
 
 <script>
 import SHeader from '@/views/layout/header'
+import History from '@/views/myPage/components/history'
+
 import { dateFormatter } from '@/utils/filters'
 
 export default {
   name: 'MyPage',
   components: {
     SHeader,
+    History
   },
   filters: {
     dateFormatter
