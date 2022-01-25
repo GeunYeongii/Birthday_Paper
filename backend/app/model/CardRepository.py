@@ -11,11 +11,11 @@ class CardRepository(UserMixin):
     self.c_date = c_date
 
   @staticmethod
-  def findCardByReceiverIdx(userIdx):
+  def findCardByReceiverIdx(userIdx, year):
     print('== card_data findCardByReceiverIdx ==')
     try:
       db_class = Database()
-      sql = "SELECT * FROM card_data WHERE RECEIVER_IDX = '" + str(userIdx) + "'"
+      sql = "SELECT * FROM card_data WHERE RECEIVER_IDX = " + str(userIdx) + " AND DATE_FORMAT(C_DATE,'%%Y') = '" + str(year) + "'"
       cardList = db_class.executeAll(sql)
       return cardList
     except Exception as e:

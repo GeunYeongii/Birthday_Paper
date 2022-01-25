@@ -16,7 +16,10 @@ def getLetterList(user=None, token=None):
   try:
     if user :
       try:
-        cardList = CardRepository.findCardByReceiverIdx(user['IDX'])
+        request_data = request.get_json()
+        year = request_data['year']
+
+        cardList = CardRepository.findCardByReceiverIdx(user['IDX'], year)
 
         totalCount = len(cardList)
         totalPage = math.ceil(len(cardList)/8)

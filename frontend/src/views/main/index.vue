@@ -103,19 +103,20 @@ export default {
       /* icon */
       icons: {
         mdiCheck
-      }
+      },
+      year: new Date().getFullYear()
     }
   },
   created () {
   },
   mounted() {
     this.user = this.$store.state.user
-    this.getLetterList()
+    this.getLetterList(this.year)
   },
   methods: {
-    getLetterList() {
+    getLetterList(year) {
       this.$refs.spinner.open()
-      getLetterList().then(response => {
+      getLetterList({ year : year }).then(response => {
         if (response.code == 20000) {
           this.totalPage = response.data.totalPage
           this.totalCount = response.data.totalCount
