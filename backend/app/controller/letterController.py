@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-import math
+import math, datetime
 
 from ..model.UserRepository import UserRepository
 from ..model.CardRepository import CardRepository
@@ -66,7 +66,7 @@ def getNonMemberLetterList():
     userIdx = request_data['userIdx']
 
     user = UserRepository.findUserByIdx(userIdx)
-    cardList = CardRepository.findCardByReceiverIdx(userIdx)
+    cardList = CardRepository.findCardByReceiverIdx(userIdx, datetime.datetime.now().year)
 
     totalCount = len(cardList)
     totalPage = math.ceil(len(cardList)/8)
