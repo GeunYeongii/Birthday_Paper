@@ -9,24 +9,28 @@
       <v-img src="@/assets/img/asset_8.png">
 
         <div class="text-center writeDetail txtC_474775">
-          <v-card-title class="pb-0">
-            <v-row no-gutters>
-              <v-text-field
+          <v-form ref="nickNameForm">
+            <v-card-title class="pb-0">
+              <v-row no-gutters>
+                <v-text-field
+                  class="p-0"
+                  label="닉네임"
+                  v-model="sendParams.nickName"
+                  :rules="rules"
+                ></v-text-field>
+              </v-row>
+            </v-card-title>
+          </v-form>
+            
+          <v-form ref="magForm">
+            <v-card-text class="pb-0 mt-4">
+              <v-textarea
                 class="p-0"
-                label="닉네임"
-                v-model="sendParams.nickName"
-                :rules="rules"
-              ></v-text-field>
-            </v-row>
-          </v-card-title>
-          
-          <v-card-text class="pb-0 mt-4">
-            <v-textarea
-              class="p-0"
-              label="편지의 내용을 작성해주세요"
-              v-model="sendParams.magData"
-            ></v-textarea>
-          </v-card-text>
+                label="편지의 내용을 작성해주세요"
+                v-model="sendParams.magData"
+              ></v-textarea>
+            </v-card-text>
+          </v-form>
         </div>
         
         <v-col no-gutters cols="12" class="writeDetail-footer text-center">
@@ -74,17 +78,21 @@ export default {
   },
   methods: {
     sendMassage() {
-      this.$refs.spinner.open()
-      sendMessage({receiver: this.receiver, sendParams: this.sendParams}).then(response => {
-        this.$refs.spinner.close()
-        if(response.code == 20000){
-          this.$refs.confirm.open('alert','카드발송 완료', response.message).then(() => {
-            location.reload()
-          })
-        } else {
-          this.$refs.confirm.open('alert','카드발송 실패', response.message)
-        }
-      })
+      if (this.$refs.nickNameForm.validate()) {
+        this.$refs.spinner.open()
+        sendMessage({receiver: this.receiver, sendParams: this.sendParams}).then(response => {
+          this.$refs.spinner.close()
+          if(response.code == 20000){
+            this.$refs.confirm.open('alert','카드발송 완료', response.message).then(() => {
+              location.reload()
+            })
+          } else {
+            this.$refs.confirm.open('alert','카드발송 실패', response.message)
+          }
+        })
+      } else {
+        this.$refs.confirm.open('alert','편지 작성','닉네임은 필수값 입니다.')
+      }
     },
     open(receiver) {
       this.receiver = receiver
