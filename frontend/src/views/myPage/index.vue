@@ -66,6 +66,8 @@
 import SHeader from '@/views/layout/header'
 import History from '@/views/myPage/components/history'
 
+import { dateFormatter } from '@/utils/filters'
+
 export default {
   name: 'MyPage',
   components: {
@@ -73,6 +75,7 @@ export default {
     History
   },
   filters: {
+    dateFormatter
   },
   data () {
     return {

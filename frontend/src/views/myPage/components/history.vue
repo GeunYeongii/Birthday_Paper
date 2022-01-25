@@ -22,7 +22,7 @@
                 absolute
                 color="#474775"
               >
-                <v-btn>편지 읽으러 가기</v-btn>
+                <v-btn @click="yearCardDetail(history.year)">편지 읽으러 가기</v-btn>
               </v-overlay>
             </v-fade-transition>
 
@@ -37,7 +37,6 @@
 </template>
 
 <script>
-import { dateFormatter } from '@/utils/filters'
 import { getHistoryList } from '@/api/history'
 
 export default {
@@ -45,7 +44,6 @@ export default {
   components: {
   },
   filters: {
-    dateFormatter
   },
   data () {
     return {
@@ -71,11 +69,8 @@ export default {
         }
       })
     },
-    changePw() {
-
-    },
-    deleteUser() {
-      
+    yearCardDetail(year) {
+      console.log(year,this.user.idx)
     }
   }
 }
