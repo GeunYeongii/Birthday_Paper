@@ -141,11 +141,15 @@ export default {
     getNonMemberLetterList() {
       this.$refs.spinner.open()
       getNonMemberLetterList({ userIdx : this.userIdx}).then(response => {
-        this.receiver = response.data.receiver
-        this.totalPage = response.data.totalPage
-        this.totalCount = response.data.totalCount
-        this.letterList = response.data.letterList
         this.$refs.spinner.close()
+        if (response.code == 20000) {
+          this.receiver = response.data.receiver
+          this.totalPage = response.data.totalPage
+          this.totalCount = response.data.totalCount
+          this.letterList = response.data.letterList
+        } else {
+          this.$refs.confirm.open('alert','카드정보 조회', response.message)
+        }
       })
     },
     writeCard() {
