@@ -4,19 +4,22 @@ import router from '@/router'
 import store from '@/store'
 import vuetify from './plugins/vuetify'
 import VueCookies from "vue-cookies";
+import VueClipboard from 'vue-clipboard2'
 import { mdiBullhornOutline } from '@mdi/js';
+
 // 공통으로 사용하는 컴포넌트
 import confirm from '@/components/confirm'
 import spinner from '@/components/spinner'
 import '@/router/permission'
-
 import '@/assets/css/main.css'
 
 Vue.config.productionTip = false
+
 // 공통으로 사용하는 컴포넌트 등록
 Vue.component('s-confirm', confirm)
 Vue.component('s-spinner', spinner)
 
+Vue.use(VueClipboard)
 Vue.use(VueCookies);
 //쿠키의 만료일 7일 (글로벌 세팅)
 Vue.$cookies.config("7d");

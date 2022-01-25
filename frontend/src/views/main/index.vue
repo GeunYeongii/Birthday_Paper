@@ -66,6 +66,9 @@
       <v-btn text color="secondary" class="mt-6" @click="shareKakao()">
         공유하기
       </v-btn>
+      <v-btn text color="secondary" class="mt-6" @click="copyUrl()">
+        복사하기
+      </v-btn>
     </v-col>
 
     <card-detail ref="cardDetail"></card-detail>
@@ -101,6 +104,7 @@ export default {
       totalCount: 0,
       totalPage: 0,
       pageKey: 0,
+      shareUrl: '',
       /* icon */
       icons: {
         mdiCheck
@@ -156,6 +160,14 @@ export default {
     prev () {
       this.pageKey = this.pageKey - 1 < 0 ? this.totalPage - 1 : this.pageKey - 1
     },
+    copyUrl() {
+      this.shareUrl = window.location.origin + '/write?userIdx=' + this.user.idx
+      this.$copyText(this.shareUrl).then(() => {
+        this.$refs.confirm.open('alert','URL 복사', '복사되었습니다.')
+      }).catch(e => {
+        this.$refs.confirm.open('alert','URL 복사', '복사에 실패하였습니다 : ' + e)
+      })
+    }
   }
 }
 </script>
