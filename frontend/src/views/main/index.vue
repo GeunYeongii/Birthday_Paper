@@ -19,7 +19,8 @@
 
         <div v-if="totalCount > 0">
           <div class="txtC_474775">
-            <p class="pt-5 main_title">♥{{totalCount}}개의 편지가 도착했어요♥</p>
+            <p class="pt-5 main_title p-0 m-0">♥ {{year}}년도에는 ♥</p>
+            <p class="pt-0 main_title">♥ {{totalCount}}개의 편지가 도착했어요 ♥</p>
           </div>
 
           <v-card flat tile>
@@ -111,6 +112,9 @@ export default {
   },
   mounted() {
     this.user = this.$store.state.user
+    if (this.$route.params.year) {
+      this.year = this.$route.params.year
+    }
     this.getLetterList(this.year)
   },
   methods: {

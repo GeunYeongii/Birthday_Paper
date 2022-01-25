@@ -70,7 +70,7 @@ export default {
       })
     },
     yearCardDetail(year) {
-      console.log(year,this.user.idx)
+      this.$router.push({ name: 'main', params: { year: year } })
     }
   }
 }
