@@ -22,6 +22,17 @@ class CardRepository(UserMixin):
       print(e)
 
   @staticmethod
+  def findCardByStatisticsYear(userIdx):
+    print('== card_data findCardByStatisticsYear ==')
+    try:
+      db_class = Database()
+      sql = "SELECT YEAR(C_DATE) as year, COUNT(*) as count FROM card_data WHERE RECEIVER_IDX = " + str(userIdx) + " GROUP BY year;"
+      cardList = db_class.executeAll(sql)
+      return cardList
+    except Exception as e:
+      print(e)
+
+  @staticmethod
   def create(sender_nm, receiver_nm, receiver_idx, card_msg):
     print('== card_data create ==')
     try:
