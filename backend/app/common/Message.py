@@ -1,4 +1,5 @@
 from enum import Enum
+from sre_constants import SUCCESS
 
 class Message:
   class Login(Enum):
@@ -7,6 +8,16 @@ class Message:
     differentPasswords = '비밀번호가 다릅니다'
     error = '로그인에 실패하였습니다.'
 
+  class changePw(Enum):
+    success = '비밀번호 변경에 성공하였습니다'
+    samePasswords = '동일한 비밀번호 입니다'
+    error = '비밀번호 변경에 실패하였습니다'
+    
+  class deleteUser(Enum):
+    success = '회원탈퇴에 성공하였습니다'
+    wrongInfo = '이메일과 비밀번호가 일치하지 않습니다'
+    error = '회원탈퇴에 실패하였습니다'
+    
   class SignUp(Enum):
     success = '회원가입에 성공하였습니다'
     noneUser = '이메일이 중복되었습니다'

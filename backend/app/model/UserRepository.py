@@ -46,3 +46,26 @@ class UserRepository(UserMixin):
       db_class.commit()
     except Exception as e:
       print(e)
+
+  @staticmethod
+  def update(userEmail,newPw) :
+    print("== user_info update ==")
+    try :
+      db_class = Database()
+      sql = "UPDATE user_info SET user_pw = '" + str(newPw) + "' WHERE user_email = '" + str(userEmail) + "'"
+      db_class.execute(sql)
+      db_class.commit()
+    except Exception as e:
+      print(e)
+      
+  @staticmethod
+  def delete(userEmail) :
+    print("== delete User_account ==")
+    try :
+      db_class = Database()
+      sql = "DELETE FROM user_info WHERE user_email = '" + str(userEmail) + "'"
+      db_class.execute(sql)
+      db_class.commit()
+    except Exception as e:
+      print(e)
+      
