@@ -12,15 +12,14 @@ class UserRepository(UserMixin):
         
   def get_id(self):
     return str(self.user_email)
-
+      
   @staticmethod
   def findUserByEmail(userEmail):
     print('== user_info findUserByEmail ==')
     try:
       db_class = Database()
       sql = "SELECT * FROM user_info WHERE USER_EMAIL = '" + str(userEmail) + "'"
-      user = db_class.executeOne(sql)
-      return dict(user)
+      return dict(db_class.executeOne(sql))
     except Exception as e:
       print(e)
       
@@ -30,8 +29,7 @@ class UserRepository(UserMixin):
     try:
       db_class = Database()
       sql = "SELECT * FROM user_info WHERE IDX = '" + str(userIdx) + "'"
-      user = db_class.executeOne(sql)
-      return dict(user)
+      return dict(db_class.executeOne(sql))
     except Exception as e:
       print(e)
 
@@ -63,7 +61,7 @@ class UserRepository(UserMixin):
     print("== delete User_account ==")
     try :
       db_class = Database()
-      sql = "DELETE FROM user_info WHERE user_email = '" + str(userEmail) + "'"
+      sql = "DELETE FROM user_info WHERE USER_EMAIL = '" + str(userEmail) + "'"
       db_class.execute(sql)
       db_class.commit()
     except Exception as e:

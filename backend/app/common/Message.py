@@ -11,7 +11,9 @@ class Message:
   class changePw(Enum):
     success = '비밀번호 변경에 성공하였습니다'
     samePasswords = '동일한 비밀번호 입니다'
+    wrongPw = '기존 비밀번호가 옳바르지 않습니다'
     error = '비밀번호 변경에 실패하였습니다'
+    
     
   class deleteUser(Enum):
     success = '회원탈퇴에 성공하였습니다'
