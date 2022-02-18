@@ -3,9 +3,6 @@ from tkinter import FALSE
 from flask import Blueprint, jsonify, request
 import base64, bcrypt
 
-
-from sympy import EX
-
 from ..model.UserRepository import UserRepository
 from ..common.JwtService import JwtService
 from ..common.Formatter import Formatter
@@ -53,11 +50,12 @@ def joinStart():
 def loginStart():
   print('== loginStart ==')
   try:
-    userEmail = request.form.get('email')
-    userPw = request.form.get('pw')
+    request_data = request.get_json()
+    userEmail = request_data['email']
+    userPw = request_data['pw']
 
     user = UserRepository.findUserByEmail(userEmail)
-    
+    print(user)
     if user is not None:
       if bcrypt.checkpw(userPw.encode('utf-8'),user['USER_PW'].encode('utf-8')) :
         access_token = JwtService.createAccessToken(user['USER_EMAIL'])
@@ -85,20 +83,18 @@ def loginStart():
 # change Password
 @user.route("/changePw", methods=['POST'])
 def changePw():
-  userEmail = request.form.get('email')
   userPw = request.form.get('pw')
   newPassword = request.form.get('new_pw')
   
-  user = UserRepository.findUserByEmail(userEmail)
+  #user = UserRepository.findUserByEmail(userEmail)
   print('== password Changing ==')
   try :
-    if userPw != newPassword :
-      if bcrypt.checkpw(hash_password(userPw),user['USER_PW'].encode('utf-8')) :
-        Result = { 'code' : 50000, 'message' : Message.changePw.wrongPw.value}
-      else :
-        newPassword = hash_password(newPassword).decode('utf-8')
-        UserRepository.update(userEmail,newPassword)
-        Result = { 'code' : 20000, 'message' : Message.changePw.success.value }
+    if bcrypt.checkpw(hash_password(userPw),user['USER_PW'].encode('utf-8')) :
+      Result = { 'code' : 50000, 'message' : Message.changePw.wrongPw.value}
+    elif userPw != newPassword :
+      newPassword = hash_password(newPassword).decode('utf-8')
+      #UserRepository.update(userEmail,newPassword)
+      Result = { 'code' : 20000, 'message' : Message.changePw.success.value }
     else :
       Result = { 'code' : 50000, 'message' : Message.changePw.samePasswords.value }
       
@@ -107,6 +103,7 @@ def changePw():
     print(e)
     Result = { 'code' : 50000, 'message' : Message.changePw.error.value }
     return jsonify(Result)
+  
   
 # Delete User
 @user.route("/deleteUser", methods=['POST'])
