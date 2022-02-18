@@ -7,7 +7,7 @@ class Database():
       host=MYSQL_HOST,
       port=3306,
       user='root',
-      passwd='dldPekfa1!',
+      passwd='wnrmsdud12!',
       db='birthday_paper',
       charset='utf8mb4'
     )
