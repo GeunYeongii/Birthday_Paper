@@ -4,10 +4,10 @@
   date : 2022-01-07
 -->
 <template>
-    <div class="myPage">
+    <div class="deleteUser">
     <s-header></s-header>
 
-    <h6 class="text-center txtC_474775 mt-6">MyPage</h6>
+    <h6 class="text-center txtC_474775 mt-6">deleteUser</h6>
 
     <v-divider></v-divider>
 
@@ -65,18 +65,14 @@
 <script>
 import SHeader from '@/views/layout/header'
 import History from '@/views/myPage/components/history'
-import changePw from '@/vies/myPage/components'
-import deleteUser from '@/vies/myPage/components'
 
 import { dateFormatter } from '@/utils/filters'
 
 export default {
-  name: 'MyPage',
+  name: 'deleteUser',
   components: {
     SHeader,
-    History,
-    changePw,
-    deleteUser,
+    History
   },
   filters: {
     dateFormatter
@@ -93,10 +89,10 @@ export default {
   },
   methods: {
     changePw() {
-      this.$refs.changePw.open(this.receiver)
+
     },
     deleteUser() {
-      this.$refs.deleteUser.open(this.receiver)
+      
     }
   }
 }

@@ -15,3 +15,19 @@ export function loginStart (params) {
     data: params
   })
 }
+
+export function changePw (params) {
+  return request({
+    url: '/user/changePw',
+    method: 'POST',
+    data: params
+  })
+}
+
+export function deleteUser (params) {
+  return request({
+    url: '/user/deleteUser',
+    method: 'POST',
+    data: params
+  })
+}
