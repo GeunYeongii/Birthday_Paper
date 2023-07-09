@@ -1,5 +1,6 @@
 Birthday Paper Project
 ======
+blog -> https://gnyii.vercel.app/works/birthday_paper
 
 ## Frontend
 ---
